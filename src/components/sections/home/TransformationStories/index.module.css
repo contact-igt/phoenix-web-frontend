@@ -1,0 +1,271 @@
+.transformationSection {
+  background-color: #040406;
+  color: #ffffff;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 120px var(--container-pad);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: var(--fs-features-heading);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-white);
+  line-height: 0.95;
+  letter-spacing: -1px;
+  margin: 0 0 16px 0;
+}
+
+.subHeading {
+  font-family: var(--font-subtitle);
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.imageGrid {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+.leftColumn {
+  flex: 0 0 calc(50% - 12px);
+  max-width: calc(50% - 12px);
+}
+
+.rightColumn {
+  flex: 0 0 calc(50% - 12px);
+  max-width: calc(50% - 12px);
+}
+
+.tallImageWrap {
+  position: relative;
+  width: 100%;
+  height: 508px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.subGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.smallImageWrap {
+  position: relative;
+  width: 100%;
+  height: 242px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.gridImage {
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.tallImageWrap:hover .gridImage,
+.smallImageWrap:hover .gridImage {
+  transform: scale(1.05);
+}
+
+.testimonialBlock {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.testimonialTextRow {
+  display: flex;
+  gap: 80px;
+  width: 100%;
+}
+
+.quoteHook {
+  flex: 0 0 calc(45% - 40px);
+  max-width: calc(45% - 40px);
+}
+
+.quoteText {
+  font-family: var(--font-heading);
+  font-size: var(--fs-subtitle);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.quoteBody {
+  flex: 1;
+}
+
+.paragraph {
+  font-family: var(--font-subtitle);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #1c1c1e;
+  margin: 40px 0;
+}
+
+.testimonialMetaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatarWrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #2c2c2e;
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+}
+
+.memberName {
+  font-family: var(--font-subtitle);
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.memberTag {
+  font-family: var(--font-subtitle);
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.partnerLogoWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.partnerIcon {
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+}
+
+.partnerName {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+   ────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .container {
+    padding: 80px var(--container-pad);
+  }
+  .imageGrid {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .leftColumn,
+  .rightColumn {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+  .tallImageWrap {
+    height: 400px;
+  }
+  .subGrid {
+    gap: 16px;
+  }
+  .smallImageWrap {
+    height: 180px;
+  }
+  .testimonialBlock {
+    margin-top: 60px;
+  }
+  .testimonialTextRow {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .quoteHook {
+    flex: none;
+    max-width: 100%;
+  }
+  .divider {
+    margin: 24px 0;
+  }
+  .testimonialMetaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-bottom: var(--section-mobile-padding-bottom);
+    padding-top: var(--section-mobile-padding-top);
+  }
+}
+
+@media (max-width: 576px) {
+  .tallImageWrap {
+    height: 320px;
+  }
+  .subGrid {
+    grid-template-columns: 1fr;
+  }
+  .smallImageWrap {
+    height: 220px;
+  }
+}

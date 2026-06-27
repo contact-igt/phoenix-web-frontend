@@ -1,0 +1,336 @@
+﻿/* src/components/sections/home/ProgramsSection/index.module.css */
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   SECTION WRAPPER
+   Dark background â€” same #111111 as AboutSection
+   Subtle dark texture comes from bg image (optional)
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programsSection {
+  background-color: rgba(4, 4, 6, 1); /* Dark background color */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.programsSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/home/programbackground.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2; /* Low opacity on the background image */
+  z-index: -1; /* Keep behind text and athlete image */
+  pointer-events: none;
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   INNER CONTAINER
+   Flex row â€” left text col + right image col
+   NO max-width padding on right side so image
+   bleeds to viewport edge
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programsInner {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* both columns same height */
+  max-width: var(--container-max); /* 1350px */
+  margin: 0 auto;
+  min-height: 90vh; /* section fills viewport height nicely */
+  position: relative;
+  z-index: 2;
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   LEFT COLUMN â€” TEXT CONTENT
+   Padding on left, no padding right (image
+   column sits flush against text column)
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programsLeft {
+  flex: 0 0 65%;
+  max-width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-lg) var(--space-xl) var(--container-pad);
+  /* 80px top, 48px right, 80px bottom, 80px left */
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   SECTION EYEBROW LABEL
+   "PROGRAMS"
+   Open Sans Condensed Light, muted, wide spacing
+   Uses new --fs-section-label token
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programsLabel {
+  font-family: var(--font-subtitle); /* Open Sans */
+  font-size: var(--fs-section-label); /* 36px â€” new token */
+  font-size: var(--section-responsive-subtitle-size);
+  font-weight: 300;
+  color: var(--color-subtitle);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-section-label); /* 2px â€” new token */
+  line-height: var(--lh-section-label); /* 1.2 */
+  margin: 0 0 var(--space-sm) 0; /* 16px below label */
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   PROGRAMS LIST
+   ul reset â€” no bullets, no padding
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programsList {
+  list-style: none;
+  margin: 0 0 var(--space-md) 0; /* 24px below list */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* no gap â€” tight stacking */
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   PROGRAM ITEM â€” BASE
+   Bebas Neue, very large, uppercase
+   Uses new --fs-program-name token
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programItem {
+  font-family: var(--font-heading); /* Bebas Neue */
+  font-size: var(--fs-program-name); /* 96px â€” new token */
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-program-name); /* 0px */
+  line-height: var(--lh-program-name); /* 0.88 â€” very tight */
+  display: block;
+  margin-bottom: 0.05em; /* tiny gap between items */
+}
+
+/* White variant â€” "STRENGTH & CONDITIONING," and "FAT LOSS & BODY RECOMPOSITION," */
+.programItemWhite {
+  color: var(--color-program-white); /* #FFFFFF */
+}
+
+/* Orange variant â€” "FUNCTIONAL TRAINING," and "PERSONAL COACHING" */
+.programItemOrange {
+  color: var(--color-program-orange); /* #E8400C */
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   BODY PARAGRAPH
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programsBody {
+  font-family: var(--font-subtitle); /* Open Sans */
+  font-size: var(--fs-body); /* 18px */
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6); /* semi-transparent white */
+  line-height: 1.6;
+  margin: 0 0 var(--space-lg) 0; /* 48px below body */
+  max-width: 480px;
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   CTA BUTTONS ROW
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programsCtas {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm); /* 16px */
+  flex-wrap: wrap;
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   BUTTON â€” PRIMARY (orange fill)
+   "View All Programs"
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 32px;
+  border-radius: var(--radius-full); /* 999px pill */
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-primary); /* #E8400C */
+  color: var(--color-white);
+  font-family: var(--font-subtitle);
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   BUTTON â€” GHOST / OUTLINE
+   "Free trial"
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 32px;
+  border-radius: var(--radius-full); /* 999px pill */
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  color: var(--color-white);
+  font-family: var(--font-subtitle);
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btnGhost:hover {
+  border-color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   RIGHT COLUMN â€” IMAGE
+   Fills remaining width, stretches full
+   section height (align-items: stretch on parent)
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programsRight {
+  flex: 0 0 35%; /* narrower width to match portrait image aspect ratio */
+  max-width: 35%;
+  position: relative;
+  height: 850px; /* Decreased and fixed height matching reference */
+  align-self: center; /* Vertically centered relative to text column */
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   IMAGE WRAPPER
+   next/image with fill requires a positioned
+   parent with explicit dimensions
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.programsImageWrap {
+  position: absolute;
+  inset: 0; /* fill entire .programsRight */
+  overflow: hidden;
+  border-radius: 24px; /* Rounded corners matching mockup design */
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   RESPONSIVE BREAKPOINTS
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (max-width: 992px) {
+  .programsLeft {
+    flex: 0 0 60%;
+    max-width: 60%;
+    padding: var(--space-lg) var(--space-md) var(--space-lg)
+      var(--container-pad);
+  }
+
+  .programsRight {
+    flex: 0 0 40%;
+    max-width: 40%;
+    min-height: 500px;
+  }
+
+  .programsBody {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .programsInner {
+    flex-direction: column-reverse;
+    min-height: auto;
+    padding-bottom: var(--section-mobile-padding-bottom);
+  }
+
+  /* Image moves to top on tablet */
+  .programsLeft {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    padding: var(--space-lg) var(--container-pad) 0;
+    order: 2; /* text below image */
+  }
+
+  .programsRight {
+    flex: none;
+    width: 100%;
+    max-width: 55%;
+    margin-top: 60px;
+    height: 480px; /* fixed height for stacked image */
+    position: relative;
+    order: 1; /* image above text */
+  }
+
+  .programsImageWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .programsBody {
+    max-width: 100%;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .programsRight {
+    max-width: 70%;
+    height: 340px;
+  }
+
+  /* Program items â€” allow wrapping on tight widths */
+  .programItem {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* CTAs stack vertically */
+  .programsCtas {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .btnPrimary,
+  .btnGhost {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .programsBody {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .programsRight {
+    max-width: 90%;
+    height: 260px;
+  }
+
+  .programItem {
+    margin-bottom: 0.02em;
+  }
+
+  .btnPrimary,
+  .btnGhost {
+    height: 44px;
+    font-size: 14px;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+}
+

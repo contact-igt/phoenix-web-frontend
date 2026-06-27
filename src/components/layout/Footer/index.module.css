@@ -1,0 +1,331 @@
+﻿.footer {
+  background-color: #ffffff;
+  color: #000000;
+  width: 100%;
+  border-top: 1px solid #e0e0e0;
+  position: relative;
+  overflow: hidden;
+}
+
+.backToTop {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  padding: 0 !important;
+  font-size: 28px;
+  line-height: 1;
+  /* box-shadow: 0 10px 28px rgba(232, 64, 12, 0.3); */
+  animation: backToTopOpen 0.28s ease-out both;
+}
+
+.backToTop:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes backToTopOpen {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.82);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.footerInner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 100px var(--container-pad) 60px var(--container-pad);
+  display: flex;
+  flex-direction: column;
+}
+
+.topSection {
+  display: flex;
+  gap: 80px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.ctaCol {
+  flex: 0 0 calc(60% - 40px);
+  max-width: calc(60% - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.ctaHeading {
+  font-family: var(--font-heading);
+  font-size: 45px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.0;
+  letter-spacing: -1px;
+  margin: 0;
+  /* white-space: nowrap; */
+}
+
+.emailLink {
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 2px solid #000000;
+  line-height: 1.0;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.emailLink:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.ctaText {
+  font-family: var(--font-subtitle);
+  font-size: 15px;
+  color: #666666;
+  max-width: 400px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.joinBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-family: var(--font-subtitle);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease;
+}
+
+.joinBtn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.dirsGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 48px;
+}
+
+.dirColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dirTitle {
+  font-family: var(--font-subtitle);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #c0c4c8;
+  margin: 0;
+}
+
+.dirLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.dirLinks a {
+  font-family: var(--font-subtitle);
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dirLinks a:hover {
+  color: var(--color-primary);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 80px 0 40px 0;
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.0;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.brandSubtitle {
+  font-family: var(--font-subtitle);
+  font-size: 11px;
+  font-weight: 400;
+  color: #666666;
+  margin: 0;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.socialLink:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.bottomMenu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.bottomMenu a {
+  font-family: var(--font-subtitle);
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bottomMenu a:hover {
+  color: var(--color-primary);
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   RESPONSIVE BREAKPOINTS
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (max-width: 992px) {
+  .container {
+    padding: 80px var(--container-pad);
+  }
+  .topSection {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .ctaCol {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+  .dirsGrid {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+  }
+  .backToTop {
+    right: 20px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .backToTop:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .footerInner {
+    padding: 60px var(--container-pad) 40px var(--container-pad);
+  }
+  .divider {
+    margin: 40px 0 32px 0;
+  }
+  .bottomSection {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+  .brand {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .dirsGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+/* === About page responsive system: 390 refinement === */
+.topSection { align-items: flex-start; }
+@media (max-width: 576px) {
+  .footerInner { padding: 52px 16px 34px; }
+  .ctaHeading { font-size: 40px; }
+  .emailLink { max-width: 100%; font-size: 30px; overflow-wrap: anywhere; }
+  .bottomMenu { flex-wrap: wrap; justify-content: center; }
+}
+@media (max-width: 390px) {
+  .footerInner { padding: 46px 14px 30px; }
+  .topSection { gap: 44px; }
+  .ctaHeading { font-size: 36px; }
+  .emailLink { font-size: 26px; }
+  .bottomSection { gap: 24px; }
+  .logoWrap img { width: 100%; height: auto; }
+  .backToTop { right: 14px; bottom: 14px; width: 44px; height: 44px; }
+}
