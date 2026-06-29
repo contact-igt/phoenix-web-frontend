@@ -1,0 +1,133 @@
+.championsSection {
+  background-color: #040406;                 /* Exact background color matching Figma inspect */
+  width: 100%;
+  overflow: hidden;
+}
+
+.championsInner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: var(--container-max);           /* 1350px */
+  margin: 0 auto;
+  padding: 100px var(--container-pad);       /* Precise spacing */
+  gap: 30px;
+}
+
+.championsLeft {
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.championsHeading {
+  font-family: var(--font-heading);          /* Bebas Neue */
+  font-size: var(--fs-champions-heading);    /* Use section-specific global size (97px desktop) */
+  font-weight: 400;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 0.9;
+  margin: 0 0 24px 0;
+}
+
+.championsDescription {
+  font-family: var(--font-subtitle);         /* Open Sans */
+  font-size: var(--fs-body);                 /* 18px */
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);            /* semi-transparent white */
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.championsRight {
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 48px;                            /* vertical and horizontal gaps */
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.logoWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.75;                             /* subtle ghost/muted opacity */
+  transition: opacity 0.3s ease;
+  filter: brightness(1.2);
+}
+
+.logoWrap:hover {
+  opacity: 1;                                /* fully bright on hover */
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .championsInner {
+    gap: var(--space-lg);
+    padding: var(--space-lg) var(--container-pad);
+  }
+
+  .logoGrid {
+    gap: 40px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .championsInner {
+    flex-direction: column;                  /* stack vertically */
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding-bottom: var(--section-mobile-padding-bottom);
+    padding-top: var(--section-mobile-padding-top);
+  }
+
+  .championsLeft {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .championsRight {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .logoGrid {
+    justify-items: start;
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .logoGrid {
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns on mobile */
+    gap: 40px 24px;
+    justify-items: center;
+  }
+
+  .championsRight {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 390px) {
+  .logoGrid {
+    gap: 32px 16px;
+  }
+}

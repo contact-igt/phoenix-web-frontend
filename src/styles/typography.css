@@ -1,0 +1,166 @@
+/* ── Desktop base (≥ 1200px) — sourced from Figma inspect ── */
+:root {
+  /* H1 — Bebas Neue */
+  --fs-h1:          128px;
+  --lh-h1:          0.75;      /* line-height ≈ 95.88/127.8 */
+  --ls-h1:         -1.28px;
+
+  /* H2 — secondary headings */
+  --fs-h2:           72px;
+  --lh-h2:           0.85;
+
+  /* Reusable Section Titles (Figma match) */
+  --fs-section-heading:  6.92rem;
+  --fs-section-subtitle: 4rem;
+
+  /* Programs section specific titles */
+  --fs-program-name:  96px;
+  --fs-section-label: 36px;
+  
+  /* Champions section specific titles */
+  --fs-champions-heading: 90.4px;
+  --fs-features-heading: 90.4px;
+
+  /* Subtitle — Open Sans Condensed Light */
+  --fs-subtitle:     64px;
+  --lh-subtitle:     1.3;
+  --ls-subtitle:     0.64px;
+
+  /* Body */
+  --fs-body:         18px;
+  --lh-body:         1.6;
+
+  /* Small / caption */
+  --fs-small:        14px;
+}
+
+/* ── 1400px — large screen adjustments ── */
+@media (max-width: 1400px) {
+  :root {
+    --fs-h1:       94px;
+    --fs-h2:       66px;
+    --fs-section-heading:  6.2rem;
+    --fs-section-subtitle: 3.6rem;
+    --fs-program-name:     84px;
+    --fs-section-label:    32px;
+    --fs-champions-heading: 82px;
+    --fs-features-heading: 82px;
+    --fs-subtitle: 56px;
+    --fs-body:     18px;
+  }
+}
+
+/* ── 1200px — small laptop / desktop transition ── */
+@media (max-width: 1200px) {
+  :root {
+    --fs-h1:       84px;
+    --fs-h2:       60px;
+    --fs-section-heading:  5.5rem;
+    --fs-section-subtitle: 3.4rem;
+    --fs-program-name:     78px;
+    --fs-section-label:    30px;
+    --fs-champions-heading: 78px;
+    --fs-features-heading: 78px;
+    --fs-subtitle: 50px;
+    --fs-body:     17px;
+  }
+}
+
+/* ── 992px — small laptop ── */
+@media (max-width: 992px) {
+  :root {
+    --fs-h1:       80px;
+    --fs-h2:       56px;
+    --fs-section-heading:  5rem;
+    --fs-section-subtitle: 3.2rem;
+    --fs-program-name:     72px;
+    --fs-section-label:    28px;
+    --fs-champions-heading: 76px;
+    --fs-features-heading: 76px;
+    --fs-subtitle: 48px;
+    --fs-body:     16px;
+  }
+}
+
+/* ── 768px — tablet ── */
+@media (max-width: 768px) {
+  :root {
+    --fs-h1:       72px;
+    --fs-h2:       44px;
+    --fs-section-heading:  4rem;
+    --fs-section-subtitle: 2.5rem;
+    --fs-program-name:     56px;
+    --fs-section-label:    24px;
+    --fs-champions-heading: 60px;
+    --fs-features-heading: 60px;
+    --fs-subtitle: 36px;
+    --fs-body:     16px;
+  }
+}
+
+/* ── 576px — large mobile ── */
+@media (max-width: 576px) {
+  :root {
+    --fs-h1:       52px;
+    --fs-h2:       36px;
+    --fs-section-heading:  3.2rem;
+    --fs-section-subtitle: 2rem;
+    --fs-program-name:     44px;
+    --fs-section-label:    20px;
+    --fs-champions-heading: 48px;
+    --fs-features-heading: 48px;
+    --fs-subtitle: 28px;
+    --fs-body:     15px;
+  }
+}
+
+/* ── 390px — iPhone base ── */
+@media (max-width: 390px) {
+  :root {
+    --fs-h1:       40px;
+    --fs-h2:       28px;
+    --fs-section-heading:  2.5rem;
+    --fs-section-subtitle: 1.8rem;
+    --fs-program-name:     36px;
+    --fs-section-label:    18px;
+    --fs-champions-heading: 38px;
+    --fs-features-heading: 38px;
+    --fs-subtitle: 22px;
+    --fs-body:     14px;
+  }
+}
+
+/* ── Base tag styles (applied globally) ── */
+h1 {
+  font-family: var(--font-heading);
+  font-size:   var(--fs-h1);
+  font-weight: 400;
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ls-h1);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size:   var(--fs-h2);
+  font-weight: 400;
+  line-height: var(--lh-h2);
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: var(--font-subtitle);
+  font-size:   var(--fs-subtitle);
+  font-weight: 300;
+  line-height: var(--lh-subtitle);
+  letter-spacing: var(--ls-subtitle);
+  text-transform: uppercase;
+  color: var(--color-subtitle);
+}
+
+p {
+  font-family: var(--font-body);
+  font-size:   var(--fs-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+}

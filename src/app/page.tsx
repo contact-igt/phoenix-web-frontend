@@ -1,10 +1,29 @@
-export default function HomePage() {
+﻿import Navbar from '../components/layout/Navbar'
+import HeroBanner from '../components/sections/home/HeroBanner'
+import AboutSection from '../components/sections/home/AboutSection'
+import ProgramsSection from '../components/sections/home/ProgramsSection'
+import ChampionsSection from '../components/sections/home/ChampionsSection'
+import FeaturesSection from '../components/sections/home/FeaturesSection'
+import MilestonesSection from '../components/sections/home/MilestonesSection'
+import TransformationStories from '../components/sections/home/TransformationStories'
+import Contact from '../components/sections/home/Contact'
+import Footer from '../components/layout/Footer'
+
+export default function Home() {
   return (
-    <main style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0a0a0a', color: '#fff' }}>
-      <div style={{ textAlign: 'center' }}>
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Welcome to Phoenix Fitness</h1>
-        <p style={{ color: '#a0a0a0' }}>The new homepage is being built. Check out our <a href="/services" style={{ color: '#f13a05', textDecoration: 'underline' }}>Services</a> or <a href="/pricing" style={{ color: '#f13a05', textDecoration: 'underline' }}>Pricing</a> pages!</p>
-      </div>
-    </main>
-  );
+    <>
+      <Navbar />
+      <main>
+        <HeroBanner />
+        <AboutSection />
+        <ProgramsSection />
+        <ChampionsSection />
+        <FeaturesSection />
+        <MilestonesSection />
+        <TransformationStories />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  )
 }

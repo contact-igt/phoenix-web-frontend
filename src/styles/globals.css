@@ -1,0 +1,160 @@
+:root {
+  /* ── Colors (extracted from Figma design) ── */
+  --color-primary: #E8400C;
+  /* phoenix orange — hero bg, CTAs */
+  --color-primary-hover: #C93509;
+  /* button hover state */
+  --color-black: #1A1A1A;
+  /* near-black text */
+  --color-white: #FFFFFF;
+  --color-dark-bg: #111111;
+  /* dark section backgrounds */
+  --color-card-bg: #1E1E1E;
+  /* program / blog card bg */
+  --color-text-muted: #888888;
+  /* secondary text on dark bg */
+  --color-border: #2A2A2A;
+  /* card and divider borders */
+  --color-overlay: rgba(0, 0, 0, 0.55);
+  /* image overlays */
+  --color-subtitle: rgba(255, 255, 255, 0.2);
+  /* global subtitle color */
+
+  /* ── Font families ── */
+  --font-heading: var(--font-heading-family, 'Bebas Neue', sans-serif);
+  /* all H1–H2 titles */
+  --font-subtitle: var(--font-body-family, 'Open Sans', sans-serif);
+  /* subtitles, weight 300 */
+  --font-body: var(--font-body-family, 'Open Sans Condensed', sans-serif);
+  /* body copy, weight 400 */
+  --font-satoshi: 'Satoshi', var(--font-satoshi-fallback, 'Plus Jakarta Sans'), sans-serif;
+  /* Figma: Satoshi — used for About banner heading & eyebrow */
+
+  /* ── Spacing scale ── */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 80px;
+  --space-2xl: 120px;
+
+  /* ── Border radius ── */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+  /* pill buttons */
+
+  /* ── Layout ── */
+  --container-max: 1280px;
+  --container-pad: 50px;
+  /* horizontal gutter at desktop */
+  --section-mobile-padding-bottom: 80px;
+  --section-mobile-padding-top: 80px;
+  /* shared bottom spacing for home sections below banner on mobile */
+  --section-mobile-subtitle-size: 32px;
+  --section-responsive-subtitle-size: var(--fs-subtitle);
+  /* shared subtitle/eyebrow size for home sections on responsive breakpoints */
+
+  /* Programs section — program list heading sizes */
+  --fs-program-name: 96px;      /* desktop: large Bebas Neue program titles */
+  --lh-program-name: 0.88;      /* tight line-height — lines sit very close */
+  --ls-program-name: 0px;       /* no letter-spacing on program names */
+
+  /* Section label / eyebrow text */
+  --fs-section-label: 36px;     /* "PROGRAMS", "ABOUT" — muted uppercase labels */
+  --lh-section-label: 1.2;
+  --ls-section-label: 2px;      /* wide letter-spacing for label feel */
+
+  /* Programs section specific color */
+  --color-program-orange: var(--color-primary);   /* #E8400C — reuse primary */
+  --color-program-white: var(--color-white);       /* #FFFFFF */
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 1400px) {
+  :root {
+    --container-max: 1240px;
+    --container-pad: 80px;
+  }
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --container-max: 1100px;
+    --container-pad: 60px;
+    --section-responsive-subtitle-size: 44px;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --container-max: 920px;
+    --container-pad: 48px;
+    --section-responsive-subtitle-size: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-max: 100%;
+    --container-pad: 20px;
+    --section-responsive-subtitle-size: var(--section-mobile-subtitle-size);
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --container-max: 100%;
+    --container-pad: 16px;
+    --section-mobile-subtitle-size: 28px;
+  }
+}
+
+@media (max-width: 390px) {
+  :root {
+    --container-max: 100%;
+    --container-pad: 12px;
+    --section-mobile-subtitle-size: 24px;
+  }
+}
+
+/* Base Reset & Globals */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-dark-bg);
+  color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
