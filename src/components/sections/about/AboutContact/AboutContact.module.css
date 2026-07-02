@@ -1,4 +1,4 @@
-﻿.section {
+.section {
   background: #0a0a0a;
   width: 100%;
   padding: 100px 0 120px;
@@ -13,7 +13,7 @@
   align-items: start;
 }
 
-/* â”€â”€â”€ SHARED HEADING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── SHARED HEADING ─────────────────────────────────────── */
 .heading {
   font-family: var(--font-satoshi);
   font-size: clamp(44px, 5.5vw, 50px);
@@ -25,7 +25,7 @@
   margin: 0 0 20px;
 }
 
-/* â”€â”€â”€ SHARED TAGLINE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── SHARED TAGLINE ─────────────────────────────────────── */
 .tagline {
   font-family: var(--font-satoshi);
   font-size: 15px;
@@ -35,7 +35,7 @@
   margin: 0 0 48px;
 }
 
-/* â”€â”€â”€ LEFT COLUMN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── LEFT COLUMN ────────────────────────────────────────── */
 .leftCol {
   display: flex;
   flex-direction: column;
@@ -125,13 +125,13 @@
   color: #ffffff;
 }
 
-/* â”€â”€â”€ RIGHT COLUMN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── RIGHT COLUMN ───────────────────────────────────────── */
 .rightCol {
   display: flex;
   flex-direction: column;
 }
 
-/* â”€â”€â”€ FORM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── FORM ───────────────────────────────────────────────── */
 .form {
   display: flex;
   flex-direction: column;
@@ -154,7 +154,7 @@
   width: 100%;
 }
 
-/* Inputs â€” underline style only */
+/* Inputs — underline style only */
 .input {
   width: 100%;
   background: transparent;
@@ -192,7 +192,7 @@
   color: #ffffff;
 }
 
-/* â”€â”€â”€ FORM FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── FORM FOOTER ────────────────────────────────────────── */
 .formFooter {
   margin-top: 36px;
   display: flex;
@@ -215,14 +215,17 @@
 .sendBtn span:first-child {
   display: inline-flex;
   align-items: center;
-  padding: 14px 28px;
+  justify-content: center;
+  height: 42px;
+  min-width: 157px;
+  padding: 0 25px;
   background: #ffffff;
   border-radius: 999px;
   font-family: var(--font-satoshi);
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 800;
   color: #0a0a0a;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   text-transform: uppercase;
   transition: background 0.2s ease;
 }
@@ -231,8 +234,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 39px;
+  height: 39px;
+  flex: 0 0 39px;
   background: #ffffff;
   border-radius: 50%;
   color: #0a0a0a;
@@ -263,7 +267,7 @@
   text-decoration: underline;
 }
 
-/* â”€â”€â”€ RESPONSIVE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 992px) {
   .inner {
     grid-template-columns: 1fr;
@@ -317,3 +321,5 @@
   .sendBtn { max-width: 100%; }
   .sendBtn span:first-child { padding-inline: 22px; }
 }
+
+

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Bebas_Neue, Open_Sans, Plus_Jakarta_Sans } from 'next/font/google'
 import '../styles/globals.css'
 import '../styles/typography.css'
+import './globals.css'
 
 const bebasNeue = Bebas_Neue({
   weight: ['400'],

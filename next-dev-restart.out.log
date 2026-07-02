@@ -1,0 +1,16 @@
+
+> phoenix-fitness@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.8:3000
+✓ Ready in 1009ms
+Creating turbopack project {
+  dir: 'C:\\Invictus_Projects\\phoenixfitness-website',
+  testMode: true
+}
+
+ GET /about 200 in 955ms (next.js: 332ms, application-code: 623ms)
+ GET /about 200 in 383ms (next.js: 19ms, application-code: 363ms)
+[?25h

@@ -40,7 +40,7 @@ export default function AboutMissionVision() {
 
           <p className={styles.copy}>
             Every transformation begins with a moment.<br />
-            A moment when you decide that the person you are today<br />
+            A moment when you decide that the person you are today
             is not the person you are meant to remain.<br />
             Phoenix Fitness was born from that moment.
           </p>

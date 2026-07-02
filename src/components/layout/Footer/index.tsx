@@ -107,48 +107,29 @@ export default function Footer() {
 
         {/* Horizontal Divider Line */}
         <div className={styles.divider}></div>
+      </div>
 
-        {/* Bottom Section */}
-        <div className={styles.bottomSection}>
-          {/* Left Side: Brand Logo & Trademark */}
-          <div className={styles.brand}>
-            <div className={styles.logoWrap}>
-              <Image
-                src="/images/footer_logo.png"
-                alt="Phoenix Logo Icon"
-                width={395}
-                height={55}
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-          </div>
-
-          {/* Middle: Social Icons Row */}
-          <div className={styles.socials}>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-              <Image src="/images/facebook.png" alt="Facebook" width={20} height={20} />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-              <Image src="/images/instagram.png" alt="Instagram" width={20} height={20} />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-              <Image src="/images/twitter.png" alt="Twitter" width={20} height={20} />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-              <Image src="/images/linkedin.png" alt="LinkedIn" width={20} height={20} />
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-              <Image src="/images/youtube.png" alt="YouTube" width={20} height={20} />
-            </a>
-          </div>
-
-          {/* Right: Bottom Menu */}
-          <div className={styles.bottomMenu}>
-            <Link href="#trial">Trial</Link>
-            <Link href="#franchise">Franchise</Link>
-            <Link href="#shop">Shop</Link>
-          </div>
+      {/* Dark Bottom Bar */}
+      <div className={styles.footerBottomBar}>
+        <div className={styles.footerBottomBarInner}>
+          <nav className={styles.bottomNavPills} aria-label="Footer links">
+            <Link href="/contact" className={styles.bottomNavPill}>Contact Us</Link>
+            <Link href="/license" className={styles.bottomNavPill}>License</Link>
+            <Link href="/404" className={styles.bottomNavPill}>404</Link>
+          </nav>
+          <button
+            type="button"
+            onClick={handleScrollToTop}
+            className={styles.backToTopBtn}
+            aria-label="Back to top"
+          >
+            <span className={styles.backToTopBtnLabel}>Back to Top</span>
+            <span className={styles.backToTopBtnIcon} aria-hidden="true">
+              <ArrowUp size={14} strokeWidth={2.5} />
+            </span>
+          </button>
         </div>
+        <p className={styles.footerCopyright}>© 2026. All rights reserved.</p>
       </div>
     </footer>
   )

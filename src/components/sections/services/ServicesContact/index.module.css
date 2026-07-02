@@ -1,0 +1,79 @@
+﻿/* Migrated from src/app/globals.css for this section. */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.contact-section {
+  padding: var(--space-xl) 0;
+  background-color: #050506;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+}
+
+.contact-title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  line-height: 0.85;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.contact-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--color-primary);
+}
+
+.contact-details {
+  color: var(--color-white);
+}
+
+.contact-desc {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-title {
+    font-size: 28px;
+  }
+}
+/* Service contact spacing refinement */
+.contact-section {
+  padding-top: clamp(104px, 7vw, 144px);
+  padding-bottom: clamp(104px, 7vw, 144px);
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}

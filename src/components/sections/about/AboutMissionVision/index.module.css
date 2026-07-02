@@ -1,4 +1,4 @@
-﻿.section {
+.section {
   position: relative;
   height: 740px;
   overflow: hidden;
@@ -114,7 +114,7 @@
   top: 48px;
   right: 20px;
   /* fills all remaining space to the right edge of the 1400px inner container */
-  width: 836px;
+  width: 720px;
   height: 574px;
 }
 
@@ -136,12 +136,7 @@
   object-fit: cover;
 }
 
-/* ── 2×2 corner-touching image grid (6px gap) ──────────────────
-   Total grid: 836px wide × 574px tall
-   Row 1: height 284px  |  Row 2: height 284px  |  Gap: 6px
-   Col A: width 504px   |  Col B: width 326px   |  Gap: 6px
-   Bottom row: Col A 376px | Col B 454px         |
-──────────────────────────────────────────────── */
+/* 2x2 corner-touching image grid */
 .topLeft {
   top: 0;
   left: 140px;
@@ -207,6 +202,30 @@
 
 .orange {
   color: #f13a05;
+}
+
+@media (max-width: 1400px){
+  .mediaColumn {
+    width: 590px;
+  }
+  .copy{
+    width: 620px
+  }
+  .metrics {
+  width: min(100%, 520px);
+  grid-template-columns: 1.05fr 1fr 1.05fr
+  }
+  .topLeft {
+    left: 90px;
+    width: 440px;
+  }
+  .topRight {
+    left: 555px;
+  }
+  .statement{
+    left: 250px;
+    font-size: 80px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -401,7 +420,17 @@
 }
 
 @media (max-width: 1200px) and (min-width: 993px) {
-  .mediaColumn { right: 56px; }
+  .section {
+    height: clamp(520px, 50vw, 600px);
+  }
+
+  .inner {
+    margin: 0 auto;
+  }
+
+  .mediaColumn {
+    right: 56px;
+  }
 }
 
 /* Stats image icons and balanced mobile rows */

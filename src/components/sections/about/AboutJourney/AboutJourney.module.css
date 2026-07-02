@@ -40,13 +40,19 @@
 
 .headingOrange,
 .yearNum,
-.titleOrange { color: #e8400c; }
+.titleOrange {
+  color: #e8400c;
+}
 
 .headingWhite,
 .yearLabel,
-.titleWhite { color: #ffffff; }
+.titleWhite {
+  color: #ffffff;
+}
 
-.desktopTimeline { display: block; }
+.desktopTimeline {
+  display: block;
+}
 
 .centerTimeline {
   display: flex;
@@ -69,7 +75,7 @@
   z-index: -1;
   inset: -72px -100vw;
   background: #101010;
-  content: '';
+  content: "";
 }
 
 .centerHeading {
@@ -96,11 +102,13 @@
   bottom: -176px;
   left: 50%;
   border-left: 1px dashed rgba(255, 255, 255, 0.18);
-  content: '';
+  content: "";
   transform: translateX(-50%);
 }
 
-.centerItem:first-child .centerRail::before { top: 22px; }
+.centerItem:first-child .centerRail::before {
+  top: 22px;
+}
 
 .centerItem:last-child .centerRail::before {
   bottom: calc(100% - 22px);
@@ -134,7 +142,9 @@
   text-transform: uppercase;
 }
 
-.headingInline { line-height: 1.06; }
+.headingInline {
+  line-height: 1.06;
+}
 
 .mediaBlock {
   display: flex;
@@ -180,7 +190,7 @@
   z-index: -1;
   inset: -60px -100vw -100px;
   background: #070707;
-  content: '';
+  content: "";
 }
 
 .transitionLeft,
@@ -188,8 +198,8 @@
   display: grid;
   grid-template-columns: 56px minmax(0, 1fr);
   grid-template-areas:
-    'heading heading'
-    'rail media';
+    "heading heading"
+    "rail media";
   column-gap: 28px;
   row-gap: 34px;
   min-width: 0;
@@ -203,10 +213,14 @@
 }
 
 .transitionLeft .leftRail,
-.transitionCenter .centerRail { grid-area: rail; }
+.transitionCenter .centerRail {
+  grid-area: rail;
+}
 
 .transitionLeft .mediaBlock,
-.transitionCenter .mediaBlock { grid-area: media; }
+.transitionCenter .mediaBlock {
+  grid-area: media;
+}
 
 .transitionCenter .centerRail::before {
   top: -697px;
@@ -245,18 +259,26 @@
   bottom: -184px;
 }
 
-.leftItem:last-child .leftRail::before { bottom: calc(100% - 22px); }
+.leftItem:last-child .leftRail::before {
+  bottom: calc(100% - 22px);
+}
 
 .leftHeading {
   align-self: start;
   padding-top: 72px;
 }
 
-.mobileTimeline { display: none; }
+.mobileTimeline {
+  display: none;
+}
 
 @media (max-width: 1200px) {
-  .inner { width: min(calc(100% - 64px), 1100px); }
-  .sectionHeading { font-size: clamp(72px, 8vw, 108px); }
+  .inner {
+    width: min(calc(100% - 64px), 1100px);
+  }
+  .sectionHeading {
+    font-size: clamp(72px, 8vw, 108px);
+  }
   .centerItem {
     grid-template-columns: minmax(0, 1fr) 52px minmax(320px, 0.78fr);
     column-gap: 24px;
@@ -265,13 +287,21 @@
     grid-template-columns: 52px minmax(320px, 0.78fr) minmax(0, 1fr);
     column-gap: 32px;
   }
-  .milestoneHeading { font-size: clamp(30px, 2.6vw, 39px); }
-  .caption { font-size: clamp(24px, 2.2vw, 30px); }
+  .milestoneHeading {
+    font-size: clamp(30px, 2.6vw, 39px);
+  }
+  .caption {
+    font-size: clamp(24px, 2.2vw, 30px);
+  }
 }
 
 @media (max-width: 992px) {
-  .section { padding: 70px 0 110px; }
-  .inner { width: min(calc(100% - 48px), 760px); }
+  .section {
+    padding: 70px 0 110px;
+  }
+  .inner {
+    width: min(calc(100% - 48px), 760px);
+  }
   .watermark {
     top: 240px;
     left: -60px;
@@ -281,7 +311,9 @@
     margin-bottom: 72px;
     font-size: clamp(66px, 12vw, 96px);
   }
-  .desktopTimeline { display: none; }
+  .desktopTimeline {
+    display: none;
+  }
   .mobileTimeline {
     position: relative;
     display: flex;
@@ -293,21 +325,33 @@
     grid-template-columns: 44px minmax(0, 1fr);
     column-gap: 24px;
   }
-  .mobileItem:first-child .mobileRail::before { top: 22px; }
-  .mobileItem:last-child .mobileRail::before { bottom: 22px; }
+  .mobileItem:first-child .mobileRail::before {
+    top: 22px;
+  }
+  .mobileItem:last-child .mobileRail::before {
+    bottom: 22px;
+  }
   .mobileContent {
     display: flex;
     min-width: 0;
     flex-direction: column;
     gap: 34px;
   }
-  .mobileContent .milestoneHeading { font-size: clamp(34px, 5.5vw, 46px); }
-  .mobileContent .caption { font-size: clamp(24px, 4vw, 32px); }
+  .mobileContent .milestoneHeading {
+    font-size: clamp(34px, 5.5vw, 46px);
+  }
+  .mobileContent .caption {
+    font-size: clamp(24px, 4vw, 32px);
+  }
 }
 
 @media (max-width: 768px) {
-  .section { padding: 60px 0 88px; }
-  .inner { width: calc(100% - 36px); }
+  .section {
+    padding: 60px 0 88px;
+  }
+  .inner {
+    width: calc(100% - 36px);
+  }
   .sectionHeading {
     flex-direction: column;
     gap: 0;
@@ -316,7 +360,9 @@
     font-size: clamp(58px, 17vw, 88px);
     text-align: left;
   }
-  .mobileTimeline { gap: 78px; }
+  .mobileTimeline {
+    gap: 78px;
+  }
   .mobileItem {
     grid-template-columns: 40px minmax(0, 1fr);
     column-gap: 18px;
@@ -330,16 +376,30 @@
     top: -100px;
     bottom: -100px;
   }
-  .mobileContent { gap: 28px; }
-  .mobileContent .milestoneHeading { font-size: clamp(28px, 8vw, 40px); }
-  .imageWrap { border-radius: 3px; }
-  .mobileContent .caption { font-size: clamp(21px, 6vw, 28px); }
+  .mobileContent {
+    gap: 28px;
+  }
+  .mobileContent .milestoneHeading {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+  .imageWrap {
+    border-radius: 3px;
+  }
+  .mobileContent .caption {
+    font-size: clamp(21px, 6vw, 28px);
+  }
 }
 
 @media (max-width: 480px) {
-  .inner { width: calc(100% - 28px); }
-  .sectionHeading { font-size: clamp(52px, 17vw, 72px); }
-  .mobileTimeline { gap: 68px; }
+  .inner {
+    width: calc(100% - 28px);
+  }
+  .sectionHeading {
+    font-size: clamp(52px, 17vw, 72px);
+  }
+  .mobileTimeline {
+    gap: 68px;
+  }
   .mobileItem {
     grid-template-columns: 36px minmax(0, 1fr);
     column-gap: 14px;
@@ -350,30 +410,77 @@
     flex-basis: 36px;
     font-size: 11px;
   }
-  .mobileContent .milestoneHeading { font-size: clamp(25px, 7.7vw, 34px); }
-  .mobileContent .caption { font-size: clamp(19px, 5.8vw, 25px); }
+  .mobileContent .milestoneHeading {
+    font-size: clamp(25px, 7.7vw, 34px);
+  }
+  .mobileContent .caption {
+    font-size: clamp(19px, 5.8vw, 25px);
+  }
 }
 /* === About page responsive system: 576 / 390 normalization === */
 @media (max-width: 576px) {
-  .section { padding: 54px 0 76px; }
-  .inner { width: calc(100% - 32px); }
-  .watermark { left: 0; width: min(100%, 420px); }
-  .sectionHeading { margin-bottom: 56px; font-size: clamp(52px, 15vw, 78px); }
-  .mobileTimeline { gap: 72px; }
-  .mobileItem { grid-template-columns: 38px minmax(0, 1fr); column-gap: 16px; }
-  .badge { width: 38px; height: 38px; flex-basis: 38px; }
-  .mobileContent .milestoneHeading { font-size: clamp(27px, 7.5vw, 36px); }
-  .mobileContent .caption { font-size: clamp(20px, 5.3vw, 27px); }
+  .section {
+    padding: 54px 0 76px;
+  }
+  .inner {
+    width: calc(100% - 32px);
+  }
+  .watermark {
+    left: 0;
+    width: min(100%, 420px);
+  }
+  .sectionHeading {
+    margin-bottom: 56px;
+    font-size: clamp(52px, 15vw, 78px);
+  }
+  .mobileTimeline {
+    gap: 72px;
+  }
+  .mobileItem {
+    grid-template-columns: 38px minmax(0, 1fr);
+    column-gap: 16px;
+  }
+  .badge {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+  .mobileContent .milestoneHeading {
+    font-size: clamp(27px, 7.5vw, 36px);
+  }
+  .mobileContent .caption {
+    font-size: clamp(20px, 5.3vw, 27px);
+  }
 }
 @media (max-width: 390px) {
-  .inner { width: calc(100% - 28px); }
-  .watermark { left: 0; width: 100%; }
-  .sectionHeading { font-size: clamp(50px, 16vw, 64px); }
-  .mobileTimeline { gap: 64px; }
-  .mobileItem { grid-template-columns: 36px minmax(0, 1fr); column-gap: 14px; }
-  .badge { width: 36px; height: 36px; flex-basis: 36px; }
-  .mobileContent .milestoneHeading { font-size: clamp(25px, 7.4vw, 32px); }
-  .mobileContent .caption { font-size: clamp(19px, 5vw, 24px); }
+  .inner {
+    width: calc(100% - 28px);
+  }
+  .watermark {
+    left: 0;
+    width: 100%;
+  }
+  .sectionHeading {
+    font-size: clamp(50px, 16vw, 64px);
+  }
+  .mobileTimeline {
+    gap: 64px;
+  }
+  .mobileItem {
+    grid-template-columns: 36px minmax(0, 1fr);
+    column-gap: 14px;
+  }
+  .badge {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+  .mobileContent .milestoneHeading {
+    font-size: clamp(25px, 7.4vw, 32px);
+  }
+  .mobileContent .caption {
+    font-size: clamp(19px, 5vw, 24px);
+  }
 }
 
 @media (min-width: 993px) {
@@ -384,5 +491,8 @@
   }
 }
 @media (max-width: 992px) {
-  .watermark { left: 0; width: min(100%, 440px); }
+  .watermark {
+    left: 0;
+    width: min(100%, 440px);
+  }
 }

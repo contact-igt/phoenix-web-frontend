@@ -36,6 +36,7 @@
   --font-heading: var(--font-heading-family, 'Bebas Neue', sans-serif);
   --font-subtitle: var(--font-body-family, 'Open Sans', sans-serif);
   --font-body: var(--font-body-family, 'Open Sans', sans-serif);
+  --font-satoshi: 'Satoshi', var(--font-satoshi-fallback, 'Plus Jakarta Sans'), Arial, Helvetica, sans-serif;
 
   /* ── Spacing scale ── */
   --space-xs: 8px;
@@ -339,7 +340,6 @@ p {
   top: 50%;
   left: 0;
   transform: translateY(-50%) scale(1.6);
-  opacity: 0.18;
   z-index: 1;
   pointer-events: none;
   width: 50%;
@@ -391,7 +391,7 @@ p {
   font-family: var(--font-subtitle);
   font-weight: 700;
   font-size: 1.1rem;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -418,6 +418,7 @@ p {
   font-size: 15px;
   line-height: 1.6;
   max-width: 450px;
+  margin: 20px 10px;
 }
 
 .hero-buttons {
@@ -579,7 +580,7 @@ p {
   font-weight: 700;
   font-size: 11px;
   color: var(--color-text-muted);
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 .logos-row {
@@ -1258,7 +1259,7 @@ p {
   font-size: 0.75rem;
   color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   margin-bottom: 0.5rem;
 }
 
@@ -1334,7 +1335,7 @@ textarea.form-input {
   font-family: var(--font-subtitle);
   font-weight: 700;
   font-size: 0.8rem;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   text-transform: uppercase;
   transition: var(--transition-smooth);
 }
@@ -2409,7 +2410,7 @@ textarea.form-input {
   font-size: 0.75rem;
   color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   margin-bottom: 0.5rem;
 }
 
@@ -2485,7 +2486,7 @@ textarea.form-input {
   font-family: var(--font-subtitle);
   font-weight: 700;
   font-size: 0.8rem;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   text-transform: uppercase;
   transition: var(--transition-smooth);
 }
@@ -2825,7 +2826,7 @@ textarea.form-input {
 }
 
 .pricing-title-main {
-  font-family: var(--font-headings);
+  font-family: 'Satoshi', var(--font-satoshi-fallback), Arial, Helvetica, sans-serif;
   font-size: clamp(2.5rem, 4vw, 4.5rem);
   line-height: 1.1;
   font-weight: 800;
@@ -2947,7 +2948,7 @@ textarea.form-input {
    ═══════════════════════════════════════════════════ */
 .journey-section {
   background-color: var(--color-dark-bg);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%), url('/images/functional/city.png');
+  background-image: linear-gradient(90deg, rgba(2, 8, 17, 0.96) 0%, rgba(2, 8, 17, 0.88) 33%, rgba(2, 8, 17, 0.66) 58%, rgba(2, 8, 17, 0.48) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.18) 48%, rgba(0, 0, 0, 0.66) 100%), url('/images/functional/city.png');
   background-size: cover;
   background-position: center;
   padding-top: 4rem;
@@ -2960,7 +2961,7 @@ textarea.form-input {
 }
 
 .journey-title {
-  font-family: var(--font-headings);
+  font-family: 'Satoshi', var(--font-satoshi-fallback), Arial, Helvetica, sans-serif;
   font-size: 3.5rem;
   font-weight: 700;
   margin: 0;
@@ -2983,7 +2984,7 @@ textarea.form-input {
 }
 
 .journey-branch {
-  font-family: var(--font-headings);
+  font-family: 'Satoshi', var(--font-satoshi-fallback), Arial, Helvetica, sans-serif;
   font-size: 4.5rem;
   font-weight: 800;
   line-height: 1;
@@ -3001,12 +3002,12 @@ textarea.form-input {
 
 .journey-sqft {
   color: var(--color-primary);
-  font-family: var(--font-headings);
+  font-family: 'Satoshi', var(--font-satoshi-fallback), Arial, Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: 700;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 .journey-desc {
@@ -3142,7 +3143,7 @@ textarea.form-input {
   background-color: #0b0b0b;
   background-image: url('/images/functional/main.png');
   /* Fallback image */
-  background-blend-mode: overlay;
+  
   background-size: cover;
   background-position: center;
   padding: 5rem 2rem;
@@ -3167,7 +3168,7 @@ textarea.form-input {
   color: #fff;
   font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0;
   padding: 0.4rem 1rem;
   border-radius: 20px;
   margin-bottom: 1.5rem;
@@ -3183,7 +3184,7 @@ textarea.form-input {
 }
 
 .pricing-plans-subtitle {
-  font-family: var(--font-headings);
+  font-family: 'Satoshi', var(--font-satoshi-fallback), Arial, Helvetica, sans-serif;
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
@@ -3323,7 +3324,7 @@ textarea.form-input {
 }
 
 .card-price {
-  font-family: var(--font-headings);
+  font-family: 'Satoshi', var(--font-satoshi-fallback), Arial, Helvetica, sans-serif;
   font-size: 3rem;
   font-weight: 800;
   display: flex;
@@ -3503,4 +3504,419 @@ textarea.form-input {
   .pricing-card-active {
     transform: none;
   }
+}
+/* Service page banner Figma alignment */
+.services-hero {
+  min-height: 760px;
+  background-position: center right;
+}
+
+.services-hero .hero-bg-logo {
+  top: 50%;
+  left: 0;
+  width: 620px;
+  height: auto;
+  transform: translateY(-50%);
+}
+
+.services-hero .hero-bg-logo img {
+  width: 100%;
+  max-width: none;
+}
+
+.services-hero .hero-overlay {
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.58) 46%,
+      rgba(0, 0, 0, 0.18) 100%);
+}
+
+.services-hero .hero-container-inner {
+  min-height: 664px;
+  align-items: flex-end;
+  padding-bottom: 112px;
+}
+
+.services-hero .hero-content {
+  max-width: 760px;
+  gap: 14px;
+}
+
+.services-hero .hero-tag {
+  font-family: "Satoshi", var(--font-satoshi-fallback), var(--font-body);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.services-hero .hero-title {
+  font-family: "Satoshi", var(--font-satoshi-fallback), var(--font-body);
+  font-size: 90px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.services-hero .hero-description {
+  max-width: 330px;
+  font-size: 13px;
+  line-height: 1.25;
+  color: var(--color-white);
+  margin: 20px 10px;
+}
+
+.services-hero .hero-buttons {
+  margin-top: 0;
+  gap: 16px;
+}
+
+.services-hero .hero-features-overlay {
+  margin-bottom: 18px;
+}
+
+@media (max-width: 1200px) {
+  .services-hero {
+    min-height: 690px;
+  }
+
+  .services-hero .hero-bg-logo {
+    left: 0;
+    width: 520px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 594px;
+    padding-bottom: 104px;
+  }
+
+  .services-hero .hero-content {
+    max-width: 660px;
+  }
+
+  .services-hero .hero-title {
+    font-size: 82px;
+  }
+
+  .services-hero .hero-tag {
+    font-size: 20px;
+  }
+
+  .services-hero .hero-features-overlay {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .services-hero {
+    min-height: 640px;
+    padding-top: 78px;
+    background-position: 62% center;
+  }
+
+  .services-hero .hero-bg-logo {
+    left: 0;
+    width: 430px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 562px;
+    align-items: flex-end;
+    padding-bottom: 100px;
+  }
+
+  .services-hero .hero-content {
+    max-width: 560px;
+  }
+
+  .services-hero .hero-title {
+    font-size: 68px;
+  }
+
+  .services-hero .hero-tag {
+    font-size: 18px;
+  }
+
+  .services-hero .hero-features-overlay {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    min-height: 590px;
+    padding-top: 70px;
+    background-position: 68% center;
+  }
+
+  .services-hero .hero-bg-logo {
+    width: 340px;
+  }
+
+  .services-hero .hero-overlay {
+    background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.84) 0%,
+        rgba(0, 0, 0, 0.66) 56%,
+        rgba(0, 0, 0, 0.34) 100%);
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 520px;
+    padding-bottom: 96px;
+  }
+
+  .services-hero .hero-content {
+    max-width: 460px;
+    gap: 12px;
+  }
+
+  .services-hero .hero-title {
+    font-size: 54px;
+  }
+
+  .services-hero .hero-tag {
+    font-size: 16px;
+  }
+
+  .services-hero .hero-description {
+    max-width: 290px;
+    font-size: 12px;
+  }
+
+  .services-hero .hero-buttons {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-hero {
+    min-height: 540px;
+    background-position: 72% center;
+  }
+
+  .services-hero .hero-bg-logo {
+    width: 275px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 470px;
+    padding-bottom: 90px;
+  }
+
+  .services-hero .hero-content {
+    max-width: 360px;
+  }
+
+  .services-hero .hero-title {
+    font-size: 42px;
+  }
+
+  .services-hero .hero-tag {
+    font-size: 15px;
+  }
+
+  .services-hero .hero-btn-explore,
+  .services-hero .hero-btn-video {
+    min-height: 42px;
+    padding: 8px 8px 8px 18px;
+    font-size: 12px;
+  }
+
+  .services-hero .btn-circle-arrow,
+  .services-hero .btn-circle-play {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 390px) {
+  .services-hero {
+    min-height: 500px;
+    background-position: 74% center;
+  }
+
+  .services-hero .hero-bg-logo {
+    width: 230px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 430px;
+    padding-bottom: 84px;
+  }
+
+  .services-hero .hero-content {
+    max-width: 315px;
+    gap: 10px;
+  }
+
+  .services-hero .hero-title {
+    font-size: 34px;
+  }
+
+  .services-hero .hero-tag {
+    font-size: 14px;
+  }
+
+  .services-hero .hero-description {
+    max-width: 260px;
+    font-size: 11px;
+  }
+}
+/* Service banner height and button refinement */
+.services-hero {
+  min-height: 880px;
+}
+
+.services-hero .hero-container-inner {
+  min-height: 784px;
+  padding-bottom: 132px;
+}
+
+.services-hero .hero-btn-explore,
+.services-hero .hero-btn-video,
+.services-hero .feature-title,
+.services-hero .feature-subtitle,
+.services-hero .logos-title {
+  font-family: "Satoshi", var(--font-satoshi-fallback), var(--font-body);
+  letter-spacing: 0;
+}
+
+.services-hero .hero-btn-explore,
+.services-hero .hero-btn-video {
+  min-height: 42px;
+  padding: 8px 8px 8px 24px;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.services-hero .hero-btn-explore {
+  gap: 14px;
+}
+
+.services-hero .hero-btn-video {
+  gap: 16px;
+  padding-left: 26px;
+}
+
+.services-hero .btn-circle-arrow,
+.services-hero .btn-circle-play {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+}
+
+.services-hero .feature-title {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.services-hero .feature-subtitle {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+  .services-hero {
+    min-height: 800px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 704px;
+    padding-bottom: 126px;
+  }
+}
+
+@media (max-width: 992px) {
+  .services-hero {
+    min-height: 730px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 652px;
+    padding-bottom: 116px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    min-height: 670px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 600px;
+    padding-bottom: 108px;
+  }
+
+  .services-hero .hero-btn-explore,
+  .services-hero .hero-btn-video {
+    min-height: 40px;
+    padding: 8px 8px 8px 20px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-hero {
+    min-height: 610px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 540px;
+    padding-bottom: 96px;
+  }
+}
+
+@media (max-width: 390px) {
+  .services-hero {
+    min-height: 560px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 490px;
+    padding-bottom: 88px;
+  }
+}
+
+
+
+/* Services/pricing marketing chrome: Figma button and font alignment */
+.site-header .nav-link,
+.site-header .header-cta,
+.mobile-nav-link {
+  font-family: var(--font-satoshi);
+  letter-spacing: 0;
+}
+
+.site-header .nav-link {
+  min-height: 52px;
+  padding-inline: 24px;
+  font-size: 18px;
+  font-weight: 800;
+  background: #303032;
+  color: #ffffff;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link.active {
+  background: #3a3a3d;
+}
+
+.site-header .header-cta {
+  min-height: 52px;
+  padding-inline: 30px;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: none;
+}
+
+.site-header .header-arrow-btn {
+  width: 52px;
+  height: 52px;
+  flex-basis: 52px;
+  box-shadow: none;
 }

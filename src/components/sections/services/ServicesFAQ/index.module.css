@@ -1,0 +1,75 @@
+﻿/* Migrated from src/app/globals.css for this section. */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.faq-section {
+  padding: var(--space-xl) 0;
+  background-color: var(--color-dark-bg);
+  position: relative;
+}
+
+.faq-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.faq-subtitle {
+  color: var(--color-primary);
+  font-family: var(--font-subtitle);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.faq-title {
+  font-family: var(--font-heading);
+  font-size: 72px;
+  line-height: 0.9;
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .faq-title {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 576px) {
+  .faq-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 390px) {
+  .faq-title {
+    font-size: 28px;
+  }
+}
+/* Service FAQ spacing refinement */
+.faq-section {
+  padding-top: clamp(104px, 7vw, 144px);
+  padding-bottom: clamp(104px, 7vw, 144px);
+}
+
+@media (max-width: 768px) {
+  .faq-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}
