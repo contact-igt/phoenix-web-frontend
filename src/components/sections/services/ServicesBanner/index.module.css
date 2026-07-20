@@ -844,3 +844,134 @@
     min-height: 540px;
   }
 }
+
+/* Services hero CTA buttons - Figma split pill + circle treatment */
+.services-hero .hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 0;
+}
+
+.services-hero .hero-button-pair {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  height: 36px;
+}
+
+.services-hero .hero-btn-explore,
+.services-hero .hero-btn-video,
+.services-hero .btn-circle-arrow,
+.services-hero .btn-circle-play {
+  height: 36px;
+  min-height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Satoshi", var(--font-satoshi-fallback), var(--font-body);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.services-hero .hero-btn-explore {
+  min-width: 92px;
+  padding: 0 28px;
+  color: #111111;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+}
+
+.services-hero .btn-circle-arrow {
+  width: 36px;
+  flex: 0 0 36px;
+  margin-left: 3px;
+  color: #111111;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.services-hero .hero-btn-video {
+  min-width: 128px;
+  padding: 0 26px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: none;
+}
+
+.services-hero .btn-circle-play {
+  width: 36px;
+  flex: 0 0 36px;
+  margin-left: 3px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+}
+
+.services-hero .btn-circle-arrow svg {
+  width: 13px;
+  height: 13px;
+}
+
+.services-hero .btn-circle-play svg {
+  width: 11px;
+  height: 11px;
+  margin-left: 1px;
+}
+
+.services-hero .hero-button-pair:hover .hero-btn-explore,
+.services-hero .hero-button-pair:hover .btn-circle-arrow {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.92);
+}
+
+.services-hero .hero-button-pair:hover .hero-btn-video,
+.services-hero .hero-button-pair:hover .btn-circle-play {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+.services-hero .hero-button-pair:hover .btn-circle-arrow {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 576px) {
+  .services-hero .hero-buttons {
+    gap: 12px;
+  }
+
+  .services-hero .hero-button-pair,
+  .services-hero .hero-btn-explore,
+  .services-hero .hero-btn-video,
+  .services-hero .btn-circle-arrow,
+  .services-hero .btn-circle-play {
+    height: 34px;
+    min-height: 34px;
+    font-size: 11px;
+  }
+
+  .services-hero .hero-btn-explore {
+    min-width: 82px;
+    padding: 0 22px;
+  }
+
+  .services-hero .hero-btn-video {
+    min-width: 118px;
+    padding: 0 20px;
+  }
+
+  .services-hero .btn-circle-arrow,
+  .services-hero .btn-circle-play {
+    width: 34px;
+    flex-basis: 34px;
+  }
+}

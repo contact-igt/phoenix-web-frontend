@@ -1,4 +1,4 @@
-import { Bike, Check, ChevronLeft, ChevronRight, Clock3, Dumbbell, Lock, Smartphone } from 'lucide-react'
+import { Bike, Check, Clock3, Dumbbell, Lock, Smartphone } from 'lucide-react'
 import styles from './index.module.css'
 
 const plans = [
@@ -54,14 +54,7 @@ const plans = [
 
 export default function PricingPlans() {
   return (
-    <section className={styles['pricing-plans-section']} aria-labelledby="pricing-plans-title">
-      <div className={`${styles['carousel-nav-btn']} ${styles.left}`} aria-hidden="true">
-        <ChevronLeft size={58} strokeWidth={1.7} />
-      </div>
-
-      <div className={`${styles['carousel-nav-btn']} ${styles.right}`} aria-hidden="true">
-        <ChevronRight size={58} strokeWidth={1.7} />
-      </div>
+    <section id="pricing-options" className={styles['pricing-plans-section']} aria-labelledby="pricing-plans-title">
 
       <div className={styles['pricing-plans-header']}>
         <div className={styles['plan-options-pill']}>PLAN OPTIONS</div>

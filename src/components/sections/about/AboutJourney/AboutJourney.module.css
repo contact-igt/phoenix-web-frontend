@@ -1,4 +1,4 @@
-﻿.section {
+.section {
   position: relative;
   width: 100%;
   padding: 72px 0 150px;
@@ -41,7 +41,7 @@
 .headingOrange,
 .yearNum,
 .titleOrange {
-  color: #e8400c;
+  color: #AA2318;
 }
 
 .headingWhite,

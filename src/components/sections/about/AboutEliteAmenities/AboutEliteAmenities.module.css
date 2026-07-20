@@ -1,4 +1,4 @@
-﻿.section {
+.section {
   background: #0a0a0a;
   width: 100%;
   min-height: 1100px;
@@ -44,7 +44,7 @@
 }
 
 .headingOrange {
-  color: #f13a05;
+  color: #AA2318;
   font-weight: 400;
 }
 
@@ -107,8 +107,8 @@
 }
 
 .exploreBtn:hover {
-  border-color: #f13a05;
-  color: #f13a05;
+  border-color: #AA2318;
+  color: #AA2318;
 }
 
 .arrowCircle {
@@ -129,8 +129,8 @@
 }
 
 .watchBtn:hover {
-  border-color: #f13a05;
-  color: #f13a05;
+  border-color: #AA2318;
+  color: #AA2318;
 }
 
 .playCircle {
@@ -186,7 +186,7 @@
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, rgba(211, 51, 1, 1), rgba(213, 51, 0, 1));
+  background: linear-gradient(90deg, rgba(170, 35, 24, 1), rgba(170, 35, 24, 1));
   border-radius: 0;
 }
 

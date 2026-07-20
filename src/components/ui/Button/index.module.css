@@ -27,7 +27,7 @@
 .primary:hover {
   background-color: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(232, 64, 12, 0.3);
+  box-shadow: 0 4px 12px rgba(170, 35, 24, 0.3);
 }
 
 .secondary {

@@ -90,7 +90,7 @@
 }
 
 .pricing-title-orange {
-  background: linear-gradient(135deg, rgba(245, 59, 0, 1) 0%, rgba(113, 27, 0, 1) 100%);
+  background: linear-gradient(135deg, rgba(170, 35, 24, 1) 0%, rgba(143, 29, 20, 1) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

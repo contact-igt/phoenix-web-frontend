@@ -1,4 +1,4 @@
-﻿/* Migrated from src/app/globals.css for this section. */
+/* Migrated from src/app/globals.css for this section. */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -223,7 +223,7 @@
   font-size: 12rem;
   font-family: var(--font-heading);
   font-weight: 400;
-  color: rgba(232, 64, 12, 0.03);
+  color: rgba(170, 35, 24, 0.03);
   user-select: none;
   pointer-events: none;
   z-index: 0;
@@ -292,7 +292,7 @@
 }
 
 .tag-pill:hover {
-  background: rgba(232, 64, 12, 0.15);
+  background: rgba(170, 35, 24, 0.15);
   border-color: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-1px);
@@ -673,5 +673,384 @@ font-size: 12px;
   .section {
     padding-top: 56px;
     padding-bottom: 56px;
+  }
+}
+
+/* Cardio Training responsive pass: 1400 / 1200 / 992 / 768 / 576 / 430 / 390 */
+.cardio-section {
+  overflow: hidden;
+}
+
+.cardio-section .container {
+  width: 100%;
+  max-width: 1400px;
+  padding-inline: 48px;
+}
+
+.cardio-grid-container {
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: 56px;
+  align-items: stretch;
+}
+
+.cardio-left {
+  min-width: 0;
+  justify-content: center;
+}
+
+.cardio-info {
+  gap: 22px;
+}
+
+.cardio-title-row {
+  gap: 24px;
+  align-items: center;
+}
+
+.cardio-title {
+  font-size: 78px;
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.section-desc {
+  max-width: 620px;
+  font-family: var(--font-satoshi);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.strength-tag-capsules {
+  gap: 14px;
+}
+
+.capsule-tag {
+  min-height: 70px;
+  padding: 0 30px;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.strength-2x2-grid {
+  gap: 20px;
+}
+
+.strength-grid-box {
+  aspect-ratio: 1.25 / 1;
+  border-radius: 12px;
+}
+
+.strength-grid-box img,
+.cardio-hero-image img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.cardio-hero-image {
+  min-height: 640px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.cardio-watch-btn {
+  flex: 0 0 auto;
+}
+
+.btn-text-pill {
+  min-height: 44px;
+  padding: 0 28px;
+  font-size: 13px;
+  letter-spacing: 0;
+  border-width: 1px;
+}
+
+.btn-circle-play {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-width: 1px;
+}
+
+@media (max-width: 1400px) {
+  .cardio-section .container {
+    max-width: 1200px;
+    padding-inline: 40px;
+  }
+
+  .cardio-grid-container {
+    grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+    gap: 44px;
+  }
+
+  .cardio-title {
+    font-size: 68px;
+  }
+
+  .capsule-tag {
+    min-height: 64px;
+    padding-inline: 26px;
+    font-size: 32px;
+  }
+
+  .cardio-hero-image {
+    min-height: 580px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cardio-section .container {
+    max-width: 1040px;
+    padding-inline: 32px;
+  }
+
+  .cardio-grid-container {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+    gap: 34px;
+  }
+
+  .cardio-left {
+    gap: 28px;
+  }
+
+  .cardio-title-row {
+    gap: 18px;
+  }
+
+  .cardio-title {
+    font-size: 58px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+  }
+
+  .capsule-tag {
+    min-height: 58px;
+    padding-inline: 22px;
+    font-size: 28px;
+  }
+
+  .strength-2x2-grid {
+    gap: 16px;
+  }
+
+  .cardio-hero-image {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 992px) {
+  .cardio-section .container {
+    max-width: 720px;
+    padding-inline: 28px;
+  }
+
+  .cardio-grid-container {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .cardio-info {
+    gap: 20px;
+  }
+
+  .cardio-title-row {
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .cardio-title {
+    font-size: 56px;
+  }
+
+  .strength-tag-capsules {
+    gap: 12px;
+  }
+
+  .capsule-tag {
+    min-height: 54px;
+    padding-inline: 20px;
+    font-size: 26px;
+  }
+
+  .strength-grid-box {
+    aspect-ratio: 1.32 / 1;
+  }
+
+  .cardio-hero-image {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardio-section .container {
+    max-width: 620px;
+    padding-inline: 24px;
+  }
+
+  .cardio-grid-container {
+    gap: 32px;
+  }
+
+  .cardio-title-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .cardio-title {
+    font-size: 50px;
+  }
+
+  .section-desc {
+    max-width: 520px;
+    font-size: 15px;
+  }
+
+  .capsule-tag {
+    min-height: 50px;
+    padding-inline: 18px;
+    font-size: 24px;
+  }
+
+  .strength-2x2-grid {
+    gap: 14px;
+  }
+
+  .cardio-hero-image {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cardio-section .container {
+    padding-inline: 18px;
+  }
+
+  .cardio-left {
+    gap: 24px;
+  }
+
+  .cardio-title {
+    font-size: 42px;
+    line-height: 0.94;
+  }
+
+  .strength-tag-capsules {
+    gap: 10px;
+  }
+
+  .capsule-tag {
+    min-height: 46px;
+    padding-inline: 16px;
+    font-size: 22px;
+  }
+
+  .strength-2x2-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .strength-grid-box {
+    aspect-ratio: 1.58 / 1;
+  }
+
+  .cardio-hero-image {
+    min-height: 320px;
+  }
+
+  .btn-text-pill {
+    min-height: 40px;
+    padding-inline: 22px;
+    font-size: 12px;
+  }
+
+  .btn-circle-play {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+}
+
+@media (max-width: 430px) {
+  .cardio-section .container {
+    padding-inline: 16px;
+  }
+
+  .cardio-grid-container {
+    gap: 28px;
+  }
+
+  .cardio-title {
+    font-size: 38px;
+  }
+
+  .section-desc {
+    font-size: 14px;
+  }
+
+  .strength-tag-capsules {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .capsule-tag {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 14px;
+    font-size: 21px;
+  }
+
+  .strength-grid-box {
+    aspect-ratio: 1.42 / 1;
+  }
+
+  .cardio-hero-image {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 390px) {
+  .cardio-section {
+    padding: 0;
+  }
+
+  .cardio-section .container {
+    padding-inline: 12px;
+  }
+
+  .cardio-title {
+    font-size: 34px;
+  }
+
+  .strength-tag-label {
+    font-size: 12px;
+  }
+
+  .capsule-tag {
+    min-height: 42px;
+    font-size: 20px;
+  }
+
+  .cardio-watch-btn {
+    max-width: 100%;
+  }
+
+  .btn-text-pill {
+    min-width: 0;
+    padding-inline: 18px;
+    font-size: 11px;
+  }
+
+  .btn-circle-play {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+
+  .cardio-hero-image {
+    min-height: 250px;
   }
 }

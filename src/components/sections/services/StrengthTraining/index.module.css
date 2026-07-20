@@ -1,4 +1,4 @@
-﻿/* Migrated from src/app/globals.css for this section. */
+/* Migrated from src/app/globals.css for this section. */
 .container {
   width: 100%;
   max-width: var(--container-max);
@@ -103,7 +103,7 @@
 
 .capsule-tag:hover {
   border-color: var(--color-primary);
-  background-color: rgba(232, 64, 12, 0.08);
+  background-color: rgba(170, 35, 24, 0.08);
   transform: translateY(-2px);
 }
 
@@ -233,7 +233,7 @@
   font-size: 12rem;
   font-family: var(--font-heading);
   font-weight: 400;
-  color: rgba(232, 64, 12, 0.03);
+  color: rgba(170, 35, 24, 0.03);
   user-select: none;
   pointer-events: none;
   z-index: 0;
@@ -302,7 +302,7 @@
 }
 
 .tag-pill:hover {
-  background: rgba(232, 64, 12, 0.15);
+  background: rgba(170, 35, 24, 0.15);
   border-color: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-1px);

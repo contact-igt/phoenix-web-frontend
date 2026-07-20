@@ -56,23 +56,23 @@ export default function CardioTraining() {
                 {/* 2×2 grid — reuses strength styles */}
                 <div className={styles["strength-2x2-grid"]}>
                   <div className={styles["strength-grid-box"]}>
-                    <img src="/images/about/mission1.png" alt="Cardio 1" />
+                    <img src="/services/cardio1.png" alt="Cardio 1" />
                   </div>
                   <div className={styles["strength-grid-box"]}>
-                    <img src="/images/strength_training.png" alt="Cardio 2" />
+                    <img src="/services/cardio2.png" alt="Cardio 2" />
                   </div>
                   <div className={styles["strength-grid-box"]}>
-                    <img src="/images/about/mission3.png" alt="Cardio 3" />
+                    <img src="/services/cardio3.png" alt="Cardio 3" />
                   </div>
                   <div className={styles["strength-grid-box"]}>
-                    <img src="/images/about/mission4.png" alt="Cardio 4" />
+                    <img src="/services/cardio4.png" alt="Cardio 4" />
                   </div>
                 </div>
               </div>
 
               {/* RIGHT: single tall hero */}
               <div className={styles["cardio-hero-image"]}>
-                <img src="/images/about/amentities1.png" alt="Cardio Training" />
+                <img src="/services/cardio4.png" alt="Cardio Training" />
               </div>
 
             </div>
@@ -80,3 +80,4 @@ export default function CardioTraining() {
         </section>
   )
 }
+

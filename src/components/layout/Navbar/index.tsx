@@ -65,10 +65,10 @@ export default function Navbar() {
         </nav>
 
         <div className={styles.actions}>
-          <Button variant="white" pill href="/#contact" className={styles.contactBtn}>
+          <Button variant="white" pill href="/contact" className={styles.contactBtn}>
             Contact us
           </Button>
-          <Link href="/#contact" className={styles.arrowBtn} aria-label="Contact us">
+          <Link href="/contact" className={styles.arrowBtn} aria-label="Contact us">
             <ArrowUpRight size={25} strokeWidth={2} />
           </Link>
 
@@ -96,7 +96,7 @@ export default function Navbar() {
             </Link>
           ))}
           <div className={styles.mobileCta}>
-            <Button variant="primary" pill href="/#contact" onClick={closeMobileMenu}>
+            <Button variant="primary" pill href="/contact" onClick={closeMobileMenu}>
               Contact us
             </Button>
           </div>

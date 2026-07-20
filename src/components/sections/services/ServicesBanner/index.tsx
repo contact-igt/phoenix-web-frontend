@@ -1,4 +1,5 @@
-﻿import styles from './index.module.css'
+﻿import { Repeat2 } from 'lucide-react'
+import styles from './index.module.css'
 export default function ServicesBanner() {
   return (
         <section
@@ -26,9 +27,11 @@ export default function ServicesBanner() {
                 Just simple, effective workouts tailored to your goals — guided by real people who care.
               </p>
               <div className={styles["hero-buttons"]}>
-                <a href="#strength" className={styles["hero-btn-explore"]}>
-                  Explore
-                  <span className={styles["btn-circle-arrow"]}>
+                <div className={styles["hero-button-pair"]}>
+                  <a href="#strength" className={styles["hero-btn-explore"]}>
+                    Explore
+                  </a>
+                  <a href="#strength" className={styles["btn-circle-arrow"]} aria-label="Explore services">
                     <svg
                       width="14"
                       height="14"
@@ -42,11 +45,13 @@ export default function ServicesBanner() {
                       <line x1="7" y1="17" x2="17" y2="7" />
                       <polyline points="7 7 17 7 17 17" />
                     </svg>
-                  </span>
-                </a>
-                <a href="#contact" className={styles["hero-btn-video"]}>
-                  WATCH VIDEO
-                  <span className={styles["btn-circle-play"]}>
+                  </a>
+                </div>
+                <div className={styles["hero-button-pair"]}>
+                  <a href="#contact" className={styles["hero-btn-video"]}>
+                    WATCH VIDEO
+                  </a>
+                  <a href="#contact" className={styles["btn-circle-play"]} aria-label="Watch video">
                     <svg
                       width="12"
                       height="12"
@@ -55,8 +60,8 @@ export default function ServicesBanner() {
                     >
                       <polygon points="6,3 20,12 6,21" />
                     </svg>
-                  </span>
-                </a>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -70,18 +75,7 @@ export default function ServicesBanner() {
               </div>
               <div className={styles["hero-feature-item"]}>
                 <span className={styles["feature-icon"]}>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
-                  </svg>
+                  <Repeat2 size={20} strokeWidth={2.5} aria-hidden="true" />
                 </span>
                 <div className={styles["feature-text-group"]}>
                   <span className={styles["feature-title"]}>14 DAY FREE RETURN</span>

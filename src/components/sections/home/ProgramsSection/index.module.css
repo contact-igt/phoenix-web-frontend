@@ -1,4 +1,4 @@
-﻿/* src/components/sections/home/ProgramsSection/index.module.css */
+/* src/components/sections/home/ProgramsSection/index.module.css */
 
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION WRAPPER
@@ -111,7 +111,7 @@
 
 /* Orange variant â€” "FUNCTIONAL TRAINING," and "PERSONAL COACHING" */
 .programItemOrange {
-  color: var(--color-program-orange); /* #E8400C */
+  color: var(--color-program-orange); /* #AA2318 */
 }
 
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -149,7 +149,7 @@
   padding: 0 32px;
   border-radius: var(--radius-full); /* 999px pill */
   border: 2px solid var(--color-primary);
-  background-color: var(--color-primary); /* #E8400C */
+  background-color: var(--color-primary); /* #AA2318 */
   color: var(--color-white);
   font-family: var(--font-subtitle);
   font-size: 16px;

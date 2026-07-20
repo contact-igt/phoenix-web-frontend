@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Bebas_Neue, Open_Sans, Plus_Jakarta_Sans } from 'next/font/google'
+import { Bebas_Neue, Open_Sans, Plus_Jakarta_Sans, Archivo_Narrow } from 'next/font/google'
 import '../styles/globals.css'
 import '../styles/typography.css'
 import './globals.css'
@@ -26,6 +26,13 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: 'swap',
 })
 
+const archivoNarrow = Archivo_Narrow({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-archivo-narrow',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'Phoenix Fitness | The Empowering Path To Begin Your Fitness Journey',
   description: 'Phoenix Fitness is more than a gym — a place to transform. Join us for strength training, cardio, yoga, and more.',
@@ -42,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${bebasNeue.variable} ${openSans.variable} ${plusJakartaSans.variable}`}>
+    <html lang="en" className={`${bebasNeue.variable} ${openSans.variable} ${plusJakartaSans.variable} ${archivoNarrow.variable}`}>
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link

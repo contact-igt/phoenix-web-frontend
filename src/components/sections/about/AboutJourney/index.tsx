@@ -12,17 +12,17 @@ type Milestone = {
 }
 
 const centerTimeline: Milestone[] = [
-  { marker: '01', year: '2010', yearLabel: 'YEAR 1', titleWhite: 'PHOENIX FITNESS', titleOrange: 'FOUNDED', image: '/images/about/journey1.png', caption: 'First Gym - Ramamurthy Nagar, Bangalore' },
-  { marker: '02', year: '2011', yearLabel: 'YEAR 2', titleWhite: 'BUILDING THE PHOENIX', titleOrange: 'COMMUNITY', image: '/images/about/journey1.png', caption: 'Membership growth & local recognition' },
-  { marker: '03', year: '2012', yearLabel: 'YEAR 3', titleWhite: 'SECOND BRANCH', titleOrange: 'LAUNCHED', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Pai Layout, Bangalore' },
-  { marker: '04', year: '2018', yearLabel: 'YEAR 8', titleWhite: 'FOURTH GYM', titleOrange: 'LAUNCHED', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Seegehalli, Bangalore' },
+  { marker: '01', year: '2010', yearLabel: 'YEAR 1', titleWhite: 'PHOENIX FITNESS', titleOrange: 'FOUNDED', image: '/images/about/2010.png', caption: 'First Gym - Ramamurthy Nagar, Bangalore' },
+  { marker: '02', year: '2011', yearLabel: 'YEAR 2', titleWhite: 'BUILDING THE PHOENIX', titleOrange: 'COMMUNITY', image: '/images/about/2011.png', caption: 'Membership growth & local recognition' },
+  { marker: '03', year: '2012', yearLabel: 'YEAR 3', titleWhite: 'SECOND BRANCH', titleOrange: 'LAUNCHED', image: '/images/about/2012.png', caption: 'Phoenix Fitness - Pai Layout, Bangalore' },
+  { marker: '04', year: '2018', yearLabel: 'YEAR 8', titleWhite: 'FOURTH GYM', titleOrange: 'LAUNCHED', image: '/images/about/2018.png', caption: 'Phoenix Fitness - Seegehalli, Bangalore' },
 ]
 
 const leftTimeline: Milestone[] = [
-  { marker: '01', year: '2016', yearLabel: 'YEAR 6', titleWhite: 'THIRD MAJOR LOCATION', titleOrange: 'LAUNCHED', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Hope Farm, Whitefield' },
-  { marker: '02', year: '2019', yearLabel: 'YEAR 9', titleWhite: 'MULTI-CITY EXPANSION', titleOrange: 'BEGINS', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Kompally, Hyderabad & Nallurhalli, Bangalore' },
-  { marker: '03', year: '2025', yearLabel: 'YEAR 15', titleWhite: 'NEW BRANCH', titleOrange: 'LAUNCHED', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Budigere Bommenahalli, Bangalore' },
-  { marker: '04', year: '2026', yearLabel: 'YEAR 16', titleWhite: 'BRAND GROWTH', titleOrange: 'PHASE', image: '/images/about/journey1.png', caption: 'Preparing for future expansion' },
+  { marker: '01', year: '2016', yearLabel: 'YEAR 6', titleWhite: 'THIRD MAJOR LOCATION', titleOrange: 'LAUNCHED', image: '/images/about/2016.png', caption: 'Phoenix Fitness - Hope Farm, Whitefield' },
+  { marker: '02', year: '2019', yearLabel: 'YEAR 9', titleWhite: 'MULTI-CITY EXPANSION', titleOrange: 'BEGINS', image: '/images/about/2019.png', caption: 'Phoenix Fitness - Kompally, Hyderabad & Nallurhalli, Bangalore' },
+  { marker: '03', year: '2025', yearLabel: 'YEAR 15', titleWhite: 'NEW BRANCH', titleOrange: 'LAUNCHED', image: '/images/about/2025.png', caption: 'Phoenix Fitness - Budigere Bommenahalli, Bangalore' },
+  { marker: '04', year: '2026', yearLabel: 'YEAR 16', titleWhite: 'BRAND GROWTH', titleOrange: 'PHASE', image: '/images/about/2026.png', caption: 'Preparing for future expansion' },
 ]
 
 const mobileTimeline = [centerTimeline[0], centerTimeline[1], centerTimeline[2], leftTimeline[0], centerTimeline[3], leftTimeline[1], leftTimeline[2], leftTimeline[3]]

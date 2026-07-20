@@ -1,32 +1,87 @@
 'use client'
-import { useState } from 'react'
+
+import { useRouter } from 'next/navigation'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 import { ArrowUpRight } from 'lucide-react'
+import { submitForm } from '@/lib/formService'
 import styles from './AboutContact.module.css'
 
+const INITIAL_VALUES = {
+  name: '',
+  email: '',
+  mobile: '',
+  service: '',
+  subject: '',
+}
+
+const contactSchema = Yup.object({
+  name: Yup.string()
+    .trim()
+    .min(2, 'Name must be at least 2 characters.')
+    .max(80, 'Name must be 80 characters or less.')
+    .required('Please enter your name.'),
+  email: Yup.string()
+    .trim()
+    .email('Please enter a valid email address.')
+    .required('Please enter your email.'),
+  mobile: Yup.string()
+    .trim()
+    .matches(/^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/, 'Please enter a valid mobile number.')
+    .min(10, 'Mobile number must be at least 10 digits.')
+    .max(16, 'Mobile number must be 16 digits or less.')
+    .required('Please enter your mobile number.'),
+  service: Yup.string().trim().required('Please choose a service.'),
+  subject: Yup.string()
+    .trim()
+    .min(2, 'Subject must be at least 2 characters.')
+    .max(120, 'Subject must be 120 characters or less.')
+    .required('Please enter a subject.'),
+})
+
+type ContactField = keyof typeof INITIAL_VALUES
+
 export default function AboutContact() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    mobile: '',
-    service: '',
-    subject: '',
+  const router = useRouter()
+
+  const formik = useFormik({
+    initialValues: INITIAL_VALUES,
+    validationSchema: contactSchema,
+    validateOnBlur: true,
+    validateOnChange: true,
+    onSubmit: async (values, { setStatus }) => {
+      setStatus(undefined)
+
+      try {
+        await submitForm('Contact Message', {
+          name: values.name.trim(),
+          email: values.email.trim(),
+          mobile: values.mobile.trim(),
+          service: values.service.trim(),
+          subject: values.subject.trim(),
+        })
+
+        router.push('/thank-you')
+      } catch (error) {
+        setStatus({
+          type: 'error',
+          message: error instanceof Error ? error.message : 'Failed to submit form. Please try again.',
+        })
+      }
+    },
   })
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
-  }
+  const getFieldError = (name: ContactField) =>
+    formik.touched[name] && formik.errors[name] ? formik.errors[name] : ''
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-  }
+  const getInputClassName = (name: ContactField) =>
+    getFieldError(name) ? `${styles.input} ${styles.inputError}` : styles.input
 
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
 
-        {/* LEFT — Contact Info */}
+        {/* LEFT - Contact Info */}
         <div className={styles.leftCol}>
           <h2 className={styles.heading}>Get in touch</h2>
 
@@ -35,43 +90,29 @@ export default function AboutContact() {
             We&apos;re here to help you take the first step.
           </p>
 
-          {/* Addresses */}
           <div className={styles.block}>
             <p className={styles.blockLabel}>Visit us:</p>
             <div className={styles.address}>
-              <span className={styles.flag}>🇮🇳</span>
+              <span className={styles.flag}>IN</span>
               <span>
-                Hyperfit Studio, 2nd Floor, Main Street,<br />
-                Sector 12, Bangalore, India
-              </span>
-            </div>
-            <div className={styles.address}>
-              <span className={styles.flag}>🇦🇪</span>
-              <span>
-                Hyperfit Studio, Office 304,<br />
-                Dubai, United Arab Emirates
+                Phoenix Fitness Kannamangala, SBR Gokulam,<br />
+                6th Floor, Whitefield, Bengaluru-560067
               </span>
             </div>
           </div>
 
-          {/* Phone */}
           <div className={styles.block}>
             <p className={styles.blockLabel}>
-              Call or WhatsApp (Available 7 AM — 9 PM, all days):
+              Call or WhatsApp (Available 7 AM - 9 PM, all days):
             </p>
             <div className={styles.phones}>
-              <a href="tel:+911234567890" className={styles.phonePill}>
-                <span>🇮🇳</span>
-                <span>+91 12345 67890</span>
-              </a>
-              <a href="tel:+971123456789" className={styles.phonePill}>
-                <span>🇦🇪</span>
-                <span>+91 12345 67890</span>
+              <a href="tel:+919880537297" className={styles.phonePill}>
+                <span>IN</span>
+                <span>+91 9880537297</span>
               </a>
             </div>
           </div>
 
-          {/* Socials */}
           <div className={styles.block}>
             <p className={styles.blockLabel}>Follow us:</p>
             <div className={styles.socials}>
@@ -100,7 +141,7 @@ export default function AboutContact() {
           </div>
         </div>
 
-        {/* RIGHT — Contact Form */}
+        {/* RIGHT - Contact Form */}
         <div className={styles.rightCol}>
           <h2 className={styles.heading}>Send a message</h2>
 
@@ -110,85 +151,104 @@ export default function AboutContact() {
             Feel free to get in touch with us through the following contact options.
           </p>
 
-          <form className={styles.form} onSubmit={handleSubmit} noValidate>
-            {/* Name */}
+          <form className={styles.form} onSubmit={formik.handleSubmit} noValidate>
             <div className={styles.fieldFull}>
               <input
-                className={styles.input}
+                className={getInputClassName('name')}
                 type="text"
                 name="name"
-                placeholder="What's your name?"
-                value={form.name}
-                onChange={handleChange}
+                placeholder="What&apos;s your name?"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                aria-invalid={Boolean(getFieldError('name'))}
+                aria-describedby={getFieldError('name') ? 'about-name-error' : undefined}
                 autoComplete="name"
               />
+              {getFieldError('name') && <p id="about-name-error" className={styles.errorText}>{getFieldError('name')}</p>}
             </div>
 
-            {/* Email + Mobile */}
             <div className={styles.fieldRow}>
               <div className={styles.fieldHalf}>
                 <input
-                  className={styles.input}
+                  className={getInputClassName('email')}
                   type="email"
                   name="email"
-                  placeholder="What's your email?"
-                  value={form.email}
-                  onChange={handleChange}
+                  placeholder="What&apos;s your email?"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  aria-invalid={Boolean(getFieldError('email'))}
+                  aria-describedby={getFieldError('email') ? 'about-email-error' : undefined}
                   autoComplete="email"
                 />
+                {getFieldError('email') && <p id="about-email-error" className={styles.errorText}>{getFieldError('email')}</p>}
               </div>
               <div className={styles.fieldHalf}>
                 <input
-                  className={styles.input}
+                  className={getInputClassName('mobile')}
                   type="tel"
                   name="mobile"
-                  placeholder="What's your mobile number?"
-                  value={form.mobile}
-                  onChange={handleChange}
+                  placeholder="What&apos;s your mobile number?"
+                  value={formik.values.mobile}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  aria-invalid={Boolean(getFieldError('mobile'))}
+                  aria-describedby={getFieldError('mobile') ? 'about-mobile-error' : undefined}
                   autoComplete="tel"
                 />
+                {getFieldError('mobile') && <p id="about-mobile-error" className={styles.errorText}>{getFieldError('mobile')}</p>}
               </div>
             </div>
 
-            {/* Service */}
             <div className={styles.fieldFull}>
               <select
-                className={`${styles.input} ${styles.select}`}
+                className={`${getInputClassName('service')} ${styles.select}`}
                 name="service"
-                value={form.service}
-                onChange={handleChange}
+                value={formik.values.service}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                aria-invalid={Boolean(getFieldError('service'))}
+                aria-describedby={getFieldError('service') ? 'about-service-error' : undefined}
               >
                 <option value="" disabled hidden>Choose our services</option>
-                <option value="personal-training">Personal Training</option>
-                <option value="group-classes">Group Classes</option>
-                <option value="membership">Membership</option>
-                <option value="nutrition">Nutrition Coaching</option>
-                <option value="other">Other</option>
+                <option value="Personal Training">Personal Training</option>
+                <option value="Group Classes">Group Classes</option>
+                <option value="Membership">Membership</option>
+                <option value="Nutrition Coaching">Nutrition Coaching</option>
+                <option value="Other">Other</option>
               </select>
+              {getFieldError('service') && <p id="about-service-error" className={styles.errorText}>{getFieldError('service')}</p>}
             </div>
 
-            {/* Subject */}
             <div className={styles.fieldFull}>
               <input
-                className={styles.input}
+                className={getInputClassName('subject')}
                 type="text"
                 name="subject"
                 placeholder="Subject"
-                value={form.subject}
-                onChange={handleChange}
+                value={formik.values.subject}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                aria-invalid={Boolean(getFieldError('subject'))}
+                aria-describedby={getFieldError('subject') ? 'about-subject-error' : undefined}
               />
+              {getFieldError('subject') && <p id="about-subject-error" className={styles.errorText}>{getFieldError('subject')}</p>}
             </div>
 
-            {/* Submit */}
+            {formik.status?.message && (
+              <p className={styles.statusError}>{formik.status.message}</p>
+            )}
+
             <div className={styles.formFooter}>
-              <button type="submit" className={styles.sendBtn}>
-                <span>Send Message</span>
+              <button type="submit" className={styles.sendBtn} disabled={formik.isSubmitting}>
+                <span>{formik.isSubmitting ? 'Sending...' : 'Send Message'}</span>
                 <span className={styles.btnIcon}>
                   <ArrowUpRight size={18} strokeWidth={2} />
                 </span>
               </button>
               <p className={styles.emailNote}>
-                If you&apos;d rather get started with a mail — then write to us at{' '}
+                If you&apos;d rather get started with a mail - then write to us at{' '}
                 <a href="mailto:hello@phoenixfitness.com" className={styles.emailLink}>
                   hello@phoenixfitness.com
                 </a>

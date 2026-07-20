@@ -78,7 +78,7 @@ export default function AboutEliteAmenities() {
             </div>
             <div className={styles.leftImg}>
               <Image
-                src="/images/about/amentities1.png"
+                src="/images/about/amentities2.png"
                 alt="Gym training"
                 fill
                 sizes="(max-width: 992px) 50vw, 23vw"

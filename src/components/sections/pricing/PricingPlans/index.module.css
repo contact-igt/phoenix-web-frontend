@@ -5,7 +5,7 @@
   min-height: 980px;
   margin: 0 auto;
   padding: 58px 72px 70px;
-  border: 1px solid rgba(232, 64, 12, 0.82);
+  border: 1px solid rgba(170, 35, 24, 0.82);
   border-radius: 88px;
   background-color: #050505;
   background-image: url('/images/pricing/planoptions_bgimage.png');
@@ -814,3 +814,42 @@
   }
 }
 
+
+/* Pricing plans: dots only carousel control */
+.carousel-nav-btn,
+.left,
+.right {
+  display: none;
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 48px;
+}
+
+.carousel-dot {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  border: 2px solid var(--color-primary);
+  background: transparent;
+}
+
+.carousel-dot.active,
+.active {
+  background: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .carousel-dots {
+    margin-top: 34px;
+  }
+}
+
+/* Anchor target offset for journey arrow */
+.pricing-plans-section {
+  scroll-margin-top: 112px;
+}
