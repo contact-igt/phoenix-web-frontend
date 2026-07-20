@@ -24,6 +24,8 @@ const INITIAL_VALUES = {
   goal: '',
 }
 
+export type TrialFormValues = typeof INITIAL_VALUES
+
 const trialSchema = Yup.object({
   name: Yup.string()
     .trim()
@@ -41,13 +43,22 @@ const trialSchema = Yup.object({
   goal: Yup.string().trim().max(500, 'Fitness goal must be 500 characters or less.'),
 })
 
-type TrialFormField = keyof typeof INITIAL_VALUES
+type TrialFormField = keyof TrialFormValues
 
-export default function ContactTrialSection() {
+type ContactTrialSectionProps = {
+  initialValues?: Partial<TrialFormValues>
+}
+
+export default function ContactTrialSection({ initialValues }: ContactTrialSectionProps) {
   const router = useRouter()
+  const resolvedInitialValues = {
+    ...INITIAL_VALUES,
+    ...initialValues,
+  }
 
   const formik = useFormik({
-    initialValues: INITIAL_VALUES,
+    initialValues: resolvedInitialValues,
+    enableReinitialize: true,
     validationSchema: trialSchema,
     validateOnBlur: true,
     validateOnChange: true,
@@ -229,3 +240,4 @@ export default function ContactTrialSection() {
     </section>
   )
 }
+
