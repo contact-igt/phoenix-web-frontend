@@ -1,4 +1,4 @@
-﻿/* src/components/sections/home/ProgramsSection/index.module.css */
+/* src/components/sections/home/ProgramsSection/index.module.css */
 
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION WRAPPER
@@ -64,7 +64,7 @@
    Uses new --fs-section-label token
 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .programsLabel {
-  font-family: var(--font-subtitle); /* Open Sans */
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: var(--fs-section-label); /* 36px â€” new token */
   font-size: var(--section-responsive-subtitle-size);
   font-weight: 300;
@@ -111,14 +111,14 @@
 
 /* Orange variant â€” "FUNCTIONAL TRAINING," and "PERSONAL COACHING" */
 .programItemOrange {
-  color: var(--color-program-orange); /* #E8400C */
+  color: var(--color-program-orange); /* #AA2318 */
 }
 
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    BODY PARAGRAPH
 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .programsBody {
-  font-family: var(--font-subtitle); /* Open Sans */
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: var(--fs-body); /* 18px */
   font-weight: 300;
   color: rgba(255, 255, 255, 0.6); /* semi-transparent white */
@@ -149,13 +149,14 @@
   padding: 0 32px;
   border-radius: var(--radius-full); /* 999px pill */
   border: 2px solid var(--color-primary);
-  background-color: var(--color-primary); /* #E8400C */
+  background-color: var(--color-primary); /* #AA2318 */
   color: var(--color-white);
-  font-family: var(--font-subtitle);
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
+  text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.3px;
+  letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
   transition:
@@ -182,11 +183,12 @@
   border: 2px solid rgba(255, 255, 255, 0.4);
   background-color: transparent;
   color: var(--color-white);
-  font-family: var(--font-subtitle);
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
+  text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.3px;
+  letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
   transition:

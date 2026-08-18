@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
@@ -9,10 +9,10 @@ import Button from '../../ui/Button'
 
 const navLinks = [
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/#services' },
-  { label: 'Pricing', href: '/#pricing' },
+  { label: 'Services', href: '/services' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Testimonials', href: '/#testimonials' },
-  { label: 'FAQ', href: '/#faq' },
+  { label: 'FAQ', href: '/about#faq' },
 ]
 
 export default function Navbar() {
@@ -65,10 +65,10 @@ export default function Navbar() {
         </nav>
 
         <div className={styles.actions}>
-          <Button variant="white" pill href="/#contact" className={styles.contactBtn}>
+          <Button variant="white" pill href="/contact" className={styles.contactBtn}>
             Contact us
           </Button>
-          <Link href="/#contact" className={styles.arrowBtn} aria-label="Contact us">
+          <Link href="/contact" className={styles.arrowBtn} aria-label="Contact us">
             <ArrowUpRight size={25} strokeWidth={2} />
           </Link>
 
@@ -96,7 +96,7 @@ export default function Navbar() {
             </Link>
           ))}
           <div className={styles.mobileCta}>
-            <Button variant="primary" pill href="/#contact" onClick={closeMobileMenu}>
+            <Button variant="primary" pill href="/contact" onClick={closeMobileMenu}>
               Contact us
             </Button>
           </div>

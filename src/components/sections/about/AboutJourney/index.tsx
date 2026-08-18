@@ -1,4 +1,7 @@
 ﻿import Image from 'next/image'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { STAGGER } from '@/lib/animation/gsap'
 import styles from './AboutJourney.module.css'
 
 type Milestone = {
@@ -12,17 +15,17 @@ type Milestone = {
 }
 
 const centerTimeline: Milestone[] = [
-  { marker: '01', year: '2010', yearLabel: 'YEAR 1', titleWhite: 'PHOENIX FITNESS', titleOrange: 'FOUNDED', image: '/images/about/journey1.png', caption: 'First Gym - Ramamurthy Nagar, Bangalore' },
-  { marker: '02', year: '2011', yearLabel: 'YEAR 2', titleWhite: 'BUILDING THE PHOENIX', titleOrange: 'COMMUNITY', image: '/images/about/journey1.png', caption: 'Membership growth & local recognition' },
-  { marker: '03', year: '2012', yearLabel: 'YEAR 3', titleWhite: 'SECOND BRANCH', titleOrange: 'LAUNCHED', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Pai Layout, Bangalore' },
-  { marker: '04', year: '2018', yearLabel: 'YEAR 8', titleWhite: 'FOURTH GYM', titleOrange: 'LAUNCHED', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Seegehalli, Bangalore' },
+  { marker: '01', year: '2010', yearLabel: 'YEAR 1', titleWhite: 'PHOENIX FITNESS', titleOrange: 'FOUNDED', image: '/images/about/2010.png', caption: 'First Gym - Ramamurthy Nagar, Bangalore' },
+  { marker: '02', year: '2011', yearLabel: 'YEAR 2', titleWhite: 'BUILDING THE PHOENIX', titleOrange: 'COMMUNITY', image: '/images/about/2011.png', caption: 'Membership growth & local recognition' },
+  { marker: '03', year: '2012', yearLabel: 'YEAR 3', titleWhite: 'SECOND BRANCH', titleOrange: 'LAUNCHED', image: '/images/about/2012.png', caption: 'Phoenix Fitness - Pai Layout, Bangalore' },
+  { marker: '04', year: '2018', yearLabel: 'YEAR 8', titleWhite: 'FOURTH GYM', titleOrange: 'LAUNCHED', image: '/images/about/2018.png', caption: 'Phoenix Fitness - Seegehalli, Bangalore' },
 ]
 
 const leftTimeline: Milestone[] = [
-  { marker: '01', year: '2016', yearLabel: 'YEAR 6', titleWhite: 'THIRD MAJOR LOCATION', titleOrange: 'LAUNCHED', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Hope Farm, Whitefield' },
-  { marker: '02', year: '2019', yearLabel: 'YEAR 9', titleWhite: 'MULTI-CITY EXPANSION', titleOrange: 'BEGINS', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Kompally, Hyderabad & Nallurhalli, Bangalore' },
-  { marker: '03', year: '2025', yearLabel: 'YEAR 15', titleWhite: 'NEW BRANCH', titleOrange: 'LAUNCHED', image: '/images/about/journey1.png', caption: 'Phoenix Fitness - Budigere Bommenahalli, Bangalore' },
-  { marker: '04', year: '2026', yearLabel: 'YEAR 16', titleWhite: 'BRAND GROWTH', titleOrange: 'PHASE', image: '/images/about/journey1.png', caption: 'Preparing for future expansion' },
+  { marker: '01', year: '2016', yearLabel: 'YEAR 6', titleWhite: 'THIRD MAJOR LOCATION', titleOrange: 'LAUNCHED', image: '/images/about/2016.png', caption: 'Phoenix Fitness - Hope Farm, Whitefield' },
+  { marker: '02', year: '2019', yearLabel: 'YEAR 9', titleWhite: 'MULTI-CITY EXPANSION', titleOrange: 'BEGINS', image: '/images/about/2019.png', caption: 'Phoenix Fitness - Kompally, Hyderabad & Nallurhalli, Bangalore' },
+  { marker: '03', year: '2025', yearLabel: 'YEAR 15', titleWhite: 'NEW BRANCH', titleOrange: 'LAUNCHED', image: '/images/about/2025.png', caption: 'Phoenix Fitness - Budigere Bommenahalli, Bangalore' },
+  { marker: '04', year: '2026', yearLabel: 'YEAR 16', titleWhite: 'BRAND GROWTH', titleOrange: 'PHASE', image: '/images/about/2026.png', caption: 'Preparing for future expansion' },
 ]
 
 const mobileTimeline = [centerTimeline[0], centerTimeline[1], centerTimeline[2], leftTimeline[0], centerTimeline[3], leftTimeline[1], leftTimeline[2], leftTimeline[3]]
@@ -62,17 +65,17 @@ export default function AboutJourney() {
   const leftRemaining = leftTimeline.slice(1)
 
   return (
-    <section className={styles.section} aria-labelledby="journey-heading">
+    <section id="journey" className={styles.section} aria-labelledby="journey-heading">
       <Image src="/images/about/journey_logo.png" alt="" width={620} height={588} className={styles.watermark} aria-hidden="true" />
 
       <div className={styles.inner}>
-        <h2 id="journey-heading" className={styles.sectionHeading}>
+        <Reveal as="h2" id="journey-heading" className={styles.sectionHeading} variant="fade-up">
           <span className={styles.headingOrange}>Our 16 Year</span>
           <span className={styles.headingWhite}>Journey</span>
-        </h2>
+        </Reveal>
 
         <div className={styles.desktopTimeline}>
-          <div className={styles.centerTimeline}>
+          <Stagger as="div" className={styles.centerTimeline} variant="fade-up" staggerAmount={STAGGER.loose}>
             {centerLead.map((milestone, index) => (
               <article key={milestone.year} className={`${styles.centerItem} ${index % 2 === 1 ? styles.darkBand : ''}`}>
                 <div className={styles.centerHeading}><MilestoneHeading milestone={milestone} /></div>
@@ -80,9 +83,9 @@ export default function AboutJourney() {
                 <MilestoneMedia milestone={milestone} />
               </article>
             ))}
-          </div>
+          </Stagger>
 
-          <div className={styles.transitionRow}>
+          <Stagger as="div" className={styles.transitionRow} variant="fade-up" staggerAmount={STAGGER.loose}>
             <article className={styles.transitionLeft}>
               <div className={styles.transitionLeftHeading}><MilestoneHeading milestone={leftFirst} inline /></div>
               <div className={styles.leftRail}><TimelineBadge marker={leftFirst.marker} /></div>
@@ -94,9 +97,9 @@ export default function AboutJourney() {
               <div className={styles.centerRail}><TimelineBadge marker={centerFinal.marker} /></div>
               <MilestoneMedia milestone={centerFinal} />
             </article>
-          </div>
+          </Stagger>
 
-          <div className={styles.leftTimeline}>
+          <Stagger as="div" className={styles.leftTimeline} variant="fade-up" staggerAmount={STAGGER.loose}>
             {leftRemaining.map((milestone, index) => (
               <article key={milestone.year} className={`${styles.leftItem} ${index % 2 === 1 ? styles.darkBand : ''}`}>
                 <div className={styles.leftRail}><TimelineBadge marker={milestone.marker} /></div>
@@ -104,10 +107,10 @@ export default function AboutJourney() {
                 <div className={styles.leftHeading}><MilestoneHeading milestone={milestone} inline /></div>
               </article>
             ))}
-          </div>
+          </Stagger>
         </div>
 
-        <div className={styles.mobileTimeline}>
+        <Stagger as="div" className={styles.mobileTimeline} variant="fade-up" staggerAmount={STAGGER.tight}>
           {mobileTimeline.map((milestone, index) => (
             <article key={`${milestone.year}-${index}`} className={styles.mobileItem}>
               <div className={styles.mobileRail}><TimelineBadge marker={String(index + 1).padStart(2, '0')} /></div>
@@ -117,8 +120,10 @@ export default function AboutJourney() {
               </div>
             </article>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )
 }
+
+

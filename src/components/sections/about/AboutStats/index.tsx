@@ -1,4 +1,7 @@
 ﻿import Image from 'next/image'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { STAGGER } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
 const logos = Array.from({ length: 6 }, (_, index) => ({
@@ -11,8 +14,8 @@ export default function AboutStats() {
   return (
     <section className={styles.stats} aria-label="Trusted by enterprise leaders">
       <div className={styles.inner}>
-        <p className={styles.label}>Trusted by enterprise leaders:</p>
-        <div className={styles.logoTrack} aria-hidden="true">
+        <Reveal as="p" className={styles.label} variant="fade-up">Trusted by enterprise leaders:</Reveal>
+        <Stagger as="div" className={styles.logoTrack} variant="fade" distance={12} staggerAmount={STAGGER.tight} aria-hidden="true">
           {logos.map((logo) => (
             <span className={styles.logoSlot} key={logo.id}>
               <Image
@@ -24,7 +27,7 @@ export default function AboutStats() {
               />
             </span>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )

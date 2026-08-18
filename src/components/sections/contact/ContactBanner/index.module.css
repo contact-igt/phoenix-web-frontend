@@ -1,0 +1,419 @@
+/* ============================================================
+   ContactBanner Ã¢â‚¬â€ Full-bleed hero
+   Figma: Section-Hero Ã¢â‚¬â€ 1920 Ãƒâ€” 1200px
+   Layout: topGroup (eyebrow + title) at banner-top,
+           bottomGroup (description + CTAs) at banner-bottom.
+   ============================================================ */
+
+/* -- Section shell --
+   Figma height: 1200px at 1920px frame.
+   Below 1920px we keep it fluid with a min-height floor.     */
+.banner {
+  position: relative;
+  margin-top: 96px;
+  /* Same height formula used by About / Services / Pricing banners */
+  height: clamp(668px, calc(100vh - 96px), 900px);
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #090909;
+  /* Flex stretches .content to full banner height */
+  display: flex;
+  align-items: stretch;
+}
+
+/* -- Full-bleed background image -- */
+.bannerImage {
+  object-fit: cover;
+  object-position: center center;
+  z-index: -2;
+  animation: bannerZoom 1.8s ease-out forwards;
+}
+
+@keyframes bannerZoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* -- Dual-gradient scrim overlay (centre-vignette) -- */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.50) 0%,
+      rgba(0, 0, 0, 0.22) 42%,
+      rgba(0, 0, 0, 0.58) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.38) 0%,
+      rgba(0, 0, 0, 0.14) 50%,
+      rgba(0, 0, 0, 0.38) 100%
+    );
+}
+
+/* -- Content container Ã¢â‚¬â€
+   Stretches full banner height so justify-content: space-between
+   places topGroup at the top and bottomGroup at the bottom.    */
+.content {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 64px, 1400px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  /* Figma: title area starts ~80px from top; CTAs end ~100px from bottom */
+  padding: 80px 0 100px;
+}
+
+/* -- TOP GROUP: Eyebrow + Title -- */
+.topGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* -- BOTTOM GROUP: Description + CTAs -- */
+.bottomGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Eyebrow label Ã¢â€â‚¬Ã¢â€â‚¬
+   Figma: white, Satoshi 700, centered.                        */
+.eyebrow {
+  /* Use the full Satoshi stack: Satoshi Ã¢â€ â€™ Plus Jakarta Sans Ã¢â€ â€™ system */
+  font-family: var(--font-satoshi);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  margin: 0 0 14px;
+  letter-spacing: 0.02em;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ H1 Title Ã¢â€â‚¬Ã¢â€â‚¬
+   Figma: Satoshi 900 (Black), 200px, line-height 0.84 ratio,
+   letter-spacing -1.28px.
+   Gradient: rgba(170,35,24) top to rgba(143,29,20) bottom (180Ã‚Â°).
+   NOTE: The global h1 rule applies Bebas Neue via --font-heading;
+   we override here explicitly with the full Satoshi fallback stack. */
+.title {
+  font-family: var(--font-satoshi);
+  font-size: clamp(64px, 9vw, 172px);
+  font-weight: 900;
+  line-height: 0.84;
+  letter-spacing: -1.28px;
+  text-transform: none;
+  margin: 0;
+  white-space: nowrap;
+  background: linear-gradient(
+    180deg,
+    rgba(170, 35, 24, 1)  0%,
+    rgba(143, 29, 20, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Description body copy Ã¢â€â‚¬Ã¢â€â‚¬ */
+.description {
+  max-width: 420px;
+  font-family: var(--font-satoshi);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #ffffff;
+  margin: 0 auto 22px;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ CTA action row Ã¢â€â‚¬Ã¢â€â‚¬ */
+.actionsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Shared button base (pill + icon circles) Ã¢â€â‚¬Ã¢â€â‚¬ */
+.joinButton,
+.videoButton,
+.roundButton,
+.playButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border-radius: 999px;
+  font-family: var(--font-satoshi);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.joinButton:hover,
+.roundButton:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.videoButton:hover,
+.playButton:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  transform: translateY(-1px);
+}
+
+/* -- White filled pill: JOIN US -- */
+.joinButton {
+  min-width: 120px;
+  padding: 0 26px;
+  color: #111111;
+  background-color: #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+/* -- Icon circles -- */
+.roundButton,
+.playButton {
+  width: 48px;
+  flex: 0 0 48px;
+}
+
+.roundButton {
+  color: #111111;
+  background-color: #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+  /* margin-left: 6px; */
+}
+
+/* -- Outlined pill: WATCH VIDEO -- */
+.videoButton {
+  min-width: 155px;
+  padding: 0 26px;
+  margin-left: 16px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* -- Outlined circle: play -- */
+.playButton {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.03);
+  /* margin-left: 6px; */
+}
+
+/* ============================================================
+   Responsive Ã¢â‚¬â€ breakpoints: 1400 / 1200 / 992 / 768 / 576 / 390
+   ============================================================ */
+
+@media (min-width: 1400px) {
+  .content {
+    width: min(100% - 96px, 1400px);
+  }
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ 1200px: scale banner down, shrink title Ã¢â€â‚¬Ã¢â€â‚¬ */
+@media (max-width: 1200px) {
+  .banner {
+    height: clamp(620px, calc(100vh - 96px), 860px);
+  }
+
+  .content {
+    width: calc(100% - 80px);
+    padding: 100px 0 88px;
+  }
+
+  .eyebrow {
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: clamp(120px, 12.5vw, 180px);
+  }
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ 992px: navbar collapses (78px), reduce banner Ã¢â€â‚¬Ã¢â€â‚¬ */
+@media (max-width: 992px) {
+  .banner {
+    margin-top: 78px;
+    height: clamp(580px, calc(100vh - 78px), 820px);
+  }
+
+  .content {
+    width: calc(100% - 48px);
+    padding: 88px 0 80px;
+  }
+
+  .title {
+    font-size: clamp(96px, 11vw, 140px);
+  }
+}
+
+/* ── 768px: mobile header (70px), tighter layout ── */
+@media (max-width: 768px) {
+  .banner {
+    margin-top: 70px;
+    height: clamp(460px, 62vh, 540px);
+  }
+
+  .bannerImage {
+    object-position: center 35%;
+  }
+
+  .scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.56) 0%,
+        rgba(0, 0, 0, 0.28) 45%,
+        rgba(0, 0, 0, 0.68) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.42) 0%,
+        rgba(0, 0, 0, 0.18) 50%,
+        rgba(0, 0, 0, 0.42) 100%
+      );
+  }
+
+  .content {
+    padding: 40px 0 32px;
+  }
+
+  .eyebrow {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    font-size: clamp(56px, 12vw, 90px);
+    line-height: 0.84;
+  }
+
+  .joinButton,
+  .videoButton,
+  .roundButton,
+  .playButton {
+    height: 40px;
+    font-size: 11px;
+  }
+
+  .roundButton,
+  .playButton {
+    width: 40px;
+    flex: 0 0 40px;
+  }
+
+  .actionsRow {
+    height: 40px;
+  }
+
+  .description {
+    font-size: 11px;
+    max-width: min(100%, 300px);
+    margin-bottom: 14px;
+  }
+}
+
+/* ── 576px: fixed reduced height, 2-col CTA grid ── */
+@media (max-width: 576px) {
+  .banner {
+    height: 440px;
+  }
+
+  .content {
+    width: calc(100% - 32px);
+    padding: 32px 0 28px;
+  }
+
+  .title {
+    max-width: 100%;
+    font-size: clamp(48px, 13vw, 70px);
+    line-height: 0.84;
+    white-space: normal;
+  }
+
+  .description {
+    width: 100%;
+    max-width: 290px;
+    margin-bottom: 12px;
+  }
+
+  /* 2-column grid: pill | icon — centred for both CTA rows */
+  .actionsRow {
+    display: grid;
+    grid-template-columns: auto 40px;
+    justify-content: center;
+    column-gap: 6px;
+    width: 100%;
+    height: auto;
+    row-gap: 10px;
+  }
+
+  .videoButton,
+  .roundButton,
+  .playButton {
+    margin-left: 0;
+  }
+}
+
+/* ── 390px: smallest phones ── */
+@media (max-width: 390px) {
+  .banner {
+    height: 400px;
+  }
+
+  .content {
+    width: calc(100% - 28px);
+    padding: 24px 0 20px;
+  }
+
+  .eyebrow {
+    font-size: 15px;
+  }
+
+  .title {
+    font-size: clamp(42px, 14vw, 54px);
+    line-height: 0.84;
+  }
+
+  .joinButton,
+  .videoButton {
+    min-width: 120px;
+    padding: 0 16px;
+  }
+
+  .actionsRow {
+    row-gap: 8px;
+    column-gap: 6px;
+  }
+
+  .videoButton,
+  .playButton {
+    height: 36px;
+  }
+
+  .playButton {
+    width: 36px;
+    flex-basis: 36px;
+  }
+}

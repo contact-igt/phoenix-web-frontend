@@ -1,4 +1,4 @@
-﻿.section {
+.section {
   background: #0a0a0a;
   width: 100%;
   padding: 100px 0 120px;
@@ -24,7 +24,7 @@
   font-family: var(--font-satoshi);
   font-size: clamp(56px, 6vw, 80px);
   font-weight: 400;
-  color: #e8400c;
+  color: #AA2318;
 }
 
 .headingWhite {
@@ -93,21 +93,13 @@
 
 .plusOpen {
   transform: rotate(45deg);
-  background: #e8400c;
+  background: #AA2318;
   color: #ffffff;
 }
 
-/* ANSWER PANEL */
+/* ANSWER PANEL — height/opacity are animated directly by AccordionPanel (GSAP) */
 .panel {
-  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease, opacity 0.3s ease;
-  opacity: 0;
-}
-
-.panelOpen {
-  max-height: 300px;
-  opacity: 1;
 }
 
 .answer {

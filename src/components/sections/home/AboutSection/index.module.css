@@ -72,7 +72,7 @@
 }
 
 .aboutSubtitle {
-  font-family: var(--font-subtitle);         /* Wide standard Open Sans matching reference geometric shapes */
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: var(--section-responsive-subtitle-size);
   font-weight: 300;
   color: var(--color-subtitle);
@@ -98,11 +98,10 @@
 }
 
 .aboutBody {
-  font-family: var(--font-subtitle);
-  /* Open Sans Condensed */
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: var(--fs-body);
   /* 18px */
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-text-muted);
   /* #888888 */
   line-height: 1.6;
@@ -129,13 +128,14 @@
   /* 999px pill */
   border: 2px solid var(--color-primary);
   background-color: var(--color-primary);
-  /* #E8400C */
+  /* #AA2318 */
   color: var(--color-white);
-  font-family: var(--font-subtitle);
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
+  text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.3px;
+  letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -143,7 +143,7 @@
 
 .btnPrimary:hover {
   background-color: var(--color-primary-hover);
-  /* #C93509 */
+  /* #8F1D14 */
   border-color: var(--color-primary-hover);
 }
 
@@ -158,11 +158,12 @@
   border: 2px solid rgba(255, 255, 255, 0.4);
   background-color: transparent;
   color: var(--color-white);
-  font-family: var(--font-subtitle);
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
+  text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.3px;
+  letter-spacing: 0;
   white-space: nowrap;
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -173,9 +174,9 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* ──────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    RESPONSIVE BREAKPOINTS
-   ────────────────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 1400px) {
   .aboutInner {
     gap: 56px;
@@ -221,7 +222,7 @@
 @media (max-width: 992px) {
   .aboutInner {
     gap: var(--space-lg);
-    /* 48px — reduce column gap */
+    /* 48px â€” reduce column gap */
     padding: var(--space-lg) var(--container-pad);
   }
 
@@ -274,7 +275,7 @@
     height: 425px;
     align-self: flex-end;
     margin-top: -100px;
-    /* remove overlap — side by side instead */
+    /* remove overlap â€” side by side instead */
     margin-right: 0px;
   }
 

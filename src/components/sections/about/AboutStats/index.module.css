@@ -95,3 +95,64 @@
 
 
 
+
+/* Trusted logos tablet/laptop responsive correction */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .stats {
+    height: auto;
+    min-height: 96px;
+    overflow: hidden;
+  }
+
+  .inner {
+    width: calc(100% - 56px);
+    min-height: 96px;
+    padding: 16px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 14px 24px;
+  }
+
+  .label {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+
+  .logoTrack {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 28px;
+  }
+
+  .logoSlot {
+    width: 100px;
+    height: 28px;
+  }
+
+  .logo {
+    max-width: 100px;
+    max-height: 28px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .inner {
+    width: calc(100% - 40px);
+  }
+
+  .logoTrack {
+    gap: 14px 22px;
+  }
+
+  .logoSlot {
+    width: 92px;
+  }
+
+  .logo {
+    max-width: 92px;
+  }
+}

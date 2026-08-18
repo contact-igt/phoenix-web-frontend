@@ -37,8 +37,8 @@ export default function Contact() {
             <p className={styles.cardText}>
               Need info or support? We&apos;re here to help you start strong.
             </p>
-            <a href="mailto:info@phoenixfitness.com" className={styles.link}>
-              info@phoenixfitness.com
+            <a href="mailto:info@phoenix-fitness.in" className={styles.link}>
+              info@phoenix-fitness.in
             </a>
           </div>
 
@@ -63,7 +63,7 @@ export default function Contact() {
             <p className={styles.cardText}>
               Reach us Monday to Friday, 8am&ndash;5pm.
             </p>
-            <span className={styles.boldText}>+91 7795 537 297</span>
+            <a href="tel:+917795537297" className={`${styles.link} ${styles.boldText}`}>+91 7795 537 297</a>
           </div>
 
           {/* Column 3: Stop by our Gym */}
@@ -89,12 +89,12 @@ export default function Contact() {
               Visit us and join our welcoming community.
             </p>
             <a
-              href="https://maps.google.com/?q=Village+Main+Rd,+Palm+Meadows,+Whitefield,+Bengaluru+560066"
+              href="https://maps.app.goo.gl/JN8m7zPCVrbqKzGA8"
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.link} ${styles.boldText}`}
             >
-              Village Main Rd, Palm Meadows, Whitefield, Bengaluru 560066
+              ISIRI HUB , First Floor,Near Coldman, Bommenahalli village, Hobli, Bidarahalli, Bengaluru, Karnataka 560049
             </a>
           </div>
         </div>

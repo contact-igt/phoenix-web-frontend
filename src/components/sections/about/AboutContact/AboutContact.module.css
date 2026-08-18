@@ -1,4 +1,4 @@
-﻿.section {
+.section {
   background: #0a0a0a;
   width: 100%;
   padding: 100px 0 120px;
@@ -66,6 +66,12 @@
   font-weight: 500;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.80);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.address:hover {
+  color: #ffffff;
 }
 
 .flag {
@@ -215,14 +221,17 @@
 .sendBtn span:first-child {
   display: inline-flex;
   align-items: center;
-  padding: 14px 28px;
+  justify-content: center;
+  height: 42px;
+  min-width: 157px;
+  padding: 0 25px;
   background: #ffffff;
   border-radius: 999px;
   font-family: var(--font-satoshi);
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 800;
   color: #0a0a0a;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   text-transform: uppercase;
   transition: background 0.2s ease;
 }
@@ -231,8 +240,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 39px;
+  height: 39px;
+  flex: 0 0 39px;
   background: #ffffff;
   border-radius: 50%;
   color: #0a0a0a;
@@ -241,7 +251,7 @@
 
 .sendBtn:hover span:first-child,
 .sendBtn:hover .btnIcon {
-  background: #e8400c;
+  background: #AA2318;
   color: #ffffff;
 }
 
@@ -255,7 +265,7 @@
 }
 
 .emailLink {
-  color: #e8400c;
+  color: #AA2318;
   text-decoration: none;
 }
 
@@ -316,4 +326,34 @@
   .socialLink { font-size: 14px; }
   .sendBtn { max-width: 100%; }
   .sendBtn span:first-child { padding-inline: 22px; }
+}
+.inputError {
+  border-bottom-color: #AA2318 !important;
+}
+
+.errorText {
+  margin: 6px 0 0;
+  font-family: var(--font-satoshi);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffb39f;
+}
+
+.statusError {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(170, 35, 24, 0.4);
+  border-radius: 8px;
+  background: rgba(170, 35, 24, 0.14);
+  font-family: var(--font-satoshi);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffcabf;
+}
+
+.sendBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
 }

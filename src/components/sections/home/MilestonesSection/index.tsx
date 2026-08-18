@@ -1,18 +1,7 @@
-﻿import styles from './index.module.css'
-
-// interface StatItem {
-//   value: string
-//   label: string
-// }
-// 
-// const stats: StatItem[] = [
-//   { value: '500K', label: 'Workouts crushed together' },
-//   { value: '95%', label: 'Members achieving real results' },
-//   { value: '2,400', label: 'Journeys proudly shared' },
-//   { value: '1.2M', label: 'Calories burned every month' },
-//   { value: '88%', label: 'Stories of positive change' },
-//   { value: '3,500', label: 'Group sessions that lift you up' },
-// ]
+﻿import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import Counter from '@/components/animation/Counter'
+import styles from './index.module.css'
 
 export default function MilestonesSection() {
   return (
@@ -21,7 +10,7 @@ export default function MilestonesSection() {
         <div className={styles.flexLayout}>
           {/* Left Column */}
           <div className={styles.leftCol}>
-            <div className={styles.titleBlock}>
+            <Reveal as="div" className={styles.titleBlock} variant="fade-up">
               <span className={styles.eyebrow}>
                 Community<br />
                 Milestones
@@ -33,40 +22,40 @@ export default function MilestonesSection() {
               <p className={styles.description}>
                 Every number tells a transformation story
               </p>
-            </div>
-            
-            <div className={styles.leftStats}>
+            </Reveal>
+
+            <Stagger as="div" className={styles.leftStats} variant="fade-up">
               <div className={styles.statCard}>
-                <div className={styles.statValue}>2,400</div>
+                <Counter value="2,400" className={styles.statValue} />
                 <div className={styles.statLabel}>Journeys proudly shared</div>
               </div>
               <div className={styles.statCard}>
-                <div className={styles.statValue}>1.2M</div>
+                <Counter value="1.2M" className={styles.statValue} />
                 <div className={styles.statLabel}>Calories burned every month</div>
               </div>
-            </div>
+            </Stagger>
           </div>
 
           {/* Right Column */}
           <div className={styles.rightCol}>
-            <div className={styles.rightStatsGrid}>
+            <Stagger as="div" className={styles.rightStatsGrid} variant="scale">
               <div className={styles.statCard}>
-                <div className={styles.statValue}>500K</div>
+                <Counter value="500K" className={styles.statValue} />
                 <div className={styles.statLabel}>Workouts crushed together</div>
               </div>
               <div className={styles.statCard}>
-                <div className={styles.statValue}>95%</div>
+                <Counter value="95%" className={styles.statValue} />
                 <div className={styles.statLabel}>Members achieving real results</div>
               </div>
               <div className={styles.statCard}>
-                <div className={styles.statValue}>88%</div>
+                <Counter value="88%" className={styles.statValue} />
                 <div className={styles.statLabel}>Stories of positive change</div>
               </div>
               <div className={styles.statCard}>
-                <div className={styles.statValue}>3,500</div>
+                <Counter value="3,500" className={styles.statValue} />
                 <div className={styles.statLabel}>Group sessions that lift you up</div>
               </div>
-            </div>
+            </Stagger>
           </div>
         </div>
       </div>
