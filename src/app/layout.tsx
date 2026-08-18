@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { Bebas_Neue, Open_Sans, Plus_Jakarta_Sans, Archivo_Narrow } from 'next/font/google'
+import 'slick-carousel/slick/slick.css'
 import '../styles/globals.css'
 import '../styles/typography.css'
 import './globals.css'
+import PageTransition from '../components/animation/PageTransition'
 
 const bebasNeue = Bebas_Neue({
   weight: ['400'],
@@ -58,7 +60,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {children}
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   )

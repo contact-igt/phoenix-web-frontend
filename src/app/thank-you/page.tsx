@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { ArrowUpRight, Check } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import MarketingFooter from '@/components/sections/shared/MarketingFooter'
+import Stagger from '@/components/animation/Stagger'
+import { DURATION, STAGGER } from '@/lib/animation/gsap'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ export default function ThankYouPage() {
             className={styles.heroImage}
           />
           <div className={styles.heroScrim} aria-hidden="true" />
-          <div className={styles.heroContent}>
+          <Stagger as="div" className={styles.heroContent} variant="fade-up" duration={DURATION.hero} staggerAmount={0.12}>
             <p className={styles.heroEyebrow}>Free trial request</p>
             <h1 id="thank-hero-title" className={styles.heroTitle}>
               Thank you
@@ -35,12 +37,12 @@ export default function ThankYouPage() {
             <p className={styles.heroCopy}>
               We received your details. Our team will contact you shortly to confirm your preferred branch and time slot.
             </p>
-          </div>
+          </Stagger>
         </section>
 
         <section className={styles.thankSection} aria-labelledby="thank-you-title">
           <div className={styles.bgMark} aria-hidden="true" />
-          <div className={styles.inner}>
+          <Stagger as="div" className={styles.inner} variant="fade-up" staggerAmount={STAGGER.normal}>
             <div className={styles.checkBadge} aria-hidden="true">
               <Check size={46} strokeWidth={3.2} />
             </div>
@@ -74,7 +76,7 @@ export default function ThankYouPage() {
                 Call +91 9880537297
               </Link>
             </p>
-          </div>
+          </Stagger>
         </section>
       </main>
       <MarketingFooter />

@@ -11,14 +11,14 @@ const navLinks = {
     logo: "#",
     about: "/about",
     testimonials: "#faq",
-    faq: "#faq",
+    faq: "/about#faq",
     contact: "#contact",
   },
   pricing: {
     logo: "/",
     about: "/about",
     testimonials: "/#testimonials",
-    faq: "/#faq",
+    faq: "/about#faq",
     contact: "/#contact",
   },
 }

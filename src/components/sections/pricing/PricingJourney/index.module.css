@@ -817,6 +817,13 @@
   font-size: 28px;
   font-weight: 800;
   line-height: 1;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.journey-contactValue:hover {
+  color: var(--color-primary);
 }
 
 .journey-contactAddress {

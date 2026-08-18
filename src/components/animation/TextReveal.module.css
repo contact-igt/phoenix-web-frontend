@@ -1,0 +1,11 @@
+.unit {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.unitInner {
+  display: inline-block;
+  white-space: pre;
+  will-change: transform, opacity;
+}

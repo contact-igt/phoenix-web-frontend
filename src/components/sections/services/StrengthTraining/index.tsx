@@ -1,4 +1,7 @@
-﻿import styles from './index.module.css'
+﻿import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { DURATION, STAGGER } from '@/lib/animation/gsap'
+import styles from './index.module.css'
 export default function StrengthTraining() {
   return (
         <section id="strength" className={`${styles["section"]} ${styles["strength-section"]}`}>
@@ -11,7 +14,7 @@ export default function StrengthTraining() {
             <div className={`${styles["section-grid"]} ${styles["strength-grid-container"]}`}>
 
               {/* Left Column: Info, Description, Custom Tags */}
-              <div className={`${styles["section-info"]} ${styles["strength-info"]}`}>
+              <Stagger as="div" className={`${styles["section-info"]} ${styles["strength-info"]}`} variant="fade-up" staggerAmount={STAGGER.normal}>
                 <span className={styles["strength-tag-label"]}>OUR SERVICES</span>
                 <h2 className={`${styles["section-title"]} ${styles["strength-title"]}`}>
                   <span className={styles["highlight"]}>STRENGTH</span> TRAINING
@@ -36,11 +39,11 @@ export default function StrengthTraining() {
                     <span className={styles["orange-word"]}>PERFORMANCE</span> <span className={styles["white-word"]}>TRAINING.</span>
                   </div>
                 </div>
-              </div>
+              </Stagger>
 
               {/* Right Column: 2x2 Media Grid with Overlaid Quote Banner */}
-              <div className={styles["strength-media-wrapper"]}>
-                <div className={styles["strength-2x2-grid"]}>
+              <Reveal as="div" className={styles["strength-media-wrapper"]} variant="fade-right" duration={DURATION.section} distance={48}>
+                <Stagger as="div" className={styles["strength-2x2-grid"]} variant="scale" staggerAmount={STAGGER.tight}>
                   <div className={styles["strength-grid-box"]}>
                     <img src="/images/about/mission1.png" alt="Athlete training" />
                   </div>
@@ -48,12 +51,12 @@ export default function StrengthTraining() {
                     <img src="/images/strength_training.png" alt="Barbell lift" />
                   </div>
                   <div className={styles["strength-grid-box"]}>
-                    <img src="/images/about/mission3.png" alt="Workout focus" />
-                  </div>
-                  <div className={styles["strength-grid-box"]}>
                     <img src="/images/about/mission4.png" alt="Coach feedback" />
                   </div>
-                </div>
+                  <div className={styles["strength-grid-box"]}>
+                    <img src="/services/strength_training3.png" alt="Barbell lift" />
+                  </div>
+                </Stagger>
 
                 {/* Overlaid Quote Block on the bottom-right quadrant */}
                 <div className={styles["strength-quote-overlay"]}>
@@ -64,7 +67,7 @@ export default function StrengthTraining() {
                     <span className={styles["highlight"]}>SELF-BELIEF.</span>
                   </h3>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>

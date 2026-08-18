@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from 'react'
 import { MapPin, Phone, Play } from 'lucide-react'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { STAGGER } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
 const journeySlides = [
@@ -47,11 +50,20 @@ const journeySlides = [
   },
 ]
 
-export default function PricingJourney() {
+type PricingJourneyProps = {
+  onSelectBranch?: (index: number) => void
+  isPaused?: boolean
+}
+
+export default function PricingJourney({ onSelectBranch, isPaused = false }: PricingJourneyProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const slide = journeySlides[activeIndex]
 
   const scrollToPlans = () => {
+    if (onSelectBranch) {
+      onSelectBranch(activeIndex)
+    }
+
     const target = document.getElementById('pricing-options')
     if (!target) return
 
@@ -60,13 +72,25 @@ export default function PricingJourney() {
     window.scrollTo({ top, behavior: 'smooth' })
   }
 
+  const goToContact = () => {
+    window.location.href = '/contact#contact-trial-form'
+  }
+
   useEffect(() => {
+    if (isPaused) return
+
     const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % journeySlides.length)
-    }, 3800)
+      setActiveIndex((current) => {
+        const nextIndex = (current + 1) % journeySlides.length
+        if (onSelectBranch) {
+          onSelectBranch(nextIndex)
+        }
+        return nextIndex
+      })
+    }, 18000)
 
     return () => window.clearInterval(timer)
-  }, [])
+  }, [isPaused, onSelectBranch])
 
   return (
     <section className={styles['journey-section']} aria-label="Choose Your Journey branch slider">
@@ -78,13 +102,13 @@ export default function PricingJourney() {
         >
           <div className={styles['journey-content-wrapper']}>
             <div className={styles['journey-header']}>
-              <h2 className={styles['journey-title']}>
+              <Reveal as="h2" className={styles['journey-title']} variant="fade-up">
                 <span className={styles['pricing-title-orange']}>Choose Your</span>{' '}
                 <span className={styles['pricing-title-white']}>Journey</span>
-              </h2>
+              </Reveal>
             </div>
 
-            <div className={styles['journey-left']}>
+            <Stagger as="div" className={styles['journey-left']} variant="fade-up" staggerAmount={STAGGER.normal}>
               <div className={styles['journey-branchBlock']}>
                 <div className={styles['journey-branchRow']}>
                   <div className={styles['journey-branchTextBlock']}>
@@ -113,15 +137,15 @@ export default function PricingJourney() {
                 Phoenix Fitness offers flexible gym membership and personal training plans across our
                 branches, designed to match your fitness goals, training needs, and lifestyle.
               </p>
-            </div>
+            </Stagger>
 
-            <div className={styles['journey-bottom-bar']}>
+            <Stagger as="div" className={styles['journey-bottom-bar']} variant="fade-up" delay={0.15} staggerAmount={STAGGER.normal}>
               <div className={styles['journey-actions']}>
                 <div className={styles['journeyButtonGroup']}>
-                  <button type="button" className={`${styles['journeyPillButton']} ${styles['journeyPillButtonPrimary']}`}>
+                  <button type="button" className={`${styles['journeyPillButton']} ${styles['journeyPillButtonPrimary']}`} onClick={scrollToPlans}>
                     Explore
                   </button>
-                  <button type="button" className={`${styles['journeyIconButton']} ${styles['journeyIconButtonPrimary']}`} aria-label="Explore">
+                  <button type="button" className={`${styles['journeyIconButton']} ${styles['journeyIconButtonPrimary']}`} aria-label="Explore" onClick={scrollToPlans}>
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="6.5" y1="17.5" x2="17.5" y2="6.5" />
                       <polyline points="8.5 6.5 17.5 6.5 17.5 15.5" />
@@ -130,10 +154,10 @@ export default function PricingJourney() {
                 </div>
 
                 <div className={styles['journeyButtonGroup']}>
-                  <button type="button" className={`${styles['journeyPillButton']} ${styles['journeyPillButtonSecondary']}`}>
+                  <button type="button" className={`${styles['journeyPillButton']} ${styles['journeyPillButtonSecondary']}`} onClick={goToContact}>
                     Contact us
                   </button>
-                  <button type="button" className={`${styles['journeyIconButton']} ${styles['journeyIconButtonSecondary']}`} aria-label="Contact us">
+                  <button type="button" className={`${styles['journeyIconButton']} ${styles['journeyIconButtonSecondary']}`} aria-label="Contact us" onClick={goToContact}>
                     <Play size={16} fill="currentColor" strokeWidth={0} />
                   </button>
                 </div>
@@ -147,7 +171,12 @@ export default function PricingJourney() {
                     key={`${item.branchPrimary}-dot`}
                     aria-label={`Open ${item.branchPrimary} slide`}
                     aria-current={dotIndex === activeIndex ? 'true' : undefined}
-                    onClick={() => setActiveIndex(dotIndex)}
+                    onClick={() => {
+                      setActiveIndex(dotIndex)
+                      if (onSelectBranch) {
+                        onSelectBranch(dotIndex)
+                      }
+                    }}
                   />
                 ))}
               </div>
@@ -157,7 +186,7 @@ export default function PricingJourney() {
                   <span className={styles['info-icon']} aria-hidden="true">
                     <Phone size={22} strokeWidth={2.6} />
                   </span>
-                  <span className={styles['journey-contactValue']}>{slide.phone}</span>
+                  <a href="tel:+919880537297" className={styles['journey-contactValue']}>{slide.phone}</a>
                 </div>
 
                 <div className={styles['info-row']}>
@@ -174,10 +203,17 @@ export default function PricingJourney() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Stagger>
           </div>
         </article>
       </div>
     </section>
   )
 }
+
+
+
+
+
+
+

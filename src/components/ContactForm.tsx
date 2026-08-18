@@ -114,7 +114,7 @@ export default function ContactForm() {
 
       <p style={{ marginTop: '2rem', color: '#a0a0a0', fontSize: '0.8rem', lineHeight: '1.5' }}>
         If you'd rather get started with a visit — then<br />
-        write to us at <a href="mailto:hello@hyperfit.com" style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>hello@hyperfit.com</a>
+        write to us at <a href="mailto:info@phoenix-fitness.in" style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>info@phoenix-fitness.in</a>
       </p>
     </div>
   );

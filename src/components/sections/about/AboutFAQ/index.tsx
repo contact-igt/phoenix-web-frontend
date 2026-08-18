@@ -1,6 +1,9 @@
 'use client'
 import { useState } from 'react'
 import { Plus } from 'lucide-react'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import AccordionPanel from '@/components/animation/AccordionPanel'
 import styles from './AboutFAQ.module.css'
 
 const faqs = [
@@ -37,15 +40,15 @@ export default function AboutFAQ() {
     setOpenIndex(prev => (prev === i ? null : i))
 
   return (
-    <section className={styles.section} aria-labelledby="faq-heading">
+    <section id="faq" className={styles.section} aria-labelledby="faq-heading">
       <div className={styles.inner}>
 
-        <h2 id="faq-heading" className={styles.heading}>
+        <Reveal as="h2" id="faq-heading" className={styles.heading} variant="fade-up">
           <span className={styles.headingOrange}>Frequently</span>
           <span className={styles.headingWhite}>Asked Questions</span>
-        </h2>
+        </Reveal>
 
-        <div className={styles.accordion}>
+        <Stagger as="div" className={styles.accordion} variant="fade-up" distance={20}>
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i
             return (
@@ -68,17 +71,18 @@ export default function AboutFAQ() {
                   </span>
                 </button>
 
-                <div
+                <AccordionPanel
+                  isOpen={isOpen}
                   id={`faq-answer-${i}`}
+                  className={styles.panel}
                   role="region"
-                  className={`${styles.panel} ${isOpen ? styles.panelOpen : ''}`}
                 >
                   <p className={styles.answer}>{faq.a}</p>
-                </div>
+                </AccordionPanel>
               </div>
             )
           })}
-        </div>
+        </Stagger>
 
       </div>
     </section>

@@ -6,7 +6,7 @@ import ChampionsSection from '../components/sections/home/ChampionsSection'
 import FeaturesSection from '../components/sections/home/FeaturesSection'
 import MilestonesSection from '../components/sections/home/MilestonesSection'
 import TransformationStories from '../components/sections/home/TransformationStories'
-import Contact from '../components/sections/home/Contact'
+import AboutContact from '../components/sections/about/AboutContact'
 import Footer from '../components/layout/Footer'
 
 export default function Home() {
@@ -17,13 +17,14 @@ export default function Home() {
         <HeroBanner />
         <AboutSection />
         <ProgramsSection />
-        <ChampionsSection />
+        {/* <ChampionsSection /> */}
         <FeaturesSection />
         <MilestonesSection />
         <TransformationStories />
-        <Contact />
+        <AboutContact />
       </main>
       <Footer />
     </>
   )
 }
+

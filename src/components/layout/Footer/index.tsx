@@ -1,11 +1,22 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUp } from 'lucide-react'
+import Reveal from '../../animation/Reveal'
+import Stagger from '../../animation/Stagger'
+import { STAGGER } from '../../../lib/animation/gsap'
 import styles from './index.module.css'
 import Button from '../../ui/Button'
+
+const socialLinks = [
+  { name: 'Facebook', href: 'https://www.facebook.com/phoenixfitnessbanglore/', icon: '/images/home/facebook.png' },
+  { name: 'Instagram', href: 'https://www.instagram.com/phoenixfitness_bangalore/', icon: '/images/home/instagram.png' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/phoenix-fitness-solutions/', icon: '/images/home/linkedin.png' },
+  { name: 'YouTube', href: 'https://www.youtube.com/channel/UC1q-dfQ2T2euEbMSeJ3_PBA', icon: '/images/home/youtube.png' },
+]
+
 
 export default function Footer() {
   const [showBackToTop, setShowBackToTop] = useState(false)
@@ -44,32 +55,32 @@ export default function Footer() {
 
       <div className={styles.footerInner}>
         {/* Top Section */}
-        <div className={styles.topSection}>
+        <Stagger as="div" className={styles.topSection} variant="fade-up" staggerAmount={STAGGER.loose}>
           {/* Left Column: Callout and CTA */}
           <div className={styles.ctaCol}>
             <h2 className={styles.ctaHeading}>
               Start your fitness journey today
             </h2>
-            <a href="mailto:hello@phoenixfitness.com" className={styles.emailLink}>
-              hello@phoenixfitness.com
+            <a href="mailto:info@phoenix-fitness.in" className={styles.emailLink}>
+              info@phoenix-fitness.in
             </a>
             <p className={styles.ctaText}>
               Ready to transform? Join our community and take your first step toward a healthier, stronger you.
             </p>
-            <Link href="#contact" className={styles.joinBtn}>
+            <Link href="/contact#contact-trial-form" className={styles.joinBtn}>
               Join now
             </Link>
           </div>
 
           {/* Right Column: Directories Grid */}
-          <div className={styles.dirsGrid}>
+          <Stagger as="div" className={styles.dirsGrid} variant="fade-up" staggerAmount={STAGGER.tight}>
             {/* Explore Column */}
             <div className={styles.dirColumn}>
               <h4 className={styles.dirTitle}>Explore</h4>
               <ul className={styles.dirLinks}>
-                <li><Link href="#home">Home</Link></li>
-                <li><Link href="#about">About</Link></li>
-                <li><Link href="#programs">Programs</Link></li>
+                <li><Link href="/">Home</Link></li>
+                <li><Link href="/about">About</Link></li>
+                <li><Link href="/#programs">Programs</Link></li>
               </ul>
             </div>
 
@@ -77,19 +88,8 @@ export default function Footer() {
             <div className={styles.dirColumn}>
               <h4 className={styles.dirTitle}>Support</h4>
               <ul className={styles.dirLinks}>
-                <li><Link href="#contact">Contact</Link></li>
-                <li><Link href="#faq">FAQ</Link></li>
-                <li><Link href="#careers">Careers</Link></li>
-              </ul>
-            </div>
-
-            {/* More Column */}
-            <div className={styles.dirColumn}>
-              <h4 className={styles.dirTitle}>More</h4>
-              <ul className={styles.dirLinks}>
-                <li><Link href="#blog">Blog</Link></li>
-                <li><Link href="#events">Events</Link></li>
-                <li><Link href="#stories">Stories</Link></li>
+                <li><Link href="/contact">Contact</Link></li>
+                <li><Link href="/about#faq">FAQ</Link></li>
               </ul>
             </div>
 
@@ -97,40 +97,54 @@ export default function Footer() {
             <div className={styles.dirColumn}>
               <h4 className={styles.dirTitle}>Locations</h4>
               <ul className={styles.dirLinks}>
-                <li><Link href="#contact">Find us</Link></li>
-                <li><Link href="#contact">Map</Link></li>
-                <li><Link href="#contact">Hours</Link></li>
+                <li><Link href="/contact#contact-info">Find us</Link></li>
+                <li><a href="https://maps.app.goo.gl/HhH9crEMUrM2vFu9A" target="_blank" rel="noopener noreferrer">Map</a></li>
+                <li><Link href="/contact#contact-info">Hours</Link></li>
               </ul>
             </div>
-          </div>
-        </div>
+          </Stagger>
+        </Stagger>
 
-        {/* Horizontal Divider Line */}
         <div className={styles.divider}></div>
-      </div>
 
-      {/* Dark Bottom Bar */}
-      <div className={styles.footerBottomBar}>
-        <div className={styles.footerBottomBarInner}>
-          <nav className={styles.bottomNavPills} aria-label="Footer links">
-            <Link href="/contact" className={styles.bottomNavPill}>Contact Us</Link>
-            <Link href="/license" className={styles.bottomNavPill}>License</Link>
-            <Link href="/404" className={styles.bottomNavPill}>404</Link>
-          </nav>
-          <button
-            type="button"
-            onClick={handleScrollToTop}
-            className={styles.backToTopBtn}
-            aria-label="Back to top"
-          >
-            <span className={styles.backToTopBtnLabel}>Back to Top</span>
-            <span className={styles.backToTopBtnIcon} aria-hidden="true">
-              <ArrowUp size={14} strokeWidth={2.5} />
-            </span>
-          </button>
-        </div>
-        <p className={styles.footerCopyright}>© 2026. All rights reserved.</p>
+        <Reveal as="div" className={styles.footerBrandRow} variant="fade-up">
+          <div className={styles.footerBrandSocials}>
+            <Link href="/" className={styles.footerLogoLink} aria-label="Phoenix Fitness home">
+              <Image
+                src="/images/home/home_footer_logo.png"
+                alt="Phoenix Fitness"
+                width={328}
+                height={55}
+                className={styles.footerLogo}
+              />
+            </Link>
+            <nav className={styles.socialLinks} aria-label="Social links">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  className={styles.socialLink}
+                  aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image src={social.icon} alt="" width={18} height={18} aria-hidden="true" />
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          <div className={styles.footerMetaActions}>
+            <button type="button" className={styles.footerBackToTop} onClick={handleScrollToTop}>
+              <span>Back to top</span>
+              <ArrowUp size={17} strokeWidth={2.4} aria-hidden="true" />
+            </button>
+            <p className={styles.copyright}>&copy; 2026. All rights reserved.</p>
+          </div>
+        </Reveal>
       </div>
     </footer>
   )
 }
+
+

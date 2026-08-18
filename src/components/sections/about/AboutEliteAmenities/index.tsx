@@ -1,5 +1,8 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowUpRight, Play } from 'lucide-react'
+import Stagger from '@/components/animation/Stagger'
+import { STAGGER } from '@/lib/animation/gsap'
 import styles from './AboutEliteAmenities.module.css'
 
 const services = [
@@ -30,7 +33,7 @@ const services = [
   {
     id: '05',
     title: 'TAILOR-MADE',
-    desc: 'Custom workout plans.',
+    desc: 'Custom workout plans and diet guidelines.',
     image: '/images/about/elite_amentities5.png',
   },
 ]
@@ -41,7 +44,7 @@ export default function AboutEliteAmenities() {
       <div className={styles.inner}>
 
         {/* LEFT COLUMN */}
-        <div className={styles.leftColumn}>
+        <Stagger as="div" className={styles.leftColumn} variant="fade-up" staggerAmount={STAGGER.normal}>
           <span className={styles.eyebrow}>Our Services</span>
           <h2 id="elite-amenities-title" className={styles.heading}>
             <span className={styles.headingOrange}>Explore our</span>
@@ -54,16 +57,15 @@ export default function AboutEliteAmenities() {
           </p>
           <div className={styles.ctaRow}>
             <div className={styles.btnGroup}>
-              <button className={styles.exploreBtn}>Explore Pricing</button>
-              <button className={styles.arrowCircle} aria-label="Explore pricing">
+              <Link href="/pricing#pricing-options" className={styles.exploreBtn}>Explore Pricing</Link>
+              <Link href="/pricing#pricing-options" className={styles.arrowCircle} aria-label="Explore pricing">
                 <ArrowUpRight size={16} strokeWidth={2.2} />
-              </button>
+              </Link>
             </div>
             <div className={styles.btnGroup}>
-              <button className={styles.watchBtn}>Watch Video</button>
-              <button className={styles.playCircle} aria-label="Watch video">
-                <Play size={12} fill="currentColor" strokeWidth={0} />
-              </button>
+              <a href="https://www.youtube.com/@phoenixfitnessbangalore" target="_blank" rel="noopener noreferrer" className={styles.watchBtn}>Watch Video</a>
+              <a href="https://www.youtube.com/@phoenixfitnessbangalore" target="_blank" rel="noopener noreferrer" className={styles.playCircle} aria-label="Watch video"><Play size={12} fill="currentColor" strokeWidth={0} />
+              </a>
             </div>
           </div>
           <div className={styles.leftImages}>
@@ -86,10 +88,10 @@ export default function AboutEliteAmenities() {
               />
             </div>
           </div>
-        </div>
+        </Stagger>
 
         {/* RIGHT COLUMN */}
-        <div className={styles.rightColumn}>
+        <Stagger as="div" className={styles.rightColumn} variant="fade-up" staggerAmount={STAGGER.tight}>
           {services.map((s) => (
             <div key={s.id} className={styles.serviceItem}>
               <div className={styles.serviceInfo}>
@@ -104,9 +106,10 @@ export default function AboutEliteAmenities() {
               </div>
             </div>
           ))}
-        </div>
+        </Stagger>
 
       </div>
     </section>
   )
 }
+

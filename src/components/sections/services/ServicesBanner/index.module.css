@@ -48,10 +48,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
+  /* background: linear-gradient(90deg,
       rgba(17, 17, 17, 0.95) 0%,
       rgba(17, 17, 17, 0.85) 45%,
-      rgba(17, 17, 17, 0.25) 100%);
+      rgba(17, 17, 17, 0.25) 100%); */
   z-index: 1;
 }
 
@@ -299,9 +299,9 @@
 }
 
 .services-hero .hero-bg-logo {
-  top: 50%;
+  top: 43%;
   left: 0;
-  width: 620px;
+  width: 750px;
   height: auto;
   transform: translateY(-50%);
 }
@@ -325,7 +325,7 @@
 }
 
 .services-hero .hero-content {
-  max-width: 760px;
+  max-width: 790px;
   gap: 14px;
 }
 
@@ -893,7 +893,6 @@
 .services-hero .btn-circle-arrow {
   width: 36px;
   flex: 0 0 36px;
-  margin-left: 3px;
   color: #111111;
   background: #ffffff;
   border: 1px solid #ffffff;
@@ -911,7 +910,6 @@
 .services-hero .btn-circle-play {
   width: 36px;
   flex: 0 0 36px;
-  margin-left: 3px;
   color: #ffffff;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.92);
@@ -973,5 +971,175 @@
   .services-hero .btn-circle-play {
     width: 34px;
     flex-basis: 34px;
+  }
+}
+
+/* Remove side gradient from services banner overlay */
+.services-hero .hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.10) 54%,
+    rgba(0, 0, 0, 0.30) 100%
+  );
+}
+
+/* Services banner Figma vertical placement */
+.services-hero {
+  height: 840px;
+  min-height: 840px;
+}
+
+.services-hero .hero-container-inner {
+  width: min(100% - 120px, 1360px);
+  max-width: none;
+  min-height: 840px;
+  align-items: flex-end;
+  padding: 0 0 118px;
+}
+
+.services-hero .hero-content {
+  max-width: 780px;
+  transform: none;
+}
+
+@media (max-width: 1400px) {
+  .services-hero .hero-container-inner {
+    width: min(100% - 96px, 1240px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .services-hero {
+    height: 800px;
+    min-height: 800px;
+  }
+
+  .services-hero .hero-container-inner {
+    width: min(100% - 72px, 1100px);
+    min-height: 800px;
+    padding-bottom: 104px;
+  }
+}
+
+@media (max-width: 992px) {
+  .services-hero {
+    height: 740px;
+    min-height: 740px;
+  }
+
+  .services-hero .hero-container-inner {
+    width: calc(100% - 48px);
+    min-height: 740px;
+    padding-bottom: 84px;
+  }
+
+  .services-hero .hero-content {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    height: 690px;
+    min-height: 690px;
+  }
+
+  .services-hero .hero-container-inner {
+    width: calc(100% - 40px);
+    min-height: 690px;
+    padding-bottom: 60px;
+  }
+
+  .services-hero .hero-content {
+    max-width: 100%;
+  }
+}
+
+.services-hero .feature-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+
+/* Services banner tablet/mobile spacing and repeat icon correction */
+.services-hero .hero-feature-item .feature-icon {
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.services-hero .hero-feature-item .feature-icon img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+@media (max-width: 992px) {
+  .services-hero {
+    height: auto;
+    min-height: 820px;
+    overflow: hidden;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 820px;
+    width: calc(100% - 48px);
+    align-items: flex-end;
+    padding: 180px 0 104px;
+  }
+
+  .services-hero .hero-content {
+    max-width: 620px;
+  }
+
+  .services-hero .hero-features-overlay {
+    right: 24px;
+    bottom: 72px;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero {
+    min-height: 760px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 760px;
+    width: calc(100% - 40px);
+    padding: 156px 0 96px;
+  }
+
+  .services-hero .hero-features-overlay {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 28px;
+    margin-bottom: 0;
+    align-self: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-hero {
+    min-height: 700px;
+  }
+
+  .services-hero .hero-container-inner {
+    min-height: 700px;
+    width: calc(100% - 32px);
+    padding: 128px 0 84px;
+  }
+
+  .services-hero .hero-features-overlay {
+    gap: 16px;
+    margin-top: 24px;
   }
 }

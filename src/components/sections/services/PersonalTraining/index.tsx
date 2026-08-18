@@ -1,4 +1,6 @@
-﻿import styles from './index.module.css'
+﻿import Stagger from '@/components/animation/Stagger'
+import { STAGGER } from '@/lib/animation/gsap'
+import styles from './index.module.css'
 export default function PersonalTraining() {
   return (
     <section id="personal" className={styles["personal-section"]}>
@@ -7,14 +9,14 @@ export default function PersonalTraining() {
         <div className={styles["personal-hero-overlay"]}></div>
 
         <div className={styles["container"]}>
-          <div className={styles["personal-hero-content"]}>
+          <Stagger as="div" className={styles["personal-hero-content"]} variant="fade-up" staggerAmount={STAGGER.normal}>
             <span className={styles["strength-tag-label"]}>OUR SERVICES</span>
 
             <div className={styles["personal-title-row"]}>
               <h2 className={styles["personal-title"]}>
                 <span className={styles["highlight"]}>PERSONAL</span> TRAINING
               </h2>
-              <a href="#" className={styles["cardio-watch-btn"]}>
+              <a href="https://www.youtube.com/@phoenixfitnessbangalore" target="_blank" rel="noopener noreferrer" className={styles["cardio-watch-btn"]}>
                 <span className={styles["btn-text-pill"]}>WATCH VIDEO</span>
                 <span className={styles["btn-circle-play"]}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -50,9 +52,10 @@ export default function PersonalTraining() {
                 <span className={styles["white-word"]}>CONSISTENCY AND ACCOUNTABILITY</span>
               </div>
             </div>
-          </div>
+          </Stagger>
         </div>
       </div>
     </section>
   )
 }
+

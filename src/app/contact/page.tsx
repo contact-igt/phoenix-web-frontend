@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Navbar from '@/components/layout/Navbar'
 import ContactBanner from '@/components/sections/contact/ContactBanner'
-import AboutStats from '@/components/sections/about/AboutStats'
+// import AboutStats from '@/components/sections/about/AboutStats'
 import ContactInfo from '@/components/sections/contact/ContactInfo'
 import ContactTrialSection, { type TrialFormValues } from '@/components/sections/contact/ContactTrialSection'
 import ContactMapCta from '@/components/sections/contact/ContactMapCta'
-import MarketingFooter from '@/components/sections/shared/MarketingFooter'
+import Footer from '@/components/layout/Footer'
 
 
 type ContactPageProps = {
@@ -58,13 +58,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       <Navbar />
       <main>
         <ContactBanner />
-        <AboutStats />
+        {/* <AboutStats /> */}
         <ContactInfo />
         <ContactTrialSection initialValues={trialInitialValues} />
         <ContactMapCta />
         {/* Phase 2: ContactFormSection, AboutFAQ, etc. */}
       </main>
-      <MarketingFooter />
+      <Footer />
     </>
   )
 }
+

@@ -14,7 +14,7 @@
 }
 
 .eyebrow {
-  font-family: var(--font-subtitle);
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: var(--section-responsive-subtitle-size);
   font-weight: 300;
   text-transform: uppercase;
@@ -98,7 +98,7 @@
 }
 
 .cardDescription {
-  font-family: var(--font-subtitle);
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight:400;
   line-height: 1.5;

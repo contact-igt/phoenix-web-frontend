@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import Stagger from '@/components/animation/Stagger'
+import { STAGGER } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
 const stripImages = [
@@ -10,11 +11,51 @@ const stripImages = [
   '/images/contact/info2.png',
 ]
 
+const quickContactCards = [
+  {
+    icon: '/images/contact/call.png',
+    title: 'GIVE US A CALL',
+    subtext: 'Monday to Friday, 8am - 10pm',
+    value: '+91 9880537297',
+    href: 'tel:+919880537297',
+  },
+  {
+    icon: '/images/contact/mail.png',
+    title: 'CALL ANY TIME',
+    subtext: "We'll get back to you within 24h",
+    value: 'info@phoenix-fitness.in',
+    href: 'mailto:info@phoenix-fitness.in',
+  },
+]
+
+const branchLocations = [
+  {
+    name: 'Budegere cross',
+    address: ['ISIRI HUB, First Floor, Near Coldman,', 'Bommenahalli Village, Bengaluru 560049'],
+  },
+  {
+    name: 'Kannamangala',
+    address: ['6th Floor, SBR Gokulam, Whitefield -', 'Hoskote Rd, Bengaluru 560115'],
+  },
+  {
+    name: 'Nallurhalli',
+    address: ['Village Main Rd, Palm Meadows,', 'Whitefield, Bengaluru 560066'],
+  },
+  {
+    name: 'Yello Living (ITPL)',
+    address: ['Extension Road, Pattandur Agrahara,', 'Whitefield, Bengaluru 560066'],
+  },
+  {
+    name: 'Hope Farm',
+    address: ['92, Whitefield Main Rd, Kadugodi Colony,', 'Bengaluru 560066'],
+  },
+]
+
 export default function ContactInfo() {
   return (
-    <section className={styles.container} aria-label="Contact Information">
+    <section id="contact-info" className={styles.container} aria-label="Contact Information">
       <div className={styles.stage}>
-        <div className={styles.imageStrip} aria-hidden="true">
+        <Stagger as="div" className={styles.imageStrip} variant="scale" staggerAmount={STAGGER.tight} aria-hidden="true">
           {stripImages.map((src, index) => (
             <div className={styles.imagePanel} key={`${src}-${index}`}>
               <Image
@@ -26,84 +67,55 @@ export default function ContactInfo() {
               />
             </div>
           ))}
-        </div>
+        </Stagger>
 
-        <div className={styles.cards}>
-          <div className={styles.card}>
-            <div className={styles.iconWrapper}>
-              <Image
-                src="/images/contact/call.png"
-                alt=""
-                width={24}
-                height={24}
-                className={styles.icon}
-              />
-            </div>
-            <h2 className={styles.eyebrow}>GIVE US A CALL</h2>
-            <p className={styles.subtext}>Monday to Friday, 8am - 10pm</p>
-            <p className={styles.value}>
-              <a href="tel:+919880537297" className={styles.link}>
-                +91 9880537297
-              </a>
+        <div className={styles.contactGrid}>
+          <Stagger as="div" className={styles.headingBlock} variant="fade-up" staggerAmount={STAGGER.normal}>
+            <p className={styles.kicker}>CONTACT PHOENIX FITNESS</p>
+            <h2 className={styles.title}>Find your nearest branch</h2>
+            <p className={styles.description}>
+              Reach our team for membership details, personal training support, or quick help choosing
+              the Phoenix Fitness location that fits your routine.
             </p>
-          </div>
+          </Stagger>
 
-          <div className={styles.card}>
-            <div className={styles.iconWrapper}>
-              <Image
-                src="/images/contact/mail.png"
-                alt=""
-                width={24}
-                height={24}
-                className={styles.icon}
-              />
-            </div>
-            <h2 className={styles.eyebrow}>SEND AN EMAIL</h2>
-            <p className={styles.subtext}>We&apos;ll get back to you within 24h</p>
-            <p className={styles.value}>
-              <a href="mailto:info@phoenix-fitness.in" className={styles.link}>
-                info@phoenix-fitness.in
-              </a>
-            </p>
-          </div>
+          <Stagger as="div" className={styles.quickCards} variant="fade-up" aria-label="Quick contact details">
+            {quickContactCards.map((card) => (
+              <article className={`${styles.card} ${styles.quickCard}`} key={card.title}>
+                <div className={styles.iconWrapper}>
+                  <Image src={card.icon} alt="" width={24} height={24} className={styles.icon} />
+                </div>
+                <h3 className={styles.eyebrow}>{card.title}</h3>
+                <p className={styles.subtext}>{card.subtext}</p>
+                <p className={styles.value}>
+                  <a href={card.href} className={styles.link}>
+                    {card.value}
+                  </a>
+                </p>
+              </article>
+            ))}
+          </Stagger>
 
-          <div className={styles.card}>
-            <div className={styles.iconWrapper}>
-              <Image
-                src="/images/contact/map-pin.png"
-                alt=""
-                width={24}
-                height={24}
-                className={styles.icon}
-              />
-            </div>
-            <h2 className={styles.eyebrow}>STOP BY OUR GYM</h2>
-            <div className={styles.addressWrapper}>
-              <p className={styles.addressLine}>Phoenix Fitness Kannamangala, SBR</p>
-              <p className={styles.addressLine}>Gokulam, 6th Floor, Kannamangala</p>
-              <p className={styles.addressLine}>Main Road, Whitefield, Bengaluru-560067</p>
-            </div>
-            <div className={styles.socials}>
-              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </Link>
-              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Facebook">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-              </Link>
-              <Link href="https://youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Youtube">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                </svg>
-              </Link>
-            </div>
-          </div>
+          <Stagger as="div" className={styles.branchGrid} variant="fade-up" staggerAmount={STAGGER.tight} aria-label="Phoenix Fitness branch locations">
+            {branchLocations.map((branch, index) => (
+              <article className={`${styles.card} ${styles.branchCard}`} key={branch.name}>
+                <div className={styles.branchTopline}>
+                  <span className={styles.branchNumber}>0{index + 1}</span>
+                  <div className={styles.locationIcon}>
+                    <Image src="/images/contact/map-pin.png" alt="" width={20} height={20} className={styles.icon} />
+                  </div>
+                </div>
+                <h3 className={styles.branchName}>{branch.name}</h3>
+                <div className={styles.addressWrapper}>
+                  {branch.address.map((line) => (
+                    <p className={styles.addressLine} key={line}>
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </Stagger>
         </div>
       </div>
     </section>

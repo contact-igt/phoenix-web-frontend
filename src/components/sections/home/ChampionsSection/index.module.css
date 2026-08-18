@@ -34,7 +34,7 @@
 }
 
 .championsDescription {
-  font-family: var(--font-subtitle);         /* Open Sans */
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;         /* Satoshi */
   font-size: var(--fs-body);                 /* 18px */
   font-weight: 300;
   color: rgba(255, 255, 255, 0.6);            /* semi-transparent white */

@@ -1,4 +1,7 @@
 ﻿import Image from 'next/image'
+import Stagger from '@/components/animation/Stagger'
+import Counter from '@/components/animation/Counter'
+import { STAGGER } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
 const stats = [
@@ -33,7 +36,7 @@ export default function AboutMissionVision() {
       </div>
 
       <div className={styles.inner}>
-        <div className={styles.copyColumn}>
+        <Stagger as="div" className={styles.copyColumn} variant="fade-up" staggerAmount={STAGGER.normal}>
           <h2 id="mission-vision-title" className={styles.title}>
             <span>Mission &amp;</span> Vision
           </h2>
@@ -45,21 +48,22 @@ export default function AboutMissionVision() {
             Phoenix Fitness was born from that moment.
           </p>
 
-          <div className={styles.metrics} aria-label="Phoenix Fitness milestones">
+          <Stagger as="div" className={styles.metrics} variant="fade-up" distance={16} staggerAmount={STAGGER.tight} aria-label="Phoenix Fitness milestones">
             {stats.map(({ id, icon, lines }) => (
               <div className={styles.metricItem} key={id}>
                 <Image src={icon} alt="" width={45} height={45} className={styles.metricIcon} />
                 <span className={styles.metricCopy}>
-                  {lines.map((line) => (
+                  <span><Counter value={lines[0]} /></span>
+                  {lines.slice(1).map((line) => (
                     <span key={line}>{line}</span>
                   ))}
                 </span>
               </div>
             ))}
-          </div>
-        </div>
+          </Stagger>
+        </Stagger>
 
-        <div className={styles.mediaColumn} aria-hidden="true">
+        <Stagger as="div" className={styles.mediaColumn} variant="scale" aria-hidden="true">
           <div className={`${styles.imageCard} ${styles.topLeft}`}>
             <Image src="/images/about/mission1.png" alt="" fill sizes="504px" className={styles.image} />
           </div>
@@ -79,7 +83,7 @@ export default function AboutMissionVision() {
             <span>Discipline, &amp;</span>
             <span className={styles.orange}>Self-belief.</span>
           </p>
-        </div>
+        </Stagger>
       </div>
     </section>
   )

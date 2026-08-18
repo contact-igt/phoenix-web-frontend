@@ -12,6 +12,22 @@
   object-fit: cover;
   object-position: 50% 34%;
   z-index: -3;
+  animation: bannerZoom 1.8s ease-out forwards;
+}
+
+@keyframes bannerZoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bannerImage {
+    animation: none;
+  }
 }
 
 .scrim {
@@ -458,3 +474,9 @@
   .playButton { height: 40px; }
   .playButton { width: 40px; flex-basis: 40px; }
 }
+.reloadIcon img {
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+}
+

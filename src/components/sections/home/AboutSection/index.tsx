@@ -1,13 +1,15 @@
-﻿import Image from 'next/image'
+import Image from 'next/image'
+import Link from 'next/link'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { DURATION, STAGGER } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
 export default function AboutSection() {
   return (
     <section id="about" className={styles.aboutSection}>
       <div className={styles.aboutInner}>
-        {/* â”€â”€ LEFT: Image grid â”€â”€ */}
-        <div className={styles.aboutImageGrid}>
-          {/* Top image â€” full column width */}
+        <Reveal as="div" className={styles.aboutImageGrid} variant="fade-left" duration={DURATION.section} distance={48}>
           <div className={styles.aboutImageTop}>
             <Image
               src="/images/home/aboutimage1.png"
@@ -18,7 +20,6 @@ export default function AboutSection() {
             />
           </div>
 
-          {/* Bottom image â€” offset right, overlaps top */}
           <div className={styles.aboutImageBottom}>
             <Image
               src="/images/home/aboutimage2.png"
@@ -28,39 +29,33 @@ export default function AboutSection() {
               sizes="(max-width: 768px) 100vw, 45vw"
             />
           </div>
-        </div>
+        </Reveal>
 
-        {/* â”€â”€ RIGHT: Text content â”€â”€ */}
-        <div className={styles.aboutContent}>
-          {/* Muted subtitle label */}
+        <Stagger as="div" className={styles.aboutContent} variant="fade-up" duration={DURATION.card} staggerAmount={STAGGER.normal}>
           <p className={styles.aboutSubtitle}>
             Empowering<br />Your Journey
           </p>
 
-          {/* Main heading */}
           <h2 className={styles.aboutHeading}>
             More Than A{' '}<br className={styles.mobileHiddenBreak} />
             Gym &ndash; A Place{' '}<br className={styles.mobileHiddenBreak} />
             To Transform
           </h2>
 
-          {/* Body paragraph */}
           <p className={styles.aboutBody}>
             Join a community that inspires transformation and growth.
           </p>
 
-          {/* CTA buttons */}
           <div className={styles.aboutCtas}>
-            <a href="#contact" className={styles.btnPrimary}>
-              Read Our Founder&apos;s Story
-            </a>
-            <a href="#programs" className={styles.btnGhost}>
-              Discover more
-            </a>
+            <Link href="/about#journey" className={styles.btnPrimary}>
+              EXPLORE OUR JOURNEY
+            </Link>
+            <Link href="/services" className={styles.btnGhost}>
+              DISCOVER MORE
+            </Link>
           </div>
-        </div>
+        </Stagger>
       </div>
     </section>
   )
 }
-

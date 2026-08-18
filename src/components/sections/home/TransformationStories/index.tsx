@@ -1,126 +1,259 @@
-﻿import Image from 'next/image'
+'use client'
+
+import { useMemo, useRef, useState } from 'react'
+import Image from 'next/image'
+import { ChevronLeft, ChevronRight, Play } from 'lucide-react'
+import Slider from 'react-slick'
+import type { Settings } from 'react-slick'
+import { transformations } from './data'
+import TransformationCard from './TransformationCard'
+import VideoModal from './VideoModal'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { DURATION } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
+const AUTOPLAY_DELAY = 7000
+
 export default function TransformationStories() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const showcaseRef = useRef<HTMLDivElement>(null)
+  const showcaseSliderRef = useRef<Slider | null>(null)
+  const sliderRef = useRef<Slider | null>(null)
+  const activeRealIndex = activeIndex % transformations.length
+
+  const active = useMemo(
+    () => transformations[activeRealIndex] ?? transformations[0],
+    [activeRealIndex]
+  )
+
+  const selectTransformation = (index: number, playVideo = false) => {
+    const realIndex = index % transformations.length
+    setActiveIndex(realIndex)
+    showcaseSliderRef.current?.slickGoTo(realIndex)
+    sliderRef.current?.slickGoTo(realIndex)
+    setIsExpanded(false)
+    if (playVideo) {
+      setIsModalOpen(true)
+      return
+    }
+    showcaseRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const scrollTrack = (direction: 1 | -1) => {
+    if (direction === 1) {
+      sliderRef.current?.slickNext()
+    } else {
+      sliderRef.current?.slickPrev()
+    }
+  }
+
+  const showcaseSliderSettings: Settings = {
+    arrows: false,
+    autoplay: false,
+    cssEase: 'cubic-bezier(0.25, 1, 0.5, 1)',
+    infinite: true,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    speed: 450,
+    waitForAnimate: false,
+  }
+
+  const sliderSettings: Settings = {
+    arrows: false,
+    autoplay: !isModalOpen,
+    autoplaySpeed: AUTOPLAY_DELAY,
+    cssEase: 'cubic-bezier(0.25, 1, 0.5, 1)',
+    infinite: true,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    slidesToScroll: 1,
+    slidesToShow: 4,
+    speed: 450,
+    swipeToSlide: true,
+    waitForAnimate: false,
+    beforeChange: (_current, next) => {
+      const realIndex = next % transformations.length
+      setActiveIndex(realIndex)
+      setIsExpanded(false)
+      showcaseSliderRef.current?.slickGoTo(realIndex)
+    },
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 992,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 576,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  }
+
+  const getDisplayParagraph = (paragraph: string) => {
+    const nextTruncated = paragraph.slice(0, 180)
+    return paragraph.length > 180 && !isExpanded
+      ? `${nextTruncated.slice(0, nextTruncated.lastIndexOf(' ')).trim()}...`
+      : paragraph
+  }
+
   return (
     <section id="testimonials" className={styles.transformationSection}>
       <div className={styles.container}>
-        {/* Header Block */}
-        <div className={styles.header}>
-          <h2 className={styles.heading}>Transformation Stories in Focus</h2>
+        {/* Header */}
+        <Stagger as="div" className={styles.header} variant="fade-up" duration={DURATION.section}>
+          <h2 className={styles.heading}>Real People. Real Transformations.</h2>
           <p className={styles.subHeading}>
-            Real members. Real progress. Explore inspiring journeys and see whatâ€™s possible when you take your first step.
+            These are real Phoenix Fitness client transformation stories&mdash;captured on video, backed by
+            measurable results, told in their own words.
           </p>
-        </div>
+        </Stagger>
 
-        {/* Staggered Grid of 5 Images */}
-        <div className={styles.imageGrid}>
-          {/* Left Column: 1 large tall image */}
-          <div className={styles.leftColumn}>
-            <div className={styles.tallImageWrap}>
-              <Image
-                src="/images/home/transformationimage1.png"
-                alt="Transformation member doing heavy dumbbell rows"
-                fill
-                sizes="(max-width: 992px) 100vw, 50vw"
-                className={styles.gridImage}
+        {/* Featured Showcase — reveal wraps the slider as a whole; GSAP never touches
+            individual slides since react-slick owns their transform for positioning. */}
+        <Reveal
+          as="div"
+          variant="scale"
+          duration={DURATION.section}
+          style={{ width: '100%' }}
+          onMouseEnter={() => sliderRef.current?.slickPause()}
+          onMouseLeave={() => sliderRef.current?.slickPlay()}
+        >
+          <Slider ref={showcaseSliderRef} className={styles.showcaseSlider} {...showcaseSliderSettings}>
+            {transformations.map((t, index) => (
+              <div key={t.id}>
+                <div className={styles.showcase} ref={index === activeRealIndex ? showcaseRef : undefined}>
+                  <div className={styles.mediaCol}>
+                    <div className={styles.mediaWrap}>
+                      <Image
+                        src={t.image}
+                        alt={t.alt}
+                        fill
+                        priority={false}
+                        sizes="(max-width: 992px) 100vw, 55vw"
+                        className={styles.mediaImage}
+                        style={{ objectPosition: t.imagePosition ?? 'top center' }}
+                      />
+                      {t.video && (
+                        <button
+                          type="button"
+                          className={styles.playButton}
+                          onClick={() => selectTransformation(index, true)}
+                          aria-label={`Play ${t.name}'s transformation video`}
+                        >
+                          <Play size={22} fill="currentColor" strokeWidth={0} />
+                        </button>
+                      )}
+                      <div className={styles.resultBadge}>
+                        <span className={styles.resultValue}>{t.result}</span>
+                        <span className={styles.resultLabel}>Goal: {t.goal}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className={styles.contentCol}>
+                    <span className={styles.eyebrow}>Featured Transformation</span>
+                    <h3 className={styles.quoteHook}>{t.quoteHook}</h3>
+                    <p className={styles.paragraph}>
+                      {getDisplayParagraph(t.paragraph)}
+                      {t.paragraph.length > 180 && (
+                        <button
+                          type="button"
+                          className={styles.readMore}
+                          onClick={() => setIsExpanded((prev) => !prev)}
+                          aria-expanded={isExpanded}
+                        >
+                          {isExpanded ? 'Read less' : 'Read more'}
+                        </button>
+                      )}
+                    </p>
+
+                    <div className={styles.divider} />
+
+                    <div className={styles.profileRow}>
+                      <div className={styles.avatarWrap}>
+                        <Image
+                          src={t.image}
+                          alt=""
+                          aria-hidden="true"
+                          fill
+                          className={styles.avatar}
+                          style={{ objectPosition: t.imagePosition ?? 'top center' }}
+                        />
+                      </div>
+                      <div className={styles.bio}>
+                        <span className={styles.memberName}>{t.name}</span>
+                        <span className={styles.memberTag}>{t.tag}</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.pagination} aria-label="Choose a featured transformation">
+                      {transformations.map((story, storyIndex) => (
+                        <button
+                          key={story.id}
+                          type="button"
+                          aria-pressed={story.id === active.id}
+                          aria-label={`Show ${story.name}'s story`}
+                          className={`${styles.dot} ${story.id === active.id ? styles.dotActive : ''}`}
+                          onClick={() => selectTransformation(storyIndex)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </Reveal>
+
+        {/* Secondary Carousel */}
+        <Reveal as="div" className={styles.carousel} variant="fade-up" duration={DURATION.section}>
+          <div className={styles.carouselHead}>
+            <span className={styles.carouselLabel}>More transformation stories</span>
+            <div className={styles.carouselControls}>
+              <button
+                type="button"
+                className={styles.navButton}
+                onClick={() => scrollTrack(-1)}
+                aria-label="Scroll to previous stories"
+              >
+                <ChevronLeft size={18} strokeWidth={2} />
+              </button>
+              <button
+                type="button"
+                className={styles.navButton}
+                onClick={() => scrollTrack(1)}
+                aria-label="Scroll to next stories"
+              >
+                <ChevronRight size={18} strokeWidth={2} />
+              </button>
+            </div>
+          </div>
+
+          <Slider ref={sliderRef} className={styles.track} {...sliderSettings}>
+            {transformations.map((t, index) => (
+              <TransformationCard
+                key={t.id}
+                transformation={t}
+                isActive={t.id === active.id}
+                onSelect={() => selectTransformation(index, Boolean(t.video))}
               />
-            </div>
-          </div>
-
-          {/* Right Column: 2x2 grid of 4 smaller images */}
-          <div className={styles.rightColumn}>
-            <div className={styles.subGrid}>
-              <div className={styles.smallImageWrap}>
-                <Image
-                  src="/images/home/transformationimage2.png"
-                  alt="Trainer helping member with barbell squat"
-                  fill
-                  sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 25vw"
-                  className={styles.gridImage}
-                />
-              </div>
-              <div className={styles.smallImageWrap}>
-                <Image
-                  src="/images/home/transformationimage3.png"
-                  alt="Happy gym members celebrating milestone"
-                  fill
-                  sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 25vw"
-                  className={styles.gridImage}
-                />
-              </div>
-              <div className={styles.smallImageWrap}>
-                <Image
-                  src="/images/home/transformationimage4.png"
-                  alt="Modern gym floor interior"
-                  fill
-                  sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 25vw"
-                  className={styles.gridImage}
-                />
-              </div>
-              <div className={styles.smallImageWrap}>
-                <Image
-                  src="/images/home/transformationimage5.png"
-                  alt="Personal coach training on cable machine"
-                  fill
-                  sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 25vw"
-                  className={styles.gridImage}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Testimonial Block */}
-        <div className={styles.testimonialBlock}>
-          {/* Row 1: Testimonial Texts */}
-          <div className={styles.testimonialTextRow}>
-            <div className={styles.quoteHook}>
-              <h3 className={styles.quoteText}>I finally feel strong and supported.</h3>
-            </div>
-            <div className={styles.quoteBody}>
-              <p className={styles.paragraph}>
-                Before joining, I was nervous to start. But from day one, the trainers encouraged me and the community cheered me on. Every session, I feel myself getting stronger&mdash;inside and out. I&apos;m proud of how far I&apos;ve come, and excited for what&apos;s next.
-              </p>
-            </div>
-          </div>
-
-          {/* Horizontal divider line */}
-          <div className={styles.divider}></div>
-
-          {/* Row 2: Testimonial Metadata */}
-          <div className={styles.testimonialMetaRow}>
-            <div className={styles.profileInfo}>
-              <div className={styles.avatarWrap}>
-                <Image
-                  src="/images/home/testimonial1.png"
-                  alt="Jordan Ellis avatar"
-                  fill
-                  className={styles.avatar}
-                />
-              </div>
-              <div className={styles.bio}>
-                <h4 className={styles.memberName}>Jordan Ellis</h4>
-                <p className={styles.memberTag}>Phoenix Fitness Member, 7-Month Journey</p>
-              </div>
-            </div>
-
-            <div className={styles.partnerLogoWrap}>
-              <div className={styles.partnerIcon}>
-                <Image
-                  src="/images/home/home-logo5.png"
-                  alt="360LAB Logo"
-                  width={110}
-                  height={35}
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+            ))}
+          </Slider>
+        </Reveal>
       </div>
+
+      {isModalOpen && active.video && (
+        <VideoModal src={active.video} label={active.name} onClose={() => setIsModalOpen(false)} />
+      )}
     </section>
   )
 }
-
-

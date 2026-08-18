@@ -77,3 +77,22 @@
     padding-bottom: 72px;
   }
 }
+
+/* Services contact headings responsive balance */
+.section-title {
+  font-family: var(--font-heading);
+  line-height: 0.92 !important;
+  letter-spacing: 0 !important;
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 42px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .section-title {
+    font-size: 36px !important;
+  }
+}

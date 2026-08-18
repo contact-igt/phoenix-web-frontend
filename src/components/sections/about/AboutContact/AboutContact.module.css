@@ -66,6 +66,12 @@
   font-weight: 500;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.80);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.address:hover {
+  color: #ffffff;
 }
 
 .flag {

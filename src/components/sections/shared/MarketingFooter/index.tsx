@@ -1,10 +1,11 @@
 import { ArrowUp } from "lucide-react"
+import Reveal from "@/components/animation/Reveal"
 import styles from "./MarketingFooter.module.css"
 
 export default function MarketingFooter() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.inner}>
+      <Reveal as="div" className={styles.inner} variant="fade-up">
         <div className={styles.topRow}>
           <nav className={styles.linkGroup} aria-label="Footer navigation">
             <a href="#contact" className={styles.darkPill}>CONTACT US</a>
@@ -21,7 +22,7 @@ export default function MarketingFooter() {
         </div>
 
         <p className={styles.copy}>&copy; 2026. ALL RIGHTS RESERVED.</p>
-      </div>
+      </Reveal>
     </footer>
   )
 }

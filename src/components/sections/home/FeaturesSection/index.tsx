@@ -1,4 +1,6 @@
-﻿import Image from 'next/image'
+import Image from 'next/image'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
 import styles from './index.module.css'
 
 interface FeatureCard {
@@ -21,7 +23,7 @@ const features: FeatureCard[] = [
   {
     imageSrc: '/images/home/featureimage3.png',
     title: 'PROGRESS AT YOUR PACE',
-    description: 'Flexible plans fit your goals and scheduleâ€”grow stronger on your own terms.',
+    description: 'Flexible plans fit your goals and schedule—grow stronger on your own terms.',
   },
   {
     imageSrc: '/images/home/featureimage4.png',
@@ -32,19 +34,19 @@ const features: FeatureCard[] = [
 
 export default function FeaturesSection() {
   return (
-    <section id="faq" className={styles.featuresSection}>
+    <section id="features" className={styles.featuresSection}>
       <div className={styles.container}>
         {/* Eyebrow Label */}
-        <span className={styles.eyebrow}>New for beginners</span>
+        <Reveal as="span" className={styles.eyebrow} variant="fade-up">New for beginners</Reveal>
 
         {/* Section Heading */}
-        <h2 className={styles.heading}>
+        <Reveal as="h2" className={styles.heading} variant="fade-up" delay={0.08}>
           Features for your<br />
           fitness journey
-        </h2>
+        </Reveal>
 
         {/* 4-Column Card Grid */}
-        <div className={styles.grid}>
+        <Stagger as="div" className={styles.grid} variant="scale">
           {features.map((feature, idx) => (
             <div key={idx} className={styles.card}>
               <div className={styles.imageWrap}>
@@ -62,7 +64,7 @@ export default function FeaturesSection() {
               </div>
             </div>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )

@@ -1,4 +1,6 @@
-﻿import styles from './index.module.css'
+﻿import Stagger from '@/components/animation/Stagger'
+import { STAGGER } from '@/lib/animation/gsap'
+import styles from './index.module.css'
 export default function FunctionalTraining() {
   return (
         <section id="functional" className={`${styles["section"]} ${styles["functional-section"]}`}>
@@ -6,14 +8,14 @@ export default function FunctionalTraining() {
             <div className={styles["functional-grid-container"]}>
 
               {/* Left: Info + Tags */}
-              <div className={styles["functional-info"]}>
+              <Stagger as="div" className={styles["functional-info"]} variant="fade-up" staggerAmount={STAGGER.normal}>
                 <span className={styles["strength-tag-label"]}>OUR SERVICES</span>
 
                 <div className={styles["functional-title-row"]}>
                   <h2 className={`${styles["section-title"]} ${styles["functional-title"]}`}>
                     <span className={styles["highlight"]}>FUNCTIONAL</span> TRAINING
                   </h2>
-                  <a href="#" className={styles["cardio-watch-btn"]}>
+                  <a href="https://www.youtube.com/@phoenixfitnessbangalore" target="_blank" rel="noopener noreferrer" className={styles["cardio-watch-btn"]}>
                     <span className={styles["btn-text-pill"]}>WATCH VIDEO</span>
                     <span className={styles["btn-circle-play"]}>
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -49,20 +51,20 @@ export default function FunctionalTraining() {
                     <span className={styles["white-word"]}>STIFFNESS AND IMPROVES CONTROL</span>
                   </div>
                 </div>
-              </div>
+              </Stagger>
 
               {/* Right: three stacked preview thumbnails beside the text */}
-              <div className={styles["functional-preview-thumbs"]}>
+              <Stagger as="div" className={styles["functional-preview-thumbs"]} variant="fade-up" staggerAmount={STAGGER.tight}>
                 <div className={styles["functional-thumb"]}>
                   <img src="/images/functional/preview1.png" alt="Functional training preview 1" />
                 </div>
                 <div className={styles["functional-thumb"]}>
-                  <img src="/images/functional/preview1.png" alt="Functional training preview 2" />
+                  <img src="/services/functional_training2.png" alt="Functional training preview 2" />
                 </div>
-              </div>
+              </Stagger>
 
               {/* Bottom: full-width image collage */}
-              <div className={styles["functional-image-grid"]}>
+              <Stagger as="div" className={styles["functional-image-grid"]} variant="scale" staggerAmount={STAGGER.tight}>
                 <div className={styles["functional-main"]}>
                   <img src="/images/functional/main.png" alt="Woman doing dumbbell row" />
                 </div>
@@ -78,10 +80,11 @@ export default function FunctionalTraining() {
                 <div className={styles["functional-panoramic"]}>
                   <img src="/images/functional/panoramic.png" alt="Gym interior wide shot" />
                 </div>
-              </div>
+              </Stagger>
 
             </div>
           </div>
         </section>
   )
 }
+

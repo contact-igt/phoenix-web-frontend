@@ -374,3 +374,90 @@
     height: 22px;
   }
 }
+
+/* Pricing banner tablet/laptop wrap correction */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .pricing-section {
+    min-height: 760px;
+  }
+
+  .container {
+    padding-bottom: 150px;
+  }
+
+  .pricing-title-main {
+    font-size: clamp(64px, 8vw, 80px);
+    line-height: 0.96;
+    max-width: 760px;
+  }
+
+  .pricing-hero-desc {
+    max-width: 560px;
+  }
+
+  .pricing-guarantee-block {
+    left: 44px;
+    right: 44px;
+    bottom: 52px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px 24px;
+  }
+
+  .pricing-guarantee-text {
+    max-width: 180px;
+    flex: 0 1 auto;
+    font-size: 12px;
+    line-height: 1.24;
+  }
+
+  .pricing-guarantee-icon {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Pricing banner watermark responsive alignment */
+@media (min-width: 1201px) and (max-width: 1320px) {
+  .pricing-watermark {
+    top: 30%;
+    left: 8%;
+    height: 520px;
+    transform: translate(-50%, -50%);
+    opacity: 0.48;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .pricing-watermark {
+    top: 31%;
+    left: 10%;
+    height: clamp(390px, 42vw, 480px);
+    transform: translate(-50%, -50%);
+    opacity: 0.42;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-watermark {
+    top: 22%;
+    left: 0;
+    height: 300px;
+    transform: translate(-42%, -50%);
+    opacity: 0.28;
+  }
+}
+
+@media (max-width: 576px) {
+  .pricing-watermark {
+    display: none;
+  }
+}

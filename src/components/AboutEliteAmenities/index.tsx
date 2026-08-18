@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 import { ArrowUpRight, Play } from 'lucide-react'
 import styles from './AboutEliteAmenities.module.css'
 
@@ -30,7 +30,7 @@ const services = [
   {
     id: '05',
     title: 'TAILOR-MADE',
-    desc: 'Custom workout plans.',
+    desc: 'Custom workout plans and diet guidelines.',
     image: '/images/about/elite_amentities5.png',
   },
 ]
@@ -60,10 +60,9 @@ export default function AboutEliteAmenities() {
               </button>
             </div>
             <div className={styles.btnGroup}>
-              <button className={styles.watchBtn}>Watch Video</button>
-              <button className={styles.playCircle} aria-label="Watch video">
-                <Play size={12} fill="currentColor" strokeWidth={0} />
-              </button>
+              <a href="https://www.youtube.com/@phoenixfitnessbangalore" target="_blank" rel="noopener noreferrer" className={styles.watchBtn}>Watch Video</a>
+              <a href="https://www.youtube.com/@phoenixfitnessbangalore" target="_blank" rel="noopener noreferrer" className={styles.playCircle} aria-label="Watch video"><Play size={12} fill="currentColor" strokeWidth={0} />
+              </a>
             </div>
           </div>
           <div className={styles.leftImages}>
@@ -110,3 +109,4 @@ export default function AboutEliteAmenities() {
     </section>
   )
 }
+

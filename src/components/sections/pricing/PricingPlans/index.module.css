@@ -182,7 +182,13 @@
   backdrop-filter: none;
   display: flex;
   flex-direction: column;
-  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.pricing-card:not(.pricing-card-active):hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .pricing-card-active {
@@ -190,6 +196,17 @@
   color: #050505;
   transform: translateY(-2px);
   box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28);
+  /* delayed start so the GSAP scale-in entrance (which also animates `transform`) finishes first */
+  animation: pricingCardFloat 3.6s ease-in-out 0.8s infinite;
+}
+
+.pricing-card-active:hover {
+  box-shadow: 0 30px 64px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes pricingCardFloat {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(-10px); }
 }
 
 .card-icon {
@@ -348,12 +365,12 @@
   position: absolute;
   top: 45%;
   z-index: 8;
-  width: 136px;
-  height: 136px;
+  width: 92px;
+  height: 92px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 8px solid var(--color-primary);
+  border: 5px solid var(--color-primary);
   border-radius: 50%;
   background: transparent;
   color: var(--color-primary);
@@ -366,11 +383,11 @@
 }
 
 .left {
-  left: 80px;
+  left: 140px;
 }
 
 .right {
-  right: 80px;
+  right: 140px;
 }
 
 .carousel-dots {
@@ -418,11 +435,11 @@
   }
 
   .left {
-    left: 48px;
+    left: 84px;
   }
 
   .right {
-    right: 48px;
+    right: 84px;
   }
 }
 
@@ -461,11 +478,11 @@
   }
 
   .left {
-    left: 28px;
+    left: 42px;
   }
 
   .right {
-    right: 28px;
+    right: 42px;
   }
 }
 
@@ -852,4 +869,77 @@
 /* Anchor target offset for journey arrow */
 .pricing-plans-section {
   scroll-margin-top: 112px;
+}
+
+/* Branch-wise pricing slider and plan toggle states */
+.toggle-active {
+  background: var(--color-primary) !important;
+  color: #ffffff !important;
+}
+
+.toggle-inactive {
+  background: #efefef !important;
+  color: #111111 !important;
+}
+
+.membership-grid {
+  width: min(100%, 1240px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.personal-grid {
+  width: min(100%, 1060px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.carousel-dot {
+  padding: 0;
+  appearance: none;
+}
+
+@media (max-width: 1200px) {
+  .membership-grid {
+    width: min(100%, 900px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .personal-grid {
+    width: min(100%, 940px);
+  }
+}
+
+@media (max-width: 992px) {
+  .personal-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .membership-grid,
+  .personal-grid {
+    width: min(100%, 430px);
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.card-icon-image {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.pricing-card-active .card-icon-image {
+  filter: brightness(0);
+}
+
+.carousel-nav-btn {
+  display: flex;
+  top: 280px;
+}
+
+@media (max-width: 768px) {
+  .carousel-nav-btn {
+    display: none;
+  }
 }

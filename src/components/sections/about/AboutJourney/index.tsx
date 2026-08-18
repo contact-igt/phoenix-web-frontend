@@ -1,4 +1,7 @@
 ﻿import Image from 'next/image'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { STAGGER } from '@/lib/animation/gsap'
 import styles from './AboutJourney.module.css'
 
 type Milestone = {
@@ -62,17 +65,17 @@ export default function AboutJourney() {
   const leftRemaining = leftTimeline.slice(1)
 
   return (
-    <section className={styles.section} aria-labelledby="journey-heading">
+    <section id="journey" className={styles.section} aria-labelledby="journey-heading">
       <Image src="/images/about/journey_logo.png" alt="" width={620} height={588} className={styles.watermark} aria-hidden="true" />
 
       <div className={styles.inner}>
-        <h2 id="journey-heading" className={styles.sectionHeading}>
+        <Reveal as="h2" id="journey-heading" className={styles.sectionHeading} variant="fade-up">
           <span className={styles.headingOrange}>Our 16 Year</span>
           <span className={styles.headingWhite}>Journey</span>
-        </h2>
+        </Reveal>
 
         <div className={styles.desktopTimeline}>
-          <div className={styles.centerTimeline}>
+          <Stagger as="div" className={styles.centerTimeline} variant="fade-up" staggerAmount={STAGGER.loose}>
             {centerLead.map((milestone, index) => (
               <article key={milestone.year} className={`${styles.centerItem} ${index % 2 === 1 ? styles.darkBand : ''}`}>
                 <div className={styles.centerHeading}><MilestoneHeading milestone={milestone} /></div>
@@ -80,9 +83,9 @@ export default function AboutJourney() {
                 <MilestoneMedia milestone={milestone} />
               </article>
             ))}
-          </div>
+          </Stagger>
 
-          <div className={styles.transitionRow}>
+          <Stagger as="div" className={styles.transitionRow} variant="fade-up" staggerAmount={STAGGER.loose}>
             <article className={styles.transitionLeft}>
               <div className={styles.transitionLeftHeading}><MilestoneHeading milestone={leftFirst} inline /></div>
               <div className={styles.leftRail}><TimelineBadge marker={leftFirst.marker} /></div>
@@ -94,9 +97,9 @@ export default function AboutJourney() {
               <div className={styles.centerRail}><TimelineBadge marker={centerFinal.marker} /></div>
               <MilestoneMedia milestone={centerFinal} />
             </article>
-          </div>
+          </Stagger>
 
-          <div className={styles.leftTimeline}>
+          <Stagger as="div" className={styles.leftTimeline} variant="fade-up" staggerAmount={STAGGER.loose}>
             {leftRemaining.map((milestone, index) => (
               <article key={milestone.year} className={`${styles.leftItem} ${index % 2 === 1 ? styles.darkBand : ''}`}>
                 <div className={styles.leftRail}><TimelineBadge marker={milestone.marker} /></div>
@@ -104,10 +107,10 @@ export default function AboutJourney() {
                 <div className={styles.leftHeading}><MilestoneHeading milestone={milestone} inline /></div>
               </article>
             ))}
-          </div>
+          </Stagger>
         </div>
 
-        <div className={styles.mobileTimeline}>
+        <Stagger as="div" className={styles.mobileTimeline} variant="fade-up" staggerAmount={STAGGER.tight}>
           {mobileTimeline.map((milestone, index) => (
             <article key={`${milestone.year}-${index}`} className={styles.mobileItem}>
               <div className={styles.mobileRail}><TimelineBadge marker={String(index + 1).padStart(2, '0')} /></div>
@@ -117,8 +120,10 @@ export default function AboutJourney() {
               </div>
             </article>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )
 }
+
+

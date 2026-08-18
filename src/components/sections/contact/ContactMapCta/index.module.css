@@ -12,7 +12,7 @@
 
 .card {
   position: relative;
-  min-height: 420px;
+  min-height: 460px;
   border: 1px solid rgba(109, 59, 42, 0.82);
   border-radius: 18px;
   overflow: hidden;
@@ -22,7 +22,7 @@
 
 .image {
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   z-index: 0;
 }
 

@@ -26,6 +26,16 @@
   object-fit: cover;
   object-position: center center;
   z-index: -2;
+  animation: bannerZoom 1.8s ease-out forwards;
+}
+
+@keyframes bannerZoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* -- Dual-gradient scrim overlay (centre-vignette) -- */
@@ -258,11 +268,11 @@
   }
 }
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬ 768px: mobile header (70px), tighter layout Ã¢â€â‚¬Ã¢â€â‚¬ */
+/* ── 768px: mobile header (70px), tighter layout ── */
 @media (max-width: 768px) {
   .banner {
     margin-top: 70px;
-    height: clamp(560px, calc(100vh - 70px), 760px);
+    height: clamp(460px, 62vh, 540px);
   }
 
   .bannerImage {
@@ -286,15 +296,16 @@
   }
 
   .content {
-    padding: 72px 0 64px;
+    padding: 40px 0 32px;
   }
 
   .eyebrow {
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 8px;
   }
 
   .title {
-    font-size: clamp(72px, 13vw, 110px);
+    font-size: clamp(56px, 12vw, 90px);
     line-height: 0.84;
   }
 
@@ -319,33 +330,35 @@
   .description {
     font-size: 11px;
     max-width: min(100%, 300px);
+    margin-bottom: 14px;
   }
 }
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬ 576px: fixed height, 2-col CTA grid Ã¢â€â‚¬Ã¢â€â‚¬ */
+/* ── 576px: fixed reduced height, 2-col CTA grid ── */
 @media (max-width: 576px) {
   .banner {
-    height: 620px;
+    height: 440px;
   }
 
   .content {
     width: calc(100% - 32px);
-    padding: 60px 0 56px;
+    padding: 32px 0 28px;
   }
 
   .title {
     max-width: 100%;
-    font-size: clamp(56px, 14vw, 80px);
+    font-size: clamp(48px, 13vw, 70px);
     line-height: 0.84;
     white-space: normal;
   }
 
   .description {
     width: 100%;
-    max-width: 300px;
+    max-width: 290px;
+    margin-bottom: 12px;
   }
 
-  /* 2-column grid: pill | icon Ã¢â‚¬â€ centred for both CTA rows */
+  /* 2-column grid: pill | icon — centred for both CTA rows */
   .actionsRow {
     display: grid;
     grid-template-columns: auto 40px;
@@ -353,7 +366,7 @@
     column-gap: 6px;
     width: 100%;
     height: auto;
-    row-gap: 12px;
+    row-gap: 10px;
   }
 
   .videoButton,
@@ -363,44 +376,44 @@
   }
 }
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬ 390px: smallest phones Ã¢â€â‚¬Ã¢â€â‚¬ */
+/* ── 390px: smallest phones ── */
 @media (max-width: 390px) {
   .banner {
-    height: 580px;
+    height: 400px;
   }
 
   .content {
     width: calc(100% - 28px);
-    padding: 52px 0 48px;
+    padding: 24px 0 20px;
   }
 
   .eyebrow {
-    font-size: 17px;
+    font-size: 15px;
   }
 
   .title {
-    font-size: clamp(48px, 16vw, 60px);
+    font-size: clamp(42px, 14vw, 54px);
     line-height: 0.84;
   }
 
   .joinButton,
   .videoButton {
-    min-width: 128px;
-    padding: 0 18px;
+    min-width: 120px;
+    padding: 0 16px;
   }
 
   .actionsRow {
-    row-gap: 10px;
+    row-gap: 8px;
     column-gap: 6px;
   }
 
   .videoButton,
   .playButton {
-    height: 40px;
+    height: 36px;
   }
 
   .playButton {
-    width: 40px;
-    flex-basis: 40px;
+    width: 36px;
+    flex-basis: 36px;
   }
 }

@@ -5,6 +5,8 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { ArrowUpRight } from 'lucide-react'
 import { submitForm } from '@/lib/formService'
+import Reveal from '@/components/animation/Reveal'
+import { DURATION } from '@/lib/animation/gsap'
 import styles from './AboutContact.module.css'
 
 const INITIAL_VALUES = {
@@ -82,7 +84,7 @@ export default function AboutContact() {
       <div className={styles.inner}>
 
         {/* LEFT - Contact Info */}
-        <div className={styles.leftCol}>
+        <Reveal as="div" className={styles.leftCol} variant="fade-left" duration={DURATION.section}>
           <h2 className={styles.heading}>Get in touch</h2>
 
           <p className={styles.tagline}>
@@ -92,13 +94,13 @@ export default function AboutContact() {
 
           <div className={styles.block}>
             <p className={styles.blockLabel}>Visit us:</p>
-            <div className={styles.address}>
+            <a href="https://maps.app.goo.gl/ai7F1d4mRTH9ecns7" target="_blank" rel="noopener noreferrer" className={styles.address}>
               <span className={styles.flag}>IN</span>
               <span>
                 Phoenix Fitness Kannamangala, SBR Gokulam,<br />
                 6th Floor, Whitefield, Bengaluru-560067
               </span>
-            </div>
+            </a>
           </div>
 
           <div className={styles.block}>
@@ -116,7 +118,7 @@ export default function AboutContact() {
           <div className={styles.block}>
             <p className={styles.blockLabel}>Follow us:</p>
             <div className={styles.socials}>
-              <a href="#" className={styles.socialLink} aria-label="Instagram">
+              <a href="https://www.instagram.com/phoenixfitness_bangalore/" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -124,13 +126,13 @@ export default function AboutContact() {
                 </svg>
                 <span>Instagram</span>
               </a>
-              <a href="#" className={styles.socialLink} aria-label="Facebook">
+              <a href="https://www.facebook.com/phoenixfitnessbanglore/" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Facebook">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
                 <span>Facebook</span>
               </a>
-              <a href="#" className={styles.socialLink} aria-label="YouTube">
+              <a href="https://www.youtube.com/channel/UC1q-dfQ2T2euEbMSeJ3_PBA" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="YouTube">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
                   <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
@@ -139,10 +141,10 @@ export default function AboutContact() {
               </a>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* RIGHT - Contact Form */}
-        <div className={styles.rightCol}>
+        <Reveal as="div" className={styles.rightCol} variant="fade-right" duration={DURATION.section}>
           <h2 className={styles.heading}>Send a message</h2>
 
           <p className={styles.tagline}>
@@ -249,13 +251,13 @@ export default function AboutContact() {
               </button>
               <p className={styles.emailNote}>
                 If you&apos;d rather get started with a mail - then write to us at{' '}
-                <a href="mailto:hello@phoenixfitness.com" className={styles.emailLink}>
-                  hello@phoenixfitness.com
+                <a href="mailto:info@phoenix-fitness.in" className={styles.emailLink}>
+                  info@phoenix-fitness.in
                 </a>
               </p>
             </div>
           </form>
-        </div>
+        </Reveal>
 
       </div>
     </section>

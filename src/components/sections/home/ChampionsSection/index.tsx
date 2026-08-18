@@ -1,4 +1,7 @@
 import Image from 'next/image'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { STAGGER } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
 const logos = [
@@ -15,7 +18,7 @@ export default function ChampionsSection() {
     <section className={styles.championsSection}>
       <div className={styles.championsInner}>
         {/* Left: Text Content */}
-        <div className={styles.championsLeft}>
+        <Reveal as="div" className={styles.championsLeft} variant="fade-up">
           <h2 className={styles.championsHeading}>
             Champions of Real<br />
             Transformation
@@ -23,11 +26,11 @@ export default function ChampionsSection() {
           <p className={styles.championsDescription}>
             See how our members and partners are building strength, confidence, and community&mdash;one step at a time. Your journey is just beginning, and you&apos;re in great company.
           </p>
-        </div>
+        </Reveal>
 
         {/* Right: Partner Logos Grid */}
         <div className={styles.championsRight}>
-          <div className={styles.logoGrid}>
+          <Stagger as="div" className={styles.logoGrid} variant="fade-up" distance={16} staggerAmount={STAGGER.tight}>
             {logos.map((logo, index) => (
               <div key={index} className={styles.logoWrap}>
                 <Image
@@ -39,7 +42,7 @@ export default function ChampionsSection() {
                 />
               </div>
             ))}
-          </div>
+          </Stagger>
         </div>
       </div>
     </section>

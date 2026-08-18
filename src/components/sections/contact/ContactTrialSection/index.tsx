@@ -6,6 +6,9 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
 import { submitForm } from '@/lib/formService'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { DURATION, STAGGER } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
 const checklist = [
@@ -94,7 +97,7 @@ export default function ContactTrialSection({ initialValues }: ContactTrialSecti
   return (
     <section className={styles.section} aria-labelledby="contact-trial-title" id="contact-form">
       <div className={styles.container}>
-        <div className={styles.content}>
+        <Reveal as="div" className={styles.content} variant="fade-left" duration={DURATION.section}>
           <h2 id="contact-trial-title" className={styles.title}>
             <span>TAKE YOUR</span>
             <span>FIRST <strong>STEP TO</strong></span>
@@ -117,7 +120,7 @@ export default function ContactTrialSection({ initialValues }: ContactTrialSecti
             Join our community and discover what makes us different.
           </p>
 
-          <ul className={styles.checklist} aria-label="Free trial includes">
+          <Stagger as="ul" className={styles.checklist} variant="fade-up" distance={14} staggerAmount={STAGGER.tight} aria-label="Free trial includes">
             {checklist.map((item) => (
               <li key={item} className={styles.checkItem}>
                 <span className={styles.checkIcon} aria-hidden="true">
@@ -126,10 +129,10 @@ export default function ContactTrialSection({ initialValues }: ContactTrialSecti
                 <span>{item}</span>
               </li>
             ))}
-          </ul>
-        </div>
+          </Stagger>
+        </Reveal>
 
-        <form className={styles.formCard} onSubmit={formik.handleSubmit} noValidate>
+        <Reveal as="form" id="contact-trial-form" className={styles.formCard} variant="fade-right" duration={DURATION.section} onSubmit={formik.handleSubmit} noValidate>
           <div className={styles.field}>
             <label htmlFor="trial-name">FULL NAME</label>
             <input
@@ -235,7 +238,7 @@ export default function ContactTrialSection({ initialValues }: ContactTrialSecti
           <button type="submit" className={styles.submit} disabled={formik.isSubmitting}>
             {formik.isSubmitting ? 'SUBMITTING...' : 'BOOK MY FREE TRIAL'}
           </button>
-        </form>
+        </Reveal>
       </div>
     </section>
   )

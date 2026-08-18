@@ -1,4 +1,4 @@
-﻿.header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -60,7 +60,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 1;
@@ -70,6 +70,11 @@
   border: 0;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: translateY(-1px);
 }
 
 
@@ -84,7 +89,7 @@
   min-width: max-content;
   min-height: 44px;
   padding: 0 clamp(24px, 1.45vw, 30px) !important;
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif !important;
   font-size: 16px !important;
   font-weight: 600 !important;
   line-height: 1 !important;
@@ -112,6 +117,22 @@
 .contactBtn:hover,
 .arrowBtn:hover {
   background-color: rgba(255, 255, 255, 0.92);
+}
+
+.arrowBtn svg {
+  transition: transform 0.2s ease;
+}
+
+.arrowBtn:hover svg {
+  transform: rotate(8deg) scale(1.05);
+}
+
+.logo {
+  transition: transform 0.2s ease;
+}
+
+.logoContainer:hover .logo {
+  transform: scale(1.03);
 }
 
 .hamburger {
@@ -177,7 +198,7 @@
 }
 
 .mobileNavLink {
-  font-family: var(--font-body);
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
   font-size: 28px;
   font-weight: 700;
   text-transform: uppercase;
@@ -197,6 +218,18 @@
 
 .mobileCta {
   margin-top: var(--space-md);
+  display: flex;
+  justify-content: center;
+}
+
+.mobileCta a,
+.mobileCta button {
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0 !important;
+  padding: 14px 36px !important;
 }
 
 @media (max-width: 1320px) {

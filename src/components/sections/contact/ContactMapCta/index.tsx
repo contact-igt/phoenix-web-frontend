@@ -1,16 +1,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin } from 'lucide-react'
+import Reveal from '@/components/animation/Reveal'
+import { DURATION } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
 export default function ContactMapCta() {
   return (
     <section className={styles.section} aria-labelledby="contact-map-title">
       <div className={styles.container}>
-        <div className={styles.card}>
+        <Reveal as="div" className={styles.card} variant="fade-right" duration={DURATION.section} distance={48}>
           <Image
-            src="/images/contact/trail_today.png"
-            alt="Mountain trail landscape representing the journey to Phoenix Fitness"
+            src="/images/contact/findushere.png"
+            alt="Phoenix Fitness location"
             fill
             sizes="(max-width: 768px) 100vw, 1100px"
             className={styles.image}
@@ -28,10 +30,10 @@ export default function ContactMapCta() {
             </p>
           </div>
 
-          <Link href="#contact-trial-title" className={styles.cta}>
+          <Link href="#contact-trial-form" className={styles.cta}>
             BOOK YOUR TRIAL TODAY
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

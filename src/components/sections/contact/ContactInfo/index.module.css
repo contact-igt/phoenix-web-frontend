@@ -1,14 +1,13 @@
 .container {
   width: 100%;
-  padding: 48px 0 96px;
+  padding: 52px 0 102px;
   overflow: hidden;
   background: #000;
 }
 
 .stage {
   position: relative;
-  width: min(100% - 64px, 1104px);
-  min-height: 620px;
+  width: min(100% - 64px, 1580px);
   margin: 0 auto;
   isolation: isolate;
 }
@@ -17,7 +16,7 @@
   position: absolute;
   inset: 48px 0 auto;
   z-index: 0;
-  height: 382px;
+  height: 420px;
   display: grid;
   grid-template-columns: 1.42fr 1fr 1fr 1fr 1fr;
   overflow: hidden;
@@ -35,12 +34,12 @@
 
 .imageStrip::before {
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.26) 36%, rgba(0, 0, 0, 0.72) 76%, #000 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.36) 0%, rgba(0, 0, 0, 0.08) 48%, rgba(0, 0, 0, 0.30) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.28) 34%, rgba(0, 0, 0, 0.76) 76%, #000 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.12) 47%, rgba(0, 0, 0, 0.46) 100%);
 }
 
 .imageStrip::after {
-  background: radial-gradient(ellipse at center, transparent 0%, transparent 48%, rgba(0, 0, 0, 0.36) 100%);
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 48%, rgba(0, 0, 0, 0.38) 100%);
 }
 
 .imagePanel {
@@ -53,82 +52,148 @@
 .panelImage {
   object-fit: cover;
   object-position: center;
-  opacity: 0.64;
-  filter: saturate(0.82) brightness(0.76) contrast(1.08);
+  opacity: 0.58;
+  filter: saturate(0.82) brightness(0.72) contrast(1.08);
 }
 
-.cards {
+.contactGrid {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(3, 320px);
-  justify-content: center;
-  align-items: stretch;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 28px;
-  padding: 218px 0 0;
+  padding-top: 150px;
+}
+
+.headingBlock {
+  grid-column: span 2;
+  min-height: 250px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 20px 22px 0;
+}
+
+.kicker {
+  margin: 0 0 18px;
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--color-primary);
+}
+
+.title {
+  max-width: 650px;
+  margin: 0;
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
+  font-size: clamp(42px, 4.8vw, 76px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #ffffff;
+}
+
+.description {
+  max-width: 560px;
+  margin: 22px 0 0;
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.38;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.quickCards {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-self: end;
 }
 
 .card {
-  width: 320px;
-  height: 300px;
-  padding: 29px 28px 30px;
+  min-width: 0;
+  background: rgb(28, 27, 27);
+  border: 1px solid rgb(93, 64, 56);
+  border-radius: 12px;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.58);
+}
+
+.quickCard {
+  min-height: 250px;
+  padding: 34px 28px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  background: #201f1e;
-  border: 1px solid rgba(92, 61, 53, 0.88);
-  border-radius: 7px;
-  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.64);
 }
 
-.iconWrapper {
-  width: 44px;
-  height: 44px;
-  flex: 0 0 44px;
-  margin-bottom: 25px;
+.iconWrapper,
+.locationIcon {
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f24405;
+  background: var(--color-primary);
+}
+
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  margin-bottom: 28px;
+}
+
+.locationIcon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
 }
 
 .icon {
-  width: 19px;
-  height: 19px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(8%) sepia(4%) saturate(469%) hue-rotate(314deg) brightness(96%) contrast(88%);
 }
 
+.locationIcon .icon {
+  width: 19px;
+  height: 19px;
+}
+
 .eyebrow {
-  margin: 0 0 9px;
+  margin: 0 0 12px;
   font-family: var(--font-archivo), sans-serif;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.06;
   letter-spacing: 0;
   text-transform: uppercase;
-  color: #e4e0de;
+  color: #e4dfdd;
 }
 
 .subtext {
   margin: 0;
   font-family: var(--font-archivo), sans-serif;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.2;
-  color: #b89a93;
+  color: #b69992;
 }
 
 .value {
   margin: auto 0 0;
   font-family: var(--font-archivo), sans-serif;
-  font-size: 24px;
+  font-size: clamp(22px, 1.75vw, 34px);
   font-weight: 700;
   line-height: 1;
-  color: #ffb49f;
+  color: #ffb39f;
 }
 
 .link {
@@ -141,59 +206,71 @@
   color: #ffc7b8;
 }
 
-.addressWrapper {
-  width: 100%;
-  margin: auto 0 17px;
+.branchGrid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.branchCard {
+  min-height: 270px;
+  padding: 25px 22px 28px;
   display: flex;
   flex-direction: column;
-  gap: 0;
+}
+
+.branchTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.branchNumber {
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.branchName {
+  margin: 0 0 20px;
+  font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
+  font-size: clamp(20px, 1.55vw, 28px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #ffffff;
+}
+
+.addressWrapper {
+  width: 100%;
+  margin: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .addressLine {
   margin: 0;
   font-family: var(--font-archivo), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.16;
-  color: #cba69d;
-}
-
-.socials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: #cba69d;
-}
-
-.socialIcon {
-  width: 13px;
-  height: 13px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: inherit;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.socialIcon svg {
-  width: 13px;
-  height: 13px;
-}
-
-.socialIcon:hover {
-  color: #f24405;
-  transform: translateY(-1px);
+  line-height: 1.18;
+  color: #cda79f;
 }
 
 @media (max-width: 1200px) {
   .container {
-    padding: 48px 0 76px;
+    padding: 48px 0 80px;
   }
 
   .stage {
-    width: min(100% - 48px, 940px);
-    min-height: auto;
+    width: min(100% - 48px, 1040px);
   }
 
   .imageStrip {
@@ -207,18 +284,32 @@
     display: none;
   }
 
-  .cards {
-    grid-template-columns: 1fr;
-    max-width: 560px;
-    margin: 0 auto;
-    gap: 28px;
-    padding: 150px 0 0;
+  .contactGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-top: 120px;
   }
 
-  .card {
-    width: 100%;
-    height: auto;
-    min-height: 292px;
+  .headingBlock,
+  .quickCards {
+    grid-column: 1 / -1;
+  }
+
+  .headingBlock {
+    min-height: auto;
+    max-width: 760px;
+    padding: 0 0 4px;
+  }
+
+  .quickCards {
+    max-width: none;
+  }
+
+  .branchGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .branchCard:last-child {
+    grid-column: 1 / -1;
   }
 }
 
@@ -240,33 +331,44 @@
     display: none;
   }
 
-  .cards {
-    max-width: 460px;
-    padding-top: 128px;
+  .contactGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    padding-top: 104px;
   }
 
-  .card {
-    min-height: 280px;
+  .quickCards,
+  .branchGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .branchCard:last-child {
+    grid-column: auto;
+  }
+
+  .quickCard {
+    min-height: 238px;
     padding: 32px 22px 28px;
   }
 
+  .branchCard {
+    min-height: 235px;
+  }
+
   .iconWrapper {
-    width: 40px;
-    height: 40px;
-    flex-basis: 40px;
-    margin-bottom: 22px;
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+    margin-bottom: 24px;
   }
 
   .eyebrow {
-    font-size: 19px;
-  }
-
-  .value {
-    font-size: 23px;
+    font-size: 24px;
   }
 
   .addressLine {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
@@ -275,115 +377,40 @@
     width: calc(100% - 24px);
   }
 
-  .cards {
-    padding-top: 118px;
+  .contactGrid {
+    padding-top: 96px;
   }
 
-  .card {
-    min-height: 270px;
+  .title {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .quickCard,
+  .branchCard {
     padding-inline: 18px;
   }
 
   .eyebrow {
-    font-size: 17px;
+    font-size: 21px;
   }
 
   .subtext {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .value {
-    font-size: 20px;
+    font-size: 21px;
   }
 
-  .addressLine {
-    font-size: 13px;
-  }
-}
-/* Contact info card exact Figma sizing */
-@media (min-width: 1201px) {
-  .container {
-    padding: 48px 0 110px;
-  }
-
-  .stage {
-    width: min(100% - 64px, 1580px);
-    min-height: 690px;
-  }
-
-  .imageStrip {
-    inset: 48px 0 auto;
-    height: 420px;
-    grid-template-columns: 1.42fr 1fr 1fr 1fr 1fr;
-  }
-
-  .cards {
-    grid-template-columns: repeat(3, 505px);
-    gap: 32px;
-    padding: 220px 0 0;
-  }
-
-  .card {
-    width: 505px;
-    height: 465px;
-    min-height: 465px;
-    padding: 48px 42px 54px;
-    background: rgb(28, 27, 27);
-    border: 1px solid rgb(93, 64, 56);
-    border-radius: 12px;
-    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.58);
-  }
-
-  .iconWrapper {
-    width: 64px;
-    height: 64px;
-    flex-basis: 64px;
-    margin-bottom: 44px;
-    background: #f24405;
-  }
-
-  .icon {
-    width: 24px;
-    height: 24px;
-  }
-
-  .eyebrow {
-    margin-bottom: 14px;
-    font-size: 30px;
-    line-height: 1.06;
-    color: #e4dfdd;
-  }
-
-  .subtext {
-    font-size: 14px;
-    line-height: 1.2;
-    color: #b69992;
-  }
-
-  .value {
-    font-size: 34px;
-    line-height: 1;
-    color: #ffb39f;
-  }
-
-  .addressWrapper {
-    margin: auto 0 24px;
-  }
-
-  .addressLine {
+  .branchName {
     font-size: 22px;
-    line-height: 1.14;
-    color: #cda79f;
   }
 
-  .socials {
-    gap: 18px;
-    color: #cda79f;
-  }
-
-  .socialIcon,
-  .socialIcon svg {
-    width: 18px;
-    height: 18px;
+  .addressLine {
+    font-size: 14px;
   }
 }

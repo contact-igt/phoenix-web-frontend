@@ -17,6 +17,16 @@
   object-fit: cover;
   object-position: center center;
   z-index: -2;
+  animation: bannerZoom 1.8s ease-out forwards;
+}
+
+@keyframes bannerZoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .heroScrim {

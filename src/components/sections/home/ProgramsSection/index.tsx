@@ -1,4 +1,8 @@
-﻿import Image from 'next/image'
+import Image from 'next/image'
+import Link from 'next/link'
+import Reveal from '@/components/animation/Reveal'
+import Stagger from '@/components/animation/Stagger'
+import { DURATION, STAGGER } from '@/lib/animation/gsap'
 import styles from './index.module.css'
 
 const programs = [
@@ -10,17 +14,17 @@ const programs = [
 
 export default function ProgramsSection() {
   return (
-    <section id="services" className={styles.programsSection}>
+    <section id="programs" className={styles.programsSection}>
       <div className={styles.programsInner}>
 
-        {/* â”€â”€ LEFT: Text content â”€â”€ */}
+        {/* LEFT: Text content */}
         <div className={styles.programsLeft}>
 
           {/* Section eyebrow label */}
-          <p className={styles.programsLabel}>Programs</p>
+          <Reveal as="p" className={styles.programsLabel} variant="fade-up">Programs</Reveal>
 
           {/* Program names list */}
-          <ul className={styles.programsList}>
+          <Stagger as="ul" className={styles.programsList} variant="fade-up" duration={DURATION.card} staggerAmount={STAGGER.tight}>
             {programs.map((program, index) => (
               <li
                 key={index}
@@ -38,30 +42,30 @@ export default function ProgramsSection() {
                 ))}
               </li>
             ))}
-          </ul>
+          </Stagger>
 
           {/* Body paragraph */}
-          <p className={styles.programsBody}>
+          <Reveal as="p" className={styles.programsBody} variant="fade-up" delay={0.1}>
             Discover a welcoming space where every beginner belongs. Build
-            strength, boost confidence, and transform your lifeâ€”one step at a
+            strength, boost confidence, and transform your life&mdash;one step at a
             time. Join a community that lifts you up and celebrates every win.
-          </p>
+          </Reveal>
 
           {/* CTA buttons */}
-          <div className={styles.programsCtas}>
-            <a href="#contact" className={styles.btnPrimary}>
-              View All Programs
-            </a>
-            <a href="#contact" className={styles.btnGhost}>
-              Free trial
-            </a>
-          </div>
+          <Stagger as="div" className={styles.programsCtas} variant="scale" duration={0.6} delay={0.15} staggerAmount={STAGGER.tight}>
+            <Link href="/services" className={styles.btnPrimary}>
+              VIEW ALL PROGRAMS
+            </Link>
+            <Link href="/contact#contact-trial-form" className={styles.btnGhost}>
+              FREE TRIAL
+            </Link>
+          </Stagger>
 
         </div>
 
-        {/* â”€â”€ RIGHT: Hero image â”€â”€ */}
+        {/* RIGHT: Hero image */}
         <div className={styles.programsRight}>
-          <div className={styles.programsImageWrap}>
+          <Reveal as="div" className={styles.programsImageWrap} variant="fade-right" duration={DURATION.section} distance={48}>
             <Image
               src="/images/home/program.png"
               alt="Phoenix Fitness athlete performing battle ropes workout"
@@ -73,11 +77,10 @@ export default function ProgramsSection() {
               sizes="(max-width: 768px) 100vw, 50vw"
               priority={false}
             />
-          </div>
+          </Reveal>
         </div>
 
       </div>
     </section>
   )
 }
-
