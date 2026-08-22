@@ -80,6 +80,7 @@ export default function Footer() {
               <ul className={styles.dirLinks}>
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/about">About</Link></li>
+                <li><Link href="/franchise">Franchise</Link></li>
                 <li><Link href="/#programs">Programs</Link></li>
               </ul>
             </div>
@@ -146,5 +147,4 @@ export default function Footer() {
     </footer>
   )
 }
-
 
