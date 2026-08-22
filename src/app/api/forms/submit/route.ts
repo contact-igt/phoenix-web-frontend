@@ -35,6 +35,21 @@ function validateRequiredFields(formType: string, data: Record<string, string>) 
     return data.name && data.email && data.mobile && data.service && data.subject
   }
 
+  if (formType === 'Franchise Enquiry') {
+    return (
+      data.name &&
+      data.phone &&
+      data.email &&
+      data.city &&
+      data.state &&
+      data.locality &&
+      data.propertyStatus &&
+      data.investmentBudget &&
+      data.timeline &&
+      data.consent
+    )
+  }
+
   return data.name && data.phone && data.branch && data.time
 }
 
@@ -57,6 +72,8 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { message: formType === 'Contact Message'
         ? 'Please fill in name, email, mobile, service, and subject.'
+        : formType === 'Franchise Enquiry'
+          ? 'Please fill in name, phone, email, city, state, locality, property status, investment budget, timeline, and consent.'
         : 'Please fill in name, phone, branch, and time slot.' },
       { status: 400 }
     )
