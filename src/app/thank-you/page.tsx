@@ -11,10 +11,39 @@ import styles from './page.module.css'
 export const metadata: Metadata = {
   title: 'Thank You | Phoenix Fitness',
   description:
-    'Thank you for contacting Phoenix Fitness. Our team will review your free trial request and get in touch shortly.',
+    'Thank you for contacting Phoenix Fitness. Our team will review your request and get in touch shortly.',
 }
 
-export default function ThankYouPage() {
+export default async function ThankYouPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ type?: string | string[] }>
+}) {
+  const isFranchise = (await searchParams).type === 'franchise'
+  const content = isFranchise
+    ? {
+        eyebrow: 'Franchise enquiry',
+        heroCopy:
+          'We received your franchise enquiry. Our team will review your market, property and investment details and contact you about the next step.',
+        kicker: 'Franchise enquiry received',
+        title: 'Thank you for your interest in building the next Phoenix',
+        description:
+          'Our franchise team will review your submission and reach out to discuss your preferred market, property opportunity and partnership fit.',
+        actionLabel: 'Explore franchise',
+        actionHref: '/franchise#franchise-opportunity',
+      }
+    : {
+        eyebrow: 'Free trial request',
+        heroCopy:
+          'We received your details. Our team will contact you shortly to confirm your preferred branch and time slot.',
+        kicker: 'Request received',
+        title: 'Thanks, your free trial request is confirmed',
+        description:
+          'Our Phoenix Fitness team will review your details and reach out soon. Get ready to experience focused coaching, real guidance, and a gym built for progress.',
+        actionLabel: 'Book another',
+        actionHref: '/contact#contact-form',
+      }
+
   return (
     <>
       <Navbar />
@@ -30,13 +59,11 @@ export default function ThankYouPage() {
           />
           <div className={styles.heroScrim} aria-hidden="true" />
           <Stagger as="div" className={styles.heroContent} variant="fade-up" duration={DURATION.hero} staggerAmount={0.12}>
-            <p className={styles.heroEyebrow}>Free trial request</p>
+            <p className={styles.heroEyebrow}>{content.eyebrow}</p>
             <h1 id="thank-hero-title" className={styles.heroTitle}>
               Thank you
             </h1>
-            <p className={styles.heroCopy}>
-              We received your details. Our team will contact you shortly to confirm your preferred branch and time slot.
-            </p>
+            <p className={styles.heroCopy}>{content.heroCopy}</p>
           </Stagger>
         </section>
 
@@ -47,13 +74,11 @@ export default function ThankYouPage() {
               <Check size={46} strokeWidth={3.2} />
             </div>
 
-            <p className={styles.kicker}>Request received</p>
+            <p className={styles.kicker}>{content.kicker}</p>
             <h2 id="thank-you-title" className={styles.title}>
-              Thanks, your free trial request is confirmed
+              {content.title}
             </h2>
-            <p className={styles.description}>
-              Our Phoenix Fitness team will review your details and reach out soon. Get ready to experience focused coaching, real guidance, and a gym built for progress.
-            </p>
+            <p className={styles.description}>{content.description}</p>
 
             <div className={styles.actions}>
               <Link href="/" className={`${styles.button} ${styles.secondary}`}>
@@ -62,8 +87,8 @@ export default function ThankYouPage() {
                   <ArrowUpRight size={18} strokeWidth={2.4} />
                 </span>
               </Link>
-              <Link href="/contact#contact-form" className={`${styles.button} ${styles.primary}`}>
-                Book another
+              <Link href={content.actionHref} className={`${styles.button} ${styles.primary}`}>
+                {content.actionLabel}
                 <span className={styles.buttonIcon} aria-hidden="true">
                   <ArrowUpRight size={18} strokeWidth={2.4} />
                 </span>

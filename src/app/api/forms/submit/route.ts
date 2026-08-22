@@ -10,7 +10,7 @@ type SubmitBody = {
 }
 
 const GOOGLE_APPS_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbzl68fVxQAEB-HpQGyEQQftAPzcqu6XYoDj3UvsBf4r8Z8ARtH5x6KXjdvlefZhqtRq/exec'
+  'https://script.google.com/macros/s/AKfycbzM2H9rwMS-mGswPnwicaG9eU0zc2juvfQK9uqiWdReldx5RpNaG7AGBCRZlokR9lyw/exec'
 
 function asCleanString(value: unknown) {
   return typeof value === 'string' ? value.trim() : ''
@@ -35,6 +35,21 @@ function validateRequiredFields(formType: string, data: Record<string, string>) 
     return data.name && data.email && data.mobile && data.service && data.subject
   }
 
+  if (formType === 'Franchise Enquiry') {
+    return (
+      data.name &&
+      data.phone &&
+      data.email &&
+      data.city &&
+      data.state &&
+      data.locality &&
+      data.propertyStatus &&
+      data.investmentBudget &&
+      data.timeline &&
+      data.consent
+    )
+  }
+
   return data.name && data.phone && data.branch && data.time
 }
 
@@ -57,6 +72,8 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { message: formType === 'Contact Message'
         ? 'Please fill in name, email, mobile, service, and subject.'
+        : formType === 'Franchise Enquiry'
+          ? 'Please fill in name, phone, email, city, state, locality, property status, investment budget, timeline, and consent.'
         : 'Please fill in name, phone, branch, and time slot.' },
       { status: 400 }
     )
