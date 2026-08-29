@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Bebas_Neue, Open_Sans, Plus_Jakarta_Sans, Archivo_Narrow } from 'next/font/google'
 import 'slick-carousel/slick/slick.css'
 import '../styles/globals.css'
@@ -62,6 +63,13 @@ export default function RootLayout({
       <body>
         <PageTransition>{children}</PageTransition>
       </body>
+      <Script id="microsoft-clarity">
+        {`(function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y9uzmq9rva");`}
+      </Script>
     </html>
   )
 }
