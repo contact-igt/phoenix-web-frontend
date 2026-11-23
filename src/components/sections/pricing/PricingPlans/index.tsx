@@ -144,12 +144,12 @@ const branchPlans: BranchPlan[] = [
   {
     name: 'Budegere',
     suffix: 'cross',
-    membership: createMembershipPlans(['5,000', '10,000', '15,000', '22,000']),
+    membership: createMembershipPlans(['5,000', '12,000', '17,000', '23,000']),
     personal: createPersonalPlans(['15,000', '18,000', '21,000']),
   },
   {
     name: 'Kannamangala',
-    membership: createMembershipPlans(['5,000', '10,000', '15,000', '22,000']),
+    membership: createMembershipPlans(['5,000', '12,000', '17,000', '23,000']),
     personal: createPersonalPlans(['15,000', '18,000', '21,000']),
   },
   {
